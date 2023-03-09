@@ -1,0 +1,154 @@
+{
+    "add_is_visible": true,
+    "add_large_file_upload_properties": true,
+    "autobinding_value": "text",
+    "category": "visual elements",
+    "default_dim": {
+        "height": 375,
+        "width": 400
+    },
+    "display": "Rich Text",
+    "events": {
+        "AAU": {
+            "caption": "text-change",
+            "name": "textchange"
+        },
+        "AAV": {
+            "caption": "selection-change",
+            "name": "selectionchange"
+        },
+        "AAW": {
+            "caption": "editor-change",
+            "name": "editorchange"
+        }
+    },
+    "fields": {
+        "AAD": {
+            "caption": "theme",
+            "default_val": "snow",
+            "doc": "Bubble is a simple tooltip based theme. Snow is a clean, flat toolbar theme.",
+            "editor": "Dropdown",
+            "name": "theme",
+            "options": "bubble,snow",
+            "rank": 0
+        },
+        "AAE": {
+            "caption": "placeholder",
+            "doc": "Placeholder text to show when editor is empty.",
+            "editor": "DynamicValue",
+            "name": "placeholder",
+            "optional": true,
+            "rank": 1,
+            "value": "text"
+        },
+        "AAF": {
+            "caption": "readOnly",
+            "default_val": false,
+            "doc": "Whether to instantiate the editor to read-only mode.",
+            "editor": "DynamicValue",
+            "name": "readOnly",
+            "rank": 2,
+            "value": "boolean"
+        },
+        "AAX": {
+            "caption": "Initial Content (Q)",
+            "editor": "DynamicValue",
+            "long_text": false,
+            "name": "initial_content",
+            "optional": true,
+            "rank": 3,
+            "value": "text"
+        },
+        "AAZ": {
+            "caption": "initial_text",
+            "editor": "DynamicValue",
+            "long_text": true,
+            "name": "initial_text",
+            "optional": true,
+            "rank": 4,
+            "value": "text"
+        }
+    },
+    "has_reset_fn": true,
+    "icon": "ion-ios-bookmarks-outline",
+    "property_applications": {
+        "Background": true,
+        "Border": true,
+        "BoxShadow": true,
+        "Font": true,
+        "MinWidth": true,
+        "Padding": true,
+        "resizable": true
+    },
+    "states": {
+        "AAG": {
+            "caption": "getContents",
+            "doc": "Retrieves contents of the editor, with formatting data, represented by a Delta object.",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "getcontents",
+            "value": "text"
+        },
+        "AAH": {
+            "caption": "getLength",
+            "doc": "Retrieves the length of the editor contents. Note even when Quill is empty, there is still a blank line represented by ‘\\n’, so getLength will return 1.",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "getlength",
+            "value": "number"
+        },
+        "AAI": {
+            "caption": "getText",
+            "doc": "Retrieves the string contents of the editor. Non-string content are omitted, so the returned string’s length may be shorter than the editor’s as returned by getLength. Note even when Quill is empty, there is still a blank line in the editor, so in these cases getText will return ‘\\n’.  The length parameter defaults to the length of the remaining document.",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "gettext",
+            "value": "text"
+        },
+        "AAT": {
+            "caption": "hasFocus",
+            "doc": "Checks if editor has focus. Note focus on toolbar, tooltips, does not count as the editor.",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "hasfocus",
+            "value": "text"
+        },
+        "AAe": {
+            "caption": "change",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "change",
+            "value": "text"
+        },
+        "AAf": {
+            "caption": "beforechange",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "beforechange",
+            "value": "text"
+        },
+        "AAh": {
+            "caption": "selectionindex",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "selectionindex",
+            "value": "number"
+        },
+        "AAi": {
+            "caption": "selectionlength",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "selectionlength",
+            "value": "number"
+        }
+    },
+    "support_autobinding": true
+}

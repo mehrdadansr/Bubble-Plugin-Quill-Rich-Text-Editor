@@ -1,0 +1,14 @@
+{
+    "caption": "updateContents",
+    "doc": "Applies changes (Delta) to editor contents.",
+    "fields": {
+        "AAc": {
+            "caption": "delta",
+            "editor": "DynamicValue",
+            "long_text": true,
+            "name": "delta",
+            "rank": 0,
+            "value": "text"
+        }
+    }
+}
