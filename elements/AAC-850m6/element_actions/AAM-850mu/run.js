@@ -1,11 +1,4 @@
 function(instance, properties, context) {
-
-
-	var text = properties.text
-    
+	var text = properties.text 
     instance.data.quill.setText(text)
-
-
-
-
 }
