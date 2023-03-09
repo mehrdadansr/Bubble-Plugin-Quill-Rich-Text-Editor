@@ -1,12 +1,4 @@
 function(instance, properties, context) {
-
-
-  //Load any data 
-
-
-
-  //Do the operation
-
-
-
+  var delta = instance.data.quill.insertEmbed(properties.index, properties.type, properties.value)
+  instance.publishState("change", JSON.stringify(delta))
 }

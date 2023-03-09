@@ -1,12 +1,4 @@
 function(instance, properties, context) {
-
-
-  //Load any data 
-
-
-
-  //Do the operation
-
-
-
+  var delta = instance.data.quill.getContents(properties.index, properties.length)
+  instance.publishState("getcontents", JSON.stringify(delta))
 }

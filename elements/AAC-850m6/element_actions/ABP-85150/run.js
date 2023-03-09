@@ -1,12 +1,5 @@
 function(instance, properties, context) {
-
-
-  //Load any data 
-
-
-
-  //Do the operation
-
-
+  var delta = instance.data.quill.removeFormat(properties.index, properties.length)
+  instance.publishState("change", JSON.stringify(delta))
 
 }
