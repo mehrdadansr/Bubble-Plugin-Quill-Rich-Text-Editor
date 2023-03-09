@@ -1,0 +1,28 @@
+{
+    "caption": "getFormat",
+    "fields": {
+        "ABM": {
+            "caption": "index",
+            "editor": "DynamicValue",
+            "name": "index",
+            "rank": 0,
+            "value": "number"
+        },
+        "ABN": {
+            "caption": "length",
+            "editor": "DynamicValue",
+            "name": "length",
+            "rank": 1,
+            "value": "number"
+        },
+        "ABO": {
+            "caption": "current",
+            "default_val": false,
+            "doc": "If true, the user’s current selection range is used.",
+            "editor": "DynamicValue",
+            "name": "current",
+            "rank": 2,
+            "value": "boolean"
+        }
+    }
+}

@@ -10,16 +10,12 @@
     "display": "Rich Text",
     "events": {
         "AAU": {
-            "caption": "text-change",
+            "caption": "Text changed",
             "name": "textchange"
         },
         "AAV": {
-            "caption": "selection-change",
+            "caption": "User Selection Changed",
             "name": "selectionchange"
-        },
-        "AAW": {
-            "caption": "editor-change",
-            "name": "editorchange"
         }
     },
     "fields": {
@@ -82,30 +78,30 @@
     },
     "states": {
         "AAG": {
-            "caption": "getContents",
+            "caption": "Last Contents",
             "doc": "Retrieves contents of the editor, with formatting data, represented by a Delta object.",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
-            "name": "getcontents",
+            "name": "lastcontents",
             "value": "text"
         },
         "AAH": {
-            "caption": "getLength",
+            "caption": "Text Length",
             "doc": "Retrieves the length of the editor contents. Note even when Quill is empty, there is still a blank line represented by ‘\\n’, so getLength will return 1.",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
-            "name": "getlength",
+            "name": "lastlength",
             "value": "number"
         },
         "AAI": {
-            "caption": "getText",
+            "caption": "Last Text",
             "doc": "Retrieves the string contents of the editor. Non-string content are omitted, so the returned string’s length may be shorter than the editor’s as returned by getLength. Note even when Quill is empty, there is still a blank line in the editor, so in these cases getText will return ‘\\n’.  The length parameter defaults to the length of the remaining document.",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
-            "name": "gettext",
+            "name": "lasttext",
             "value": "text"
         },
         "AAT": {
@@ -118,7 +114,8 @@
             "value": "text"
         },
         "AAe": {
-            "caption": "change",
+            "caption": "Last Change",
+            "doc": "Last change of the editor",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
@@ -126,7 +123,8 @@
             "value": "text"
         },
         "AAf": {
-            "caption": "beforechange",
+            "caption": "Pre Change Contetnts",
+            "doc": "Content of editor before last change",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
@@ -134,7 +132,8 @@
             "value": "text"
         },
         "AAh": {
-            "caption": "selectionindex",
+            "caption": "Selection Index",
+            "doc": "User selection start point",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
@@ -142,12 +141,31 @@
             "value": "number"
         },
         "AAi": {
-            "caption": "selectionlength",
+            "caption": "Selection Length",
+            "doc": "User selection length",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
             "name": "selectionlength",
             "value": "number"
+        },
+        "AAk": {
+            "caption": "getcontents",
+            "doc": "Action Output",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "getcontents",
+            "value": "text"
+        },
+        "AAm": {
+            "caption": "gettext",
+            "doc": "Action Output",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "gettext",
+            "value": "text"
         }
     },
     "support_autobinding": true

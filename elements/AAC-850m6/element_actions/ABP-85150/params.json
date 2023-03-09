@@ -1,0 +1,19 @@
+{
+    "caption": "removeFormat",
+    "fields": {
+        "ABQ": {
+            "caption": "index",
+            "editor": "DynamicValue",
+            "name": "index",
+            "rank": 0,
+            "value": "number"
+        },
+        "ABR": {
+            "caption": "length",
+            "editor": "DynamicValue",
+            "name": "length",
+            "rank": 1,
+            "value": "number"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "caption": "insertText",
+    "fields": {
+        "ABB": {
+            "caption": "index",
+            "editor": "DynamicValue",
+            "name": "index",
+            "rank": 0,
+            "value": "number"
+        },
+        "ABC": {
+            "caption": "text",
+            "editor": "DynamicValue",
+            "name": "text",
+            "rank": 1,
+            "value": "text"
+        },
+        "ABD": {
+            "caption": "formats",
+            "editor": "key_value_list",
+            "name": "formats",
+            "rank": 2,
+            "value": "text"
+        }
+    }
+}

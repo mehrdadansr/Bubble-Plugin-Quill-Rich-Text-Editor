@@ -1,0 +1,21 @@
+{
+    "caption": "getText",
+    "fields": {
+        "AAr": {
+            "caption": "index",
+            "default_val": 1,
+            "editor": "DynamicValue",
+            "name": "index",
+            "rank": 0,
+            "value": "number"
+        },
+        "AAs": {
+            "caption": "length",
+            "default_val": 0,
+            "editor": "DynamicValue",
+            "name": "length",
+            "rank": 1,
+            "value": "number"
+        }
+    }
+}

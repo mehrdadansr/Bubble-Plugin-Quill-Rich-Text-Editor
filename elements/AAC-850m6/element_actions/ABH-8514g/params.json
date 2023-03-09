@@ -1,0 +1,27 @@
+{
+    "caption": "formatText",
+    "doc": "Formats text in the editor.",
+    "fields": {
+        "ABI": {
+            "caption": "index",
+            "editor": "DynamicValue",
+            "name": "index",
+            "rank": 0,
+            "value": "number"
+        },
+        "ABJ": {
+            "caption": "length",
+            "editor": "DynamicValue",
+            "name": "length",
+            "rank": 1,
+            "value": "number"
+        },
+        "ABK": {
+            "caption": "formats",
+            "editor": "key_value_list",
+            "name": "formats",
+            "rank": 2,
+            "value": "text"
+        }
+    }
+}

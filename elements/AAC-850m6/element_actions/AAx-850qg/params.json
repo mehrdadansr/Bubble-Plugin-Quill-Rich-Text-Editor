@@ -1,0 +1,19 @@
+{
+    "caption": "deleteText",
+    "fields": {
+        "AAy": {
+            "caption": "index",
+            "editor": "DynamicValue",
+            "name": "index",
+            "rank": 0,
+            "value": "number"
+        },
+        "AAz": {
+            "caption": "length",
+            "editor": "DynamicValue",
+            "name": "length",
+            "rank": 1,
+            "value": "number"
+        }
+    }
+}

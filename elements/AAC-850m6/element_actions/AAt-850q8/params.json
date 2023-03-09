@@ -1,0 +1,27 @@
+{
+    "caption": "insertEmbed",
+    "fields": {
+        "AAu": {
+            "caption": "index",
+            "editor": "DynamicValue",
+            "name": "index",
+            "rank": 0,
+            "value": "number"
+        },
+        "AAv": {
+            "caption": "type",
+            "doc": "image",
+            "editor": "DynamicValue",
+            "name": "type",
+            "rank": 1,
+            "value": "text"
+        },
+        "AAw": {
+            "caption": "value",
+            "editor": "DynamicValue",
+            "name": "value",
+            "rank": 2,
+            "value": "_any_thing"
+        }
+    }
+}

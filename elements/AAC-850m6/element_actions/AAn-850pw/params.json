@@ -1,0 +1,22 @@
+{
+    "caption": "getContents",
+    "fields": {
+        "AAo": {
+            "caption": "Start",
+            "default_val": 1,
+            "editor": "DynamicValue",
+            "name": "index",
+            "optional": false,
+            "rank": 0,
+            "value": "number"
+        },
+        "AAq": {
+            "caption": "length",
+            "default_val": 0,
+            "editor": "DynamicValue",
+            "name": "length",
+            "rank": 1,
+            "value": "number"
+        }
+    }
+}

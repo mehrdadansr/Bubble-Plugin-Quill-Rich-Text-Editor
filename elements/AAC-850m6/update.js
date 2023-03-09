@@ -74,9 +74,8 @@ function(instance, properties, context) {
     //on selection change
     quill.on('selection-change', function (range, oldRange, source) {
         if (range) {
-            instance.publishState("selectionindex", range.index)
+            instance.publishState("selectionindex", range.index+1)
             instance.publishState("selectionlength", range.length)
         }
-        instance.publishState("getselection", JSON.stringify(quill.getSelections()))
     });
 }
