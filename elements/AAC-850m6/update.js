@@ -66,6 +66,14 @@ function(instance, properties, context) {
         qlToolbar.style.border = (properties.toolbar_border_width > 0)? 'solid' : 'none'
         qlToolbar.style.backgroundColor = properties.toolbar_bg;
         qlToolbar.style.borderColor = (properties.toolbar_border_width > 0)? toolbar_border_color :'none'
+        qlToolbar.style.padding = '${properties.toolbar_padding}px';
+    }
+
+    if (qlContainer) {
+        qlContainer.style.border = (properties.container_border_width > 0)? 'solid' : 'none'
+        qlContainer.style.backgroundColor = properties.container_bg;
+        qlContainer.style.borderColor = (properties.container_border_width > 0)? Container_border_color :'none'
+        //qlContainer.style.padding = '${properties.Container_padding}px';
     }
 
     //quill.setText(properties.in);
