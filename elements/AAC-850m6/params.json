@@ -7,7 +7,7 @@
         "height": 375,
         "width": 400
     },
-    "display": "Rich Text",
+    "display": "Quill Editor",
     "events": {
         "AAU": {
             "caption": "Text changed",
@@ -20,13 +20,14 @@
     },
     "fields": {
         "AAD": {
-            "caption": "theme",
+            "caption": "Theme",
             "default_val": "snow",
             "doc": "Bubble is a simple tooltip based theme. Snow is a clean, flat toolbar theme.",
             "editor": "Dropdown",
+            "in_style": true,
             "name": "theme",
             "options": "bubble,snow",
-            "rank": 0
+            "rank": 1
         },
         "AAE": {
             "caption": "placeholder",
@@ -34,7 +35,7 @@
             "editor": "DynamicValue",
             "name": "placeholder",
             "optional": true,
-            "rank": 1,
+            "rank": 2,
             "value": "text"
         },
         "AAF": {
@@ -43,7 +44,7 @@
             "doc": "Whether to instantiate the editor to read-only mode.",
             "editor": "DynamicValue",
             "name": "readOnly",
-            "rank": 2,
+            "rank": 3,
             "value": "boolean"
         },
         "AAX": {
@@ -52,7 +53,7 @@
             "long_text": false,
             "name": "initial_content",
             "optional": true,
-            "rank": 3,
+            "rank": 4,
             "value": "text"
         },
         "AAZ": {
@@ -61,8 +62,83 @@
             "long_text": true,
             "name": "initial_text",
             "optional": true,
-            "rank": 4,
+            "rank": 5,
             "value": "text"
+        },
+        "ABT": {
+            "caption": "Quill Editor",
+            "editor": "Label",
+            "name": "ess",
+            "rank": 0
+        },
+        "ABU": {
+            "caption": "Toolbar Options",
+            "editor": "Label",
+            "name": "toolbar_",
+            "rank": 6
+        },
+        "ABV": {
+            "caption": "toolbar_bg",
+            "default_val": "rgba(244, 244, 244, 1)",
+            "editor": "Color",
+            "in_style": true,
+            "name": "toolbar_bg",
+            "rank": 7
+        },
+        "ABW": {
+            "caption": "toolbar_icon_color",
+            "default_val": "rgba(22, 22, 22, 1)",
+            "editor": "Color",
+            "in_style": true,
+            "name": "toolbar_icon_color",
+            "rank": 8
+        },
+        "ABX": {
+            "caption": "toolbar_border_width",
+            "default_val": 0,
+            "editor": "StaticNumber",
+            "in_style": true,
+            "name": "toolbar_border_width",
+            "rank": 9,
+            "value": "number"
+        },
+        "ABY": {
+            "caption": "toolbar_border_color",
+            "default_val": "rgba(22, 22, 22, 1)",
+            "editor": "Color",
+            "in_style": true,
+            "name": "toolbar_border_color",
+            "rank": 10
+        },
+        "ABZ": {
+            "caption": "Text_area_options",
+            "editor": "Label",
+            "name": "text_area_options",
+            "rank": 11
+        },
+        "ABa": {
+            "caption": "Text_area_bg",
+            "default_val": "rgba(255,255,255,1)",
+            "editor": "Color",
+            "in_style": true,
+            "name": "text_area_bg",
+            "rank": 12
+        },
+        "ABb": {
+            "caption": "text_area_border_width",
+            "default_val": 0,
+            "editor": "StaticNumber",
+            "in_style": true,
+            "name": "text_area_border_width",
+            "rank": 13
+        },
+        "ABc": {
+            "caption": "text_area_border_color",
+            "default_val": "rgba(22, 22, 22, 1)",
+            "editor": "Color",
+            "in_style": true,
+            "name": "text_area_border_color",
+            "rank": 14
         }
     },
     "has_reset_fn": true,
@@ -165,6 +241,14 @@
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
             "name": "gettext",
+            "value": "text"
+        },
+        "ABS": {
+            "caption": "getformat",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "getformat",
             "value": "text"
         }
     },

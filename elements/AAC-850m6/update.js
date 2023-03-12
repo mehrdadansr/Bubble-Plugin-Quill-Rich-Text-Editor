@@ -68,7 +68,9 @@ function(instance, properties, context) {
     quill.on('text-change', function (delta, oldDelta, source) {
         instance.publishState("change", JSON.stringify(delta))
         instance.publishState("beforechange", JSON.stringify(oldDelta))
-        instance.publishState("getcontents", JSON.stringify(quill.getContents()))
+        instance.publishState("lastcontents", JSON.stringify(quill.getContents()))
+        instance.publishState("lasttext", JSON.stringify(quill.getText()))
+        instance.publishState("lastlength", JSON.stringify(quill.getLength()))
         instance.triggerEvent("textchange")
     });
     //on selection change
