@@ -2,7 +2,6 @@ function(instance, properties, context) {
 
     var container = document.getElementById(instance.data.divName);
 
-    //container.style.padding = "50px 10px 20px 30px";
     //$("div[class^='ql-']")
 
 
@@ -45,19 +44,29 @@ function(instance, properties, context) {
     }
 
     var quill = instance.data.quill;
-    // Select Quill Elements
 
+    if (properties.initial_text) {
+        quill.setText(properties.initial_text);
+    }
+
+    if (properties.initial_content) {
+        quill.setContents(properties.initial_content);
+    }
+
+    // Get Elements
     var parentElement = container.parentNode
     var qlToolbar = parentElement.querySelector('.ql-toolbar');
     var qlContainer = parentElement.querySelector('.ql-container');
 
-
-    // Change the background color of the element
-    /*if(toolbar){
-    qlContainer.style.border = 'none'
-       qlToolbar.style.backgroundColor = 'none';
-        qlToolbar.style.border = 'none'
-       }*/
+    /**
+     * CSS of containers
+     */
+    // qlToolbar CSS
+    if (qlToolbar) {
+        qlToolbar.style.border = (properties.toolbar_border_width > 0)? 'solid' : 'none'
+        qlToolbar.style.backgroundColor = properties.toolbar_bg;
+        qlToolbar.style.borderColor = (properties.toolbar_border_width > 0)? toolbar_border_color :'none'
+    }
 
     //quill.setText(properties.in);
 
@@ -76,7 +85,7 @@ function(instance, properties, context) {
     //on selection change
     quill.on('selection-change', function (range, oldRange, source) {
         if (range) {
-            instance.publishState("selectionindex", range.index+1)
+            instance.publishState("selectionindex", range.index + 1)
             instance.publishState("selectionlength", range.length)
         }
     });
