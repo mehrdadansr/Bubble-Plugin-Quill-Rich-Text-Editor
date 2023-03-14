@@ -1,4 +1,5 @@
 {
+    "add_hover_pressed": true,
     "add_is_visible": true,
     "add_large_file_upload_properties": false,
     "autobinding_value": "text",
@@ -155,10 +156,11 @@
         "ADL": {
             "caption": "container_padding",
             "default_val": 8,
-            "editor": "StaticNumber",
+            "editor": "DynamicValue",
             "in_style": true,
             "name": "container_padding",
-            "rank": 16
+            "rank": 16,
+            "value": "number"
         },
         "ADM": {
             "caption": "ToolbarSec",
@@ -182,6 +184,62 @@
             "optional": true,
             "rank": 19,
             "value": "text"
+        },
+        "ADQ": {
+            "caption": "toolbar_icon_size",
+            "default_val": 24,
+            "editor": "DynamicValue",
+            "name": "toolbar_icon_size",
+            "rank": 20,
+            "value": "number"
+        },
+        "ADR": {
+            "caption": "toolbar_picker_color",
+            "default_val": "rgba(22,22,22,1)",
+            "editor": "Color",
+            "in_style": true,
+            "name": "toolbar_picker_color",
+            "rank": 21
+        },
+        "ADS": {
+            "caption": "item_hover_color",
+            "default_val": "rgba(53,62,255,1)",
+            "editor": "Color",
+            "in_style": true,
+            "name": "item_hover_color",
+            "rank": 22
+        },
+        "ADT": {
+            "caption": "container_padding_top",
+            "default_val": 16,
+            "editor": "DynamicValue",
+            "name": "container_padding_top",
+            "rank": 23,
+            "value": "number"
+        },
+        "ADU": {
+            "caption": "container_padding_right",
+            "default_val": 16,
+            "editor": "DynamicValue",
+            "name": "container_padding_right",
+            "rank": 24,
+            "value": "number"
+        },
+        "ADV": {
+            "caption": "container_padding_bottom",
+            "default_val": 16,
+            "editor": "DynamicValue",
+            "name": "container_padding_bottom",
+            "rank": 25,
+            "value": "number"
+        },
+        "ADW": {
+            "caption": "container_padding_left",
+            "default_val": 16,
+            "editor": "DynamicValue",
+            "name": "container_padding_left",
+            "rank": 26,
+            "value": "number"
         }
     },
     "has_reset_fn": true,
@@ -189,7 +247,7 @@
     "property_applications": {
         "Background": true,
         "Border": true,
-        "BoxShadow": false,
+        "BoxShadow": true,
         "Font": true,
         "MinWidth": true,
         "Padding": true,
@@ -227,10 +285,10 @@
             "caption": "Has Focus",
             "doc": "Checks if editor has focus. Note focus on toolbar, tooltips, does not count as the editor.",
             "initialization_code": {
-                "fn": "function(properties, context) {\n\n\n\n}"
+                "fn": "function(properties, context) {\n\n\n}"
             },
             "name": "hasfocus",
-            "value": "text"
+            "value": "boolean"
         },
         "AAe": {
             "caption": "Last Change",

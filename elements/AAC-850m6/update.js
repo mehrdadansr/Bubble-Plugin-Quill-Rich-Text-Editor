@@ -12,15 +12,16 @@ function(instance, properties, context) {
     switch (properties.toolbarpreset) {
         case 'Basic Formatting':
             toolbarOptions = [
-                ['Bold', 'Italic', 'Underline'],
-                [{ 'header': [1, 2, 3, false] }],
+                ['bold', 'italic', 'underline'],
+                [{ 'indent': '-1' }, { 'indent': '+1' }],
                 [{ 'color': [] }, { 'background': [] }, 'link'],
+                [{ 'header': [1, 2, 3, false] }]
             ]
             break;
         case 'Advanced Formatting':
             toolbarOptions = [
-                ['Bold', 'Italic', 'Underline', 'strike', { 'script': 'sub' }, { 'script': 'super' }],
-                [{ 'indent': '-1' }, { 'indent': '+1' }],
+                ['bold', 'italic', 'underline', 'strike', { 'script': 'sub' }, { 'script': 'super' }],
+                [{ 'list': 'bullet' }, { 'indent': '+1' }],
                 [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
                 [{ 'color': [] }, { 'background': [] }, { 'font': [] }, { 'size': ['small', false, 'large', 'huge'] }],
                 [{ 'direction': 'rtl' }, { 'align': [] }],
@@ -29,7 +30,7 @@ function(instance, properties, context) {
             break;
         case 'Content Creation':
             toolbarOptions = [
-                ['Bold', 'Italic', 'Underline', { 'list': 'ordered' }, { 'list': 'bullet' }],
+                ['bold', 'italic', 'underline', { 'list': 'ordered' }, { 'list': 'bullet' }],
                 [{ 'header': [1, 2, 3, false] }, 'blockquote', 'code-block'],
                 [{ 'color': [] }, { 'background': [] }, { 'font': [] }, { 'size': ['small', false, 'large'] }, { 'align': [] }, { 'direction': 'rtl' }],
                 ['link', 'image', 'video'],
@@ -59,7 +60,7 @@ function(instance, properties, context) {
             break;
         case 'Custom':
             toolbarOptions = [
-                ['Bold', 'Italic', 'Underline', 'link'],
+                ['bold', 'italic', 'underline', 'link'],
                 [{ 'header': [1, 2, 3, false] }],
                 [{ 'list': 'ordered' }, { 'list': 'bullet' }],
                 ['clean']
@@ -67,7 +68,7 @@ function(instance, properties, context) {
             break;
         default:
             toolbarOptions = [
-                ['Bold', 'Italic', 'Underline', 'link'],
+                ['bold', 'italic', 'underline', 'link'],
                 [{ 'header': [1, 2, 3, false] }],
                 [{ 'list': 'ordered' }, { 'list': 'bullet' }],
                 ['clean']
@@ -114,34 +115,27 @@ function(instance, properties, context) {
     var parentElement = container.parentNode
     var qlToolbar = parentElement.querySelector('.ql-toolbar');
     var qlContainer = parentElement.querySelector('.ql-container');
-    var qlPlaceholder = parentElement.querySelector('.ql-editor.ql-blank::before');
+    
 
 
     /**
      * CSS of containers
      */
-    // qlToolbar CSS
 
-
-    /*if (qlPlaceholder) {
-    qlPlaceholder.style.color = properties.placeholder_color;
-    qlContainer.style.fontSize = "40px"
+    
+    
+   /* 
+    item_hover_color
+    .ql-snow.ql-toolbar button:hover, .ql-snow .ql-toolbar button:hover, .ql-snow.ql-toolbar button:focus, .ql-snow .ql-toolbar button:focus, .ql-snow.ql-toolbar button.ql-active, .ql-snow .ql-toolbar button.ql-active, .ql-snow.ql-toolbar .ql-picker-label:hover, .ql-snow .ql-toolbar .ql-picker-label:hover, .ql-snow.ql-toolbar .ql-picker-label.ql-active, .ql-snow .ql-toolbar .ql-picker-label.ql-active, .ql-snow.ql-toolbar .ql-picker-item:hover, .ql-snow .ql-toolbar .ql-picker-item:hover, .ql-snow.ql-toolbar .ql-picker-item.ql-selected, .ql-snow .ql-toolbar .ql-picker-item.ql-selected
 }*/
-
-    const pElement = document.querySelector('.ql-editor.ql-blank p');
-
-    //const element = document.querySelector('.ql-editor.ql-blank::before');
-    if (pElement) {
-        pElement.style.color = 'red';
-
-    }
-
+// qlToolbar CSS
     if (qlToolbar) {
         qlToolbar.style.border = (properties.toolbar_border_width > 0) ? `${properties.toolbar_border_width}px solid ${properties.toolbar_border_color}` : 'none';
         qlToolbar.style.backgroundColor = properties.toolbar_bg;
 
         qlToolbar.style.padding = `${properties.toolbar_padding}px`;
     }
+
 
     var toolbarHeight = qlToolbar.offsetHeight;
     //var containerHeight = parseInt(properties.bubble.min_height_css(),10)
@@ -164,7 +158,31 @@ function(instance, properties, context) {
 
 
 
+	instance.publishState("hasfocus",quill.hasFocus());
+    
+    
+    const iconStroke = parentElement.querySelectorAll('.ql-stroke');
+//.ql-snow.ql-toolbar button, .ql-snow .ql-toolbar button height - width+4
+// Loop through the elements and change their stroke color to red
+for (let i = 0; i < iconStroke.length; i++) {
+  iconStroke[i].style.stroke = properties.toolbar_icon_color;
+    
+}
 
+        const iconFill = parentElement.querySelectorAll('.ql-fill');
+
+// Loop through the elements and change their stroke color to red
+for (let i = 0; i < iconFill.length; i++) {
+  iconFill[i].style.fill = properties.toolbar_icon_color;
+}
+    
+    
+            const pickers = parentElement.querySelectorAll('.ql-picker');
+
+// Loop through the elements and change their stroke color to red
+for (let i = 0; i < pickers.length; i++) {
+  pickers[i].style.fill = properties.toolbar_picker_color;
+}
 
     //quill.root.draggable = true;
     //console.log(quill)
@@ -181,6 +199,7 @@ function(instance, properties, context) {
         instance.publishState("lasttext", JSON.stringify(quill.getText()))
         instance.publishState("lastlength", JSON.stringify(quill.getLength()))
         instance.triggerEvent("textchange")
+        
     });
     //on selection change
     quill.on('selection-change', function (range, oldRange, source) {
@@ -189,5 +208,10 @@ function(instance, properties, context) {
             instance.publishState("selectionlength", range.length)
             instance.triggerEvent("selectionchange")
         }
+    });
+    
+    quill.on('editor-change', function (delta, oldDelta, source) {
+        quill.update();
+        instance.publishState("hasfocus",quill.hasFocus());
     });
 }

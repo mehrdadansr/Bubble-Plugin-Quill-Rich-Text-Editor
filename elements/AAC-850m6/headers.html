@@ -5,3 +5,19 @@
 <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css">
 <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.bubble.css">
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<style>
+.ql-editor.ql-blank::before {
+    color: inherit;
+    content: attr(data-placeholder);
+    font-style: italic;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    padding-left: inherit;
+	padding-right: inherit;
+
+}
+    
+</style>
+   
