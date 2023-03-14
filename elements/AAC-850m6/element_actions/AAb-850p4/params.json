@@ -1,5 +1,5 @@
 {
-    "caption": "updateContents",
+    "caption": "Update Contents",
     "doc": "Applies changes (Delta) to editor contents.",
     "fields": {
         "AAc": {

@@ -1,7 +1,8 @@
 {
     "add_is_visible": true,
-    "add_large_file_upload_properties": true,
+    "add_large_file_upload_properties": false,
     "autobinding_value": "text",
+    "can_fit_height": false,
     "category": "visual elements",
     "default_dim": {
         "height": 375,
@@ -35,34 +36,36 @@
             "editor": "DynamicValue",
             "name": "placeholder",
             "optional": true,
-            "rank": 2,
+            "rank": 5,
             "value": "text"
         },
         "AAF": {
-            "caption": "readOnly",
+            "caption": "read Only",
             "default_val": false,
             "doc": "Whether to instantiate the editor to read-only mode.",
             "editor": "DynamicValue",
             "name": "readOnly",
-            "rank": 3,
+            "rank": 2,
             "value": "boolean"
         },
         "AAX": {
-            "caption": "Initial Content (Q)",
+            "caption": "Initial Content",
             "editor": "DynamicValue",
-            "long_text": false,
+            "long_text": true,
             "name": "initial_content",
             "optional": true,
             "rank": 4,
             "value": "text"
         },
         "AAZ": {
-            "caption": "initial_text",
-            "editor": "DynamicValue",
-            "long_text": true,
-            "name": "initial_text",
-            "optional": true,
-            "rank": 5,
+            "caption": "Initial Content Type",
+            "default_val": "Content",
+            "editor": "Dropdown",
+            "long_text": false,
+            "name": "initial_type",
+            "optional": false,
+            "options": "Content,Text",
+            "rank": 3,
             "value": "text"
         },
         "ABT": {
@@ -75,15 +78,15 @@
             "caption": "Toolbar Options",
             "editor": "Label",
             "name": "toolbar_",
-            "rank": 6
+            "rank": 7
         },
         "ABV": {
-            "caption": "toolbar_bg",
+            "caption": "toolbar Bg",
             "default_val": "rgba(244, 244, 244, 1)",
             "editor": "Color",
             "in_style": true,
             "name": "toolbar_bg",
-            "rank": 7
+            "rank": 8
         },
         "ABW": {
             "caption": "toolbar_icon_color",
@@ -91,7 +94,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "toolbar_icon_color",
-            "rank": 8
+            "rank": 9
         },
         "ABX": {
             "caption": "toolbar_border_width",
@@ -99,7 +102,7 @@
             "editor": "StaticNumber",
             "in_style": true,
             "name": "toolbar_border_width",
-            "rank": 9,
+            "rank": 10,
             "value": "number"
         },
         "ABY": {
@@ -108,37 +111,77 @@
             "editor": "Color",
             "in_style": true,
             "name": "toolbar_border_color",
-            "rank": 10
-        },
-        "ABZ": {
-            "caption": "Text_area_options",
-            "editor": "Label",
-            "name": "text_area_options",
             "rank": 11
         },
+        "ABZ": {
+            "caption": "Text area options",
+            "editor": "Label",
+            "name": "text_area_options",
+            "rank": 12
+        },
         "ABa": {
-            "caption": "Text_area_bg",
+            "caption": "Text area background",
             "default_val": "rgba(255,255,255,1)",
             "editor": "Color",
             "in_style": true,
-            "name": "text_area_bg",
-            "rank": 12
+            "name": "container_bg",
+            "rank": 13
         },
         "ABb": {
             "caption": "text_area_border_width",
             "default_val": 0,
             "editor": "StaticNumber",
             "in_style": true,
-            "name": "text_area_border_width",
-            "rank": 13
+            "name": "container_border_width",
+            "rank": 14
         },
         "ABc": {
             "caption": "text_area_border_color",
             "default_val": "rgba(22, 22, 22, 1)",
             "editor": "Color",
             "in_style": true,
-            "name": "text_area_border_color",
-            "rank": 14
+            "name": "container_border_color",
+            "rank": 15
+        },
+        "ADK": {
+            "caption": "Placeholder Color",
+            "default_val": "rgba(198,198,198,1)",
+            "editor": "Color",
+            "in_style": true,
+            "name": "placeholder_color",
+            "optional": false,
+            "rank": 6
+        },
+        "ADL": {
+            "caption": "container_padding",
+            "default_val": 8,
+            "editor": "StaticNumber",
+            "in_style": true,
+            "name": "container_padding",
+            "rank": 16
+        },
+        "ADM": {
+            "caption": "ToolbarSec",
+            "editor": "Label",
+            "name": "toolbarsec",
+            "rank": 17
+        },
+        "ADN": {
+            "caption": "toolbarpreset",
+            "default_val": "Full Formatting",
+            "editor": "Dropdown",
+            "name": "toolbarpreset",
+            "options": "Basic Formatting,Advanced Formatting,Content Creation,Full Formatting,Custom",
+            "rank": 18
+        },
+        "ADO": {
+            "caption": "customtoolbar",
+            "editor": "DynamicValue",
+            "long_text": true,
+            "name": "customtoolbar",
+            "optional": true,
+            "rank": 19,
+            "value": "text"
         }
     },
     "has_reset_fn": true,
@@ -146,7 +189,7 @@
     "property_applications": {
         "Background": true,
         "Border": true,
-        "BoxShadow": true,
+        "BoxShadow": false,
         "Font": true,
         "MinWidth": true,
         "Padding": true,
@@ -181,7 +224,7 @@
             "value": "text"
         },
         "AAT": {
-            "caption": "hasFocus",
+            "caption": "Has Focus",
             "doc": "Checks if editor has focus. Note focus on toolbar, tooltips, does not count as the editor.",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
@@ -199,7 +242,7 @@
             "value": "text"
         },
         "AAf": {
-            "caption": "Pre Change Contetnts",
+            "caption": "Pre Change Contents",
             "doc": "Content of editor before last change",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
@@ -226,7 +269,7 @@
             "value": "number"
         },
         "AAk": {
-            "caption": "getcontents",
+            "caption": "Get Contents",
             "doc": "Action Output",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
@@ -235,7 +278,7 @@
             "value": "text"
         },
         "AAm": {
-            "caption": "gettext",
+            "caption": "Get Text",
             "doc": "Action Output",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
@@ -244,7 +287,7 @@
             "value": "text"
         },
         "ABS": {
-            "caption": "getformat",
+            "caption": "Get Format",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
@@ -252,5 +295,5 @@
             "value": "text"
         }
     },
-    "support_autobinding": true
+    "support_autobinding": false
 }

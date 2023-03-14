@@ -1,5 +1,5 @@
 {
-    "caption": "format",
+    "caption": "Format",
     "doc": "Format text at user’s current selection,  If the user’s selection length is 0, i.e. it is a cursor, the format will be set active, so the next character the user types will have that formatting.",
     "fields": {
         "ABF": {

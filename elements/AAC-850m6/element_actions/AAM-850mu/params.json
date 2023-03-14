@@ -1,6 +1,6 @@
 {
-    "caption": "setText",
-    "doc": "Sets contents of editor with given text, returing a Delta representing the change. Note Quill documents must end with a newline so one will be added for you if omitted.",
+    "caption": "Set Text",
+    "doc": "Sets contents of editor with given text, returning a Delta representing the change. Note Quill documents must end with a newline so one will be added for you if omitted.",
     "fields": {
         "AAd": {
             "caption": "text",

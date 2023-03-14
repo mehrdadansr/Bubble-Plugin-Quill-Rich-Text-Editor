@@ -1,5 +1,5 @@
 {
-    "caption": "setContents",
+    "caption": "Set Contents",
     "doc": "Overwrites editor with given contents. Contents should end with a newline. Returns a Delta representing the change. This will be the same as the Delta passed in, if given Delta had no invalid operations",
     "fields": {
         "AAa": {

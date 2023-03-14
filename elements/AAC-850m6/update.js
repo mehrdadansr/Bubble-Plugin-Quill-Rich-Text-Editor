@@ -6,25 +6,25 @@ function(instance, properties, context) {
 
 
 
-    var toolbarOptions = [
-        ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-        ['blockquote', 'code-block'],
+var toolbarOptions = [
+                ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+                ['blockquote', 'code-block'],
 
-        [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-        [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
-        [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
-        [{ 'direction': 'rtl' }],                         // text direction
+                [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+                [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+                [{ 'direction': 'rtl' }],                         // text direction
 
-        [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                [ 'link', 'image', 'video', 'formula' ],          // add's image support
+                [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+                [{ 'font': [] }],
+                [{ 'align': [] }],
 
-        [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-        [{ 'font': [] }],
-        [{ 'align': [] }],
-
-        ['clean']                                         // remove formatting button
-    ];
+                ['clean']                                         // remove formatting button
+            ];
 
     var options = {
         modules: {
@@ -36,6 +36,10 @@ function(instance, properties, context) {
         theme: properties.theme
     };
 
+    
+    /**
+    * New Quill
+    */
     if (instance.data.quill) {
         instance.data.quill.update()
     } else {
@@ -43,39 +47,78 @@ function(instance, properties, context) {
         instance.data.quill = new Quill(container, options);
     }
 
+    // Insert Initials
     var quill = instance.data.quill;
-
-    if (properties.initial_text) {
-        quill.setText(properties.initial_text);
+	if (properties.initial_content) {
+        
+    if (properties.initial_type === "Content") {
+		var initial_content = JSON.parse(properties.initial_content)
+        quill.setContents(initial_content);
+    } else {
+    quill.setText(properties.initial_content);
     }
-
-    if (properties.initial_content) {
-        quill.setContents(properties.initial_content);
     }
+    
+    //quill.root.dataset.placeholder = (properties.placeholder)? properties.placeholder: '' ;
 
     // Get Elements
     var parentElement = container.parentNode
     var qlToolbar = parentElement.querySelector('.ql-toolbar');
     var qlContainer = parentElement.querySelector('.ql-container');
+    var qlPlaceholder = parentElement.querySelector('.ql-editor.ql-blank::before');
+   
 
     /**
      * CSS of containers
      */
     // qlToolbar CSS
+    
+    
+        /*if (qlPlaceholder) {
+        qlPlaceholder.style.color = properties.placeholder_color;
+        qlContainer.style.fontSize = "40px"
+    }*/
+    
+    const pElement = document.querySelector('.ql-editor.ql-blank p');
+    
+    //const element = document.querySelector('.ql-editor.ql-blank::before');
+    if(pElement){
+pElement.style.color = 'red';
+
+    }
+    
     if (qlToolbar) {
-        qlToolbar.style.border = (properties.toolbar_border_width > 0)? 'solid' : 'none'
+          		qlToolbar.style.border = (properties.toolbar_border_width > 0)? `${properties.toolbar_border_width}px solid ${properties.toolbar_border_color}` : 'none';
         qlToolbar.style.backgroundColor = properties.toolbar_bg;
-        qlToolbar.style.borderColor = (properties.toolbar_border_width > 0)? toolbar_border_color :'none'
-        qlToolbar.style.padding = '${properties.toolbar_padding}px';
+        
+        qlToolbar.style.padding = `${properties.toolbar_padding}px`;
     }
 
+    var toolbarHeight = qlToolbar.offsetHeight;
+    //var containerHeight = parseInt(properties.bubble.min_height_css(),10)
+    //console.log(containerHeight);
+    
     if (qlContainer) {
-        qlContainer.style.border = (properties.container_border_width > 0)? 'solid' : 'none'
-        qlContainer.style.backgroundColor = properties.container_bg;
-        qlContainer.style.borderColor = (properties.container_border_width > 0)? Container_border_color :'none'
-        //qlContainer.style.padding = '${properties.Container_padding}px';
-    }
+	
+		qlContainer.style.border = (properties.container_border_width > 0)? `${properties.container_border_width}px solid ${properties.container_border_color}` : 'none';
 
+  
+        qlContainer.style.backgroundColor = properties.container_bg;
+        qlContainer.style.padding = `${properties.container_padding}px`;
+        qlContainer.style.color = properties.bubble.font_color()
+		qlContainer.style.minHeight = `${parseInt(properties.bubble.min_height_css(),10)-toolbarHeight}px`;
+        qlContainer.style.maxHeight = `${parseInt(properties.bubble.max_height_css(),10)-toolbarHeight}px`;
+        qlContainer.style.height = `${parseInt(properties.bubble.height(),10)-toolbarHeight}px`;
+        qlContainer.style.fontFamily = "inherit"
+       qlContainer.style.fontSize = "inherit"
+    }
+    
+    
+
+
+    
+    //quill.root.draggable = true;
+    //console.log(quill)
     //quill.setText(properties.in);
 
     /*
@@ -95,6 +138,7 @@ function(instance, properties, context) {
         if (range) {
             instance.publishState("selectionindex", range.index + 1)
             instance.publishState("selectionlength", range.length)
+            instance.triggerEvent("selectionchange")
         }
     });
 }

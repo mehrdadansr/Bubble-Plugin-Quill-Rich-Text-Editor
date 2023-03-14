@@ -1,5 +1,5 @@
 {
-    "caption": "enable",
+    "caption": "Enable",
     "doc": "Set ability for user to edit, via input devices like the mouse or keyboard.",
     "fields": {
         "AAj": {

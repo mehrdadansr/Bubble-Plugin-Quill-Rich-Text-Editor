@@ -1,5 +1,5 @@
 {
-    "caption": "formatText",
+    "caption": "Format Text",
     "doc": "Formats text in the editor.",
     "fields": {
         "ABI": {
