@@ -51,17 +51,11 @@ function(instance, properties, context) {
                 [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
                 [{ 'font': [] }],
                 [{ 'align': [] }],
-
                 ['clean']                                         // remove formatting button
             ];
             break;
         case 'Custom':
-            toolbarOptions = [
-                ['bold', 'italic', 'underline', 'link'],
-                [{ 'header': [1, 2, 3, false] }],
-                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-                ['clean']
-            ]
+            toolbarOptions = JSON.parse(properties.customtoolbar)
             break;
         default:
             toolbarOptions = [

@@ -1,0 +1,14 @@
+{
+    "category": "plugins",
+    "display": "Copy to clipboard",
+    "fields": {
+        "ADf": {
+            "caption": "text",
+            "editor": "DynamicValue",
+            "name": "text",
+            "rank": 0,
+            "value": "text"
+        }
+    },
+    "type": "client_side"
+}
