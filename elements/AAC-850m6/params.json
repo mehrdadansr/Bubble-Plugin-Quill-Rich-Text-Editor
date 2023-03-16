@@ -23,8 +23,7 @@
     "fields": {
         "AAD": {
             "caption": "Theme",
-            "default_val": "snow",
-            "doc": "Bubble is a simple tooltip based theme. Snow is a clean, flat toolbar theme.",
+            "doc": "Choose between bubble and snow themes.",
             "editor": "Dropdown",
             "in_style": true,
             "name": "theme",
@@ -32,8 +31,8 @@
             "rank": 1
         },
         "AAE": {
-            "caption": "placeholder",
-            "doc": "Placeholder text to show when editor is empty.",
+            "caption": "Placeholder Text",
+            "doc": "The text to show when the editor is empty.",
             "editor": "DynamicValue",
             "name": "placeholder",
             "optional": true,
@@ -41,9 +40,8 @@
             "value": "text"
         },
         "AAF": {
-            "caption": "read Only",
-            "default_val": false,
-            "doc": "Whether to instantiate the editor to read-only mode.",
+            "caption": "Read Only",
+            "doc": "Whether to initialize the editor in read-only mode.",
             "editor": "DynamicValue",
             "name": "readOnly",
             "rank": 2,
@@ -51,6 +49,7 @@
         },
         "AAX": {
             "caption": "Initial Content",
+            "doc": "The initial content of the editor.",
             "editor": "DynamicValue",
             "long_text": true,
             "name": "initial_content",
@@ -60,12 +59,12 @@
         },
         "AAZ": {
             "caption": "Initial Content Type",
-            "default_val": "Content",
+            "doc": "Whether the initial content is plain text or HTML.",
             "editor": "Dropdown",
             "long_text": false,
             "name": "initial_type",
             "optional": false,
-            "options": "Content,Text",
+            "options": "content,text",
             "rank": 3,
             "value": "text"
         },
@@ -82,24 +81,24 @@
             "rank": 7
         },
         "ABV": {
-            "caption": "toolbar Bg",
-            "default_val": "rgba(244, 244, 244, 1)",
+            "caption": "Toolbar Background",
+            "doc": "The background color of the toolbar.",
             "editor": "Color",
             "in_style": true,
             "name": "toolbar_bg",
             "rank": 8
         },
         "ABW": {
-            "caption": "toolbar_icon_color",
-            "default_val": "rgba(22, 22, 22, 1)",
+            "caption": "Toolbar Icon Color",
+            "doc": "The color of the icons in the toolbar.",
             "editor": "Color",
             "in_style": true,
             "name": "toolbar_icon_color",
             "rank": 9
         },
         "ABX": {
-            "caption": "toolbar_border_width",
-            "default_val": 0,
+            "caption": "Toolbar Border Width",
+            "doc": "The width of the border around the toolbar.",
             "editor": "StaticNumber",
             "in_style": true,
             "name": "toolbar_border_width",
@@ -107,38 +106,39 @@
             "value": "number"
         },
         "ABY": {
-            "caption": "toolbar_border_color",
-            "default_val": "rgba(22, 22, 22, 1)",
+            "caption": "Toolbar Border Color",
+            "doc": "The color of the border around the toolbar.",
             "editor": "Color",
             "in_style": true,
             "name": "toolbar_border_color",
             "rank": 11
         },
         "ABZ": {
-            "caption": "Text area options",
+            "caption": "Text Area Options",
             "editor": "Label",
             "name": "text_area_options",
             "rank": 12
         },
         "ABa": {
-            "caption": "Text area background",
-            "default_val": "rgba(255,255,255,1)",
+            "caption": "Text Area Background",
+            "doc": "The background color of the text area.",
             "editor": "Color",
             "in_style": true,
             "name": "container_bg",
             "rank": 13
         },
         "ABb": {
-            "caption": "text_area_border_width",
-            "default_val": 0,
+            "caption": "Text Area Border Width",
+            "doc": "The width of the border around the text area.",
             "editor": "StaticNumber",
             "in_style": true,
             "name": "container_border_width",
-            "rank": 14
+            "rank": 14,
+            "value": "number"
         },
         "ABc": {
-            "caption": "text_area_border_color",
-            "default_val": "rgba(22, 22, 22, 1)",
+            "caption": "Text Area Border Color",
+            "doc": "The color of the border around the text area.",
             "editor": "Color",
             "in_style": true,
             "name": "container_border_color",
@@ -146,7 +146,7 @@
         },
         "ADK": {
             "caption": "Placeholder Color",
-            "default_val": "rgba(198,198,198,1)",
+            "doc": "The color of the placeholder text.",
             "editor": "Color",
             "in_style": true,
             "name": "placeholder_color",
@@ -154,8 +154,8 @@
             "rank": 6
         },
         "ADL": {
-            "caption": "container_padding",
-            "default_val": 8,
+            "caption": "Container Padding",
+            "doc": "The padding around the edges of the text area.",
             "editor": "DynamicValue",
             "in_style": true,
             "name": "container_padding",
@@ -230,7 +230,7 @@
     },
     "states": {
         "AAG": {
-            "caption": "Last Contents",
+            "caption": "Editor Contents (with formatting)",
             "doc": "Retrieves contents of the editor, with formatting data, represented by a Delta object.",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
@@ -240,7 +240,7 @@
         },
         "AAH": {
             "caption": "Text Length",
-            "doc": "Retrieves the length of the editor contents. Note even when Quill is empty, there is still a blank line represented by ‘\\n’, so getLength will return 1.",
+            "doc": "Retrieves the length of the editor contents.",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
@@ -248,8 +248,8 @@
             "value": "number"
         },
         "AAI": {
-            "caption": "Last Text",
-            "doc": "Retrieves the string contents of the editor. Non-string content are omitted, so the returned string’s length may be shorter than the editor’s as returned by getLength. Note even when Quill is empty, there is still a blank line in the editor, so in these cases getText will return ‘\\n’.  The length parameter defaults to the length of the remaining document.",
+            "caption": "Editor Text (plain text)",
+            "doc": "Retrieves the string contents of the editor. Non-string content are omitted, so the returned string’s length may be shorter than the editor’s total length.",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
@@ -257,8 +257,8 @@
             "value": "text"
         },
         "AAT": {
-            "caption": "Has Focus",
-            "doc": "Checks if editor has focus. Note focus on toolbar, tooltips, does not count as the editor.",
+            "caption": "Editor Has Focus",
+            "doc": "Checks if editor has focus.",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n}"
             },
@@ -267,7 +267,7 @@
         },
         "AAe": {
             "caption": "Last Change",
-            "doc": "Last change of the editor",
+            "doc": "Details of the editor's last change.",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
@@ -275,8 +275,8 @@
             "value": "text"
         },
         "AAf": {
-            "caption": "Pre Change Contents",
-            "doc": "Content of editor before last change",
+            "caption": "Pre-Change Contents",
+            "doc": "Content of editor before last change.",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
@@ -284,8 +284,8 @@
             "value": "text"
         },
         "AAh": {
-            "caption": "Selection Index",
-            "doc": "User selection start point",
+            "caption": "Selection Start Index",
+            "doc": "User selection start point.",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
@@ -294,7 +294,7 @@
         },
         "AAi": {
             "caption": "Selection Length",
-            "doc": "User selection length",
+            "doc": "User selection length.",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
@@ -302,8 +302,8 @@
             "value": "number"
         },
         "AAk": {
-            "caption": "Get Contents",
-            "doc": "Action Output",
+            "caption": "Get Editor Contents",
+            "doc": "Action output - retrieves editor contents.",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
@@ -311,8 +311,8 @@
             "value": "text"
         },
         "AAm": {
-            "caption": "Get Text",
-            "doc": "Action Output",
+            "caption": "Get Editor Text (plain text)",
+            "doc": "Action output - retrieves editor text (without formatting).",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
@@ -320,7 +320,8 @@
             "value": "text"
         },
         "ABS": {
-            "caption": "Get Format",
+            "caption": "Get Editor Format",
+            "doc": "Action output - retrieves editor formatting.",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
