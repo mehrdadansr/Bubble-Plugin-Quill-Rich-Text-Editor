@@ -184,6 +184,7 @@ function(instance, properties) {
                 buttons[i].style.height = `${properties.toolbar_icon_size}px`;
                 buttons[i].style.width = `${properties.toolbar_icon_size + 4}px`;
             }
+           
             //console.log("last")
         }
     }
