@@ -162,9 +162,13 @@ function(instance, properties, context) {
     const buttons = parentElement.querySelectorAll('.ql-toolbar button');
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].style.height = `${properties.toolbar_icon_size}px`;
-        buttons[i].style.width = `${properties.toolbar_icon_size + 4}px`;
+        buttons[i].style.width = `${properties.toolbar_icon_size}px`;
     }
 
+    const pickerOption = parentElement.querySelectorAll('.ql-picker-options');
+    for (let i = 0; i < pickerOption.length; i++) {
+        pickerOption[i].style.backgroundColor = `${properties.toolbar_bg}px`;
+    }
     /*
     *Events Trigger
     */
