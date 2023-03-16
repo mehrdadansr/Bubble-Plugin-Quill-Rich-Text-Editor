@@ -154,7 +154,7 @@ function(instance, properties, context) {
         buttons[i].style.width = `${properties.toolbar_icon_size}px`;
     }
 
-    const pickerOption = parentElement.querySelectorAll('.ql-picker-options');
+    const pickerOption = parentElement.querySelectorAll('.ql-snow.ql-picker-options');
     for (let i = 0; i < pickerOption.length; i++) {
         pickerOption[i].style.backgroundColor = `${properties.toolbar_bg}px`;
     }
