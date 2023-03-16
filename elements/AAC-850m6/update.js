@@ -1,6 +1,6 @@
 function(instance, properties, context) {
-//$("div[class^='ql-']")
-    var container = document.getElementById(instance.data.divName); 
+    //$("div[class^='ql-']")
+    var container = document.getElementById(instance.data.divName);
 
     /**
      * toolbar
@@ -98,7 +98,7 @@ function(instance, properties, context) {
         }
     }
 
-    quill.root.dataset.placeholder = (properties.placeholder)? properties.placeholder: '' ;
+    quill.root.dataset.placeholder = (properties.placeholder) ? properties.placeholder : '';
 
     // Get Elements
     var parentElement = container.parentNode
@@ -109,7 +109,7 @@ function(instance, properties, context) {
     /**
      * Container Css
      */
-    
+
 
     if (qlp) {
         qlp.style.color = properties.bubble.font_color();
@@ -129,6 +129,24 @@ function(instance, properties, context) {
     /**
      *item_hover_color
     */
+    const buttons = parentElement.querySelectorAll('.ql-toolbar button');
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].style.height = `${properties.toolbar_icon_size}px`;
+        buttons[i].style.width = `${properties.toolbar_icon_size}px`;
+    }
+    
+    var toolbarHeight = qlToolbar.offsetHeight;
+    if (qlContainer && toolbarHeight) {
+        qlContainer.style.border = (properties.container_border_width > 0) ? `${properties.container_border_width}px solid ${properties.container_border_color}` : 'none';
+        qlContainer.style.backgroundColor = properties.container_bg;
+        qlContainer.style.padding = `${properties.container_padding}px`;
+        qlContainer.style.color = properties.placeholder_color;
+        qlContainer.style.minHeight = `${parseInt(properties.bubble.min_height_css(), 10) - toolbarHeight}px`;
+        qlContainer.style.maxHeight = `${parseInt(properties.bubble.max_height_css(), 10) - toolbarHeight}px`;
+        qlContainer.style.height = `${parseInt(properties.bubble.height(), 10) - toolbarHeight}px`;
+        qlContainer.style.fontFamily = "inherit"
+        qlContainer.style.fontSize = "inherit"
+    }
     const iconStroke = parentElement.querySelectorAll('.ql-stroke');
     for (let i = 0; i < iconStroke.length; i++) {
         iconStroke[i].style.stroke = properties.toolbar_icon_color;
@@ -144,29 +162,21 @@ function(instance, properties, context) {
     }
 
 
-    const buttons = parentElement.querySelectorAll('.ql-toolbar button');
-    for (let i = 0; i < buttons.length; i++) {
-        buttons[i].style.height = `${properties.toolbar_icon_size}px`;
-        buttons[i].style.width = `${properties.toolbar_icon_size}px`;
-    }
+
 
     const pickerOption = parentElement.querySelectorAll('.ql-snow.ql-picker-options');
     for (let i = 0; i < pickerOption.length; i++) {
         pickerOption[i].style.backgroundColor = `${properties.toolbar_bg}px`;
     }
 
-    var toolbarHeight = qlToolbar.offsetHeight;
-    if (qlContainer && toolbarHeight) {
-        qlContainer.style.border = (properties.container_border_width > 0) ? `${properties.container_border_width}px solid ${properties.container_border_color}` : 'none';
-        qlContainer.style.backgroundColor = properties.container_bg;
-        qlContainer.style.padding = `${properties.container_padding}px`;
-        qlContainer.style.color = properties.placeholder_color;
-        qlContainer.style.minHeight = `${parseInt(properties.bubble.min_height_css(), 10) - toolbarHeight}px`;
-        qlContainer.style.maxHeight = `${parseInt(properties.bubble.max_height_css(), 10) - toolbarHeight}px`;
-        qlContainer.style.height = `${parseInt(properties.bubble.height(), 10) - toolbarHeight}px`;
-        qlContainer.style.fontFamily = "inherit"
-        qlContainer.style.fontSize = "inherit"
+
+
+    if (qlp) {
+        qlp.style.color = properties.bubble.font_color();
+        qlp.style.fontFamily = "inherit"
+        qlp.style.fontSize = "inherit"
     }
+
 
     const qlhover = parentElement.querySelectorAll('.ql-snow.ql-toolbar button:hover, .ql-snow .ql-toolbar button:hover, .ql-snow.ql-toolbar button:focus, .ql-snow .ql-toolbar button:focus, .ql-snow.ql-toolbar button.ql-active, .ql-snow .ql-toolbar button.ql-active, .ql-snow.ql-toolbar .ql-picker-label:hover, .ql-snow .ql-toolbar .ql-picker-label:hover, .ql-snow.ql-toolbar .ql-picker-label.ql-active, .ql-snow .ql-toolbar .ql-picker-label.ql-active, .ql-snow.ql-toolbar .ql-picker-item:hover, .ql-snow .ql-toolbar .ql-picker-item:hover, .ql-snow.ql-toolbar .ql-picker-item.ql-selected, .ql-snow .ql-toolbar .ql-picker-item.ql-selected')
     for (let i = 0; i < qlhover.length; i++) {
