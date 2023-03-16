@@ -8,10 +8,10 @@ function(instance, properties) {
         // If it is, initialize Quill editor
         var element = document.querySelector('.ql-toolbar.ql-snow');
         if (element) {
-         // console.log('Element found');
+            // console.log('Element found');
         } else {
             besaz()
-          //console.log('Element not found');
+            //console.log('Element not found');
         }
     } else {
         //console.log("11")
@@ -31,12 +31,12 @@ function(instance, properties) {
         quillScript.onload = () => {
             var element = document.querySelector('.ql-toolbar.ql-snow');
             if (element) {
-              //console.log('Element found');
+                //console.log('Element found');
             } else {
                 besaz()
-             // console.log('Element not found');
+                // console.log('Element not found');
             }
-            
+
         }
     };
     //console.log("lastlast")
@@ -126,18 +126,7 @@ function(instance, properties) {
         var qlToolbar = document.querySelector('.ql-toolbar');
         var qlp = parentElement.querySelector('.ql-container p');
         //console.log("2qlToolbar",qlToolbar)
-        var toolbarHeight = (qlToolbar) ? qlToolbar.offsetHeight : 48;
-        if (qlContainer) {
-            qlContainer.style.border = (properties.container_border_width > 0) ? `${properties.container_border_width}px solid ${properties.container_border_color}` : 'none';
-            qlContainer.style.backgroundColor = properties.container_bg;
-            qlContainer.style.padding = `${properties.container_padding}px`;
-            qlContainer.style.color = properties.placeholder_color;
-            //  qlContainer.style.minHeight = `${parseInt(properties.bubble.min_height_css(), 10) - toolbarHeight}px`;
-            // qlContainer.style.maxHeight = `${parseInt(properties.bubble.max_height_css(), 10) - toolbarHeight}px`;
-            qlContainer.style.height = `${parseInt(properties.bubble.height(), 10) - toolbarHeight}px`;
-            qlContainer.style.fontFamily = "inherit"
-            qlContainer.style.fontSize = "inherit"
-        }
+
         //console.log("55")
         var qlp = document.querySelector('.ql-container p');
         if (qlContainer) {
@@ -158,7 +147,7 @@ function(instance, properties) {
                 qlToolbar.style.border = (properties.toolbar_border_width > 0) ? `${properties.toolbar_border_width}px solid ${properties.toolbar_border_color}` : 'none';
                 qlToolbar.style.backgroundColor = properties.toolbar_bg;
                 qlToolbar.style.padding = `${properties.toolbar_padding}px`;
-                console.log("qlToolbar")
+                // console.log("qlToolbar")
             }
             /**
              *item_hover_color
@@ -184,7 +173,20 @@ function(instance, properties) {
                 buttons[i].style.height = `${properties.toolbar_icon_size}px`;
                 buttons[i].style.width = `${properties.toolbar_icon_size}px`;
             }
-           
+
+            var toolbarHeight = qlToolbar.offsetHeight;
+            if (qlContainer && toolbarHeight) {
+                qlContainer.style.border = (properties.container_border_width > 0) ? `${properties.container_border_width}px solid ${properties.container_border_color}` : 'none';
+                qlContainer.style.backgroundColor = properties.container_bg;
+                qlContainer.style.padding = `${properties.container_padding}px`;
+                qlContainer.style.color = properties.placeholder_color;
+                qlContainer.style.minHeight = `${parseInt(properties.bubble.min_height_css(), 10) - toolbarHeight}px`;
+                qlContainer.style.maxHeight = `${parseInt(properties.bubble.max_height_css(), 10) - toolbarHeight}px`;
+                qlContainer.style.height = `${parseInt(properties.bubble.height(), 10) - toolbarHeight}px`;
+                qlContainer.style.fontFamily = "inherit"
+                qlContainer.style.fontSize = "inherit"
+            }
+
             //console.log("last")
         }
     }
