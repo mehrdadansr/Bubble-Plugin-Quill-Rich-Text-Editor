@@ -182,7 +182,7 @@ function(instance, properties) {
             const buttons = parentElement.querySelectorAll('.ql-toolbar button');
             for (let i = 0; i < buttons.length; i++) {
                 buttons[i].style.height = `${properties.toolbar_icon_size}px`;
-                buttons[i].style.width = `${properties.toolbar_icon_size + 4}px`;
+                buttons[i].style.width = `${properties.toolbar_icon_size}px`;
             }
            
             //console.log("last")
