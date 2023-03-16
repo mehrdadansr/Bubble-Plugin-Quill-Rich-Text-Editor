@@ -6,7 +6,7 @@ function(instance, properties) {
 
     if (window.Quill) {
         // If it is, initialize Quill editor
-       /* console.log("1")
+        console.log("1")
         let toolbarOptions = [
             ['bold', 'italic', 'underline'],
             [{ 'indent': '-1' }, { 'indent': '+1' }],
@@ -19,7 +19,7 @@ function(instance, properties) {
             },
             theme: "snow"
         };
-        var quill = new Quill('#editor', options);*/
+        var quill = new Quill('#editor', options);
         console.log("2")
     } else {
         console.log("11")
