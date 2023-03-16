@@ -7,7 +7,13 @@ function(instance, properties) {
     if (window.Quill) {
         // If it is, initialize Quill editor
         console.log("1")
-        besaz();
+        var element = document.querySelector('.ql-toolbar.ql-snow');
+        if (element) {
+          console.log('Element found');
+        } else {
+            besaz()
+          console.log('Element not found');
+        }
     } else {
         console.log("11")
         // Dynamically load Quill stylesheet
@@ -26,7 +32,14 @@ function(instance, properties) {
 
         // Initialize Quill editor after library and stylesheet have loaded
         quillScript.onload = () => {
-          //  besaz()
+            var element = document.querySelector('.ql-toolbar.ql-snow');
+            if (element) {
+              console.log('Element found');
+            } else {
+                besaz()
+              console.log('Element not found');
+            }
+            
         }
     };
     console.log("lastlast")
