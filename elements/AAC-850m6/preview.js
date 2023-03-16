@@ -6,16 +6,15 @@ function(instance, properties) {
 
     if (window.Quill) {
         // If it is, initialize Quill editor
-        console.log("1")
         var element = document.querySelector('.ql-toolbar.ql-snow');
         if (element) {
-          console.log('Element found');
+         // console.log('Element found');
         } else {
             besaz()
-          console.log('Element not found');
+          //console.log('Element not found');
         }
     } else {
-        console.log("11")
+        //console.log("11")
         // Dynamically load Quill stylesheet
         const quillStylesheet = document.createElement('link');
         quillStylesheet.rel = 'stylesheet';
@@ -28,23 +27,21 @@ function(instance, properties) {
         quillScript.src = 'https://cdn.quilljs.com/1.3.6/quill.js';
         document.body.appendChild(quillScript);
 
-        console.log("22")
-
         // Initialize Quill editor after library and stylesheet have loaded
         quillScript.onload = () => {
             var element = document.querySelector('.ql-toolbar.ql-snow');
             if (element) {
-              console.log('Element found');
+              //console.log('Element found');
             } else {
                 besaz()
-              console.log('Element not found');
+             // console.log('Element not found');
             }
             
         }
     };
-    console.log("lastlast")
+    //console.log("lastlast")
     function besaz() {
-        console.log("33")
+        //console.log("33")
         var toolbarOptions;
         switch (properties.toolbarpreset) {
             case 'Basic Formatting':
@@ -123,7 +120,7 @@ function(instance, properties) {
                 quill.setText(properties.initial_content);
             }
         }
-        console.log("44")
+        //console.log("44")
         var qlContainer = document.getElementById('editor');
         var parentElement = qlContainer.parentNode
         var qlToolbar = document.querySelector('.ql-toolbar');
@@ -141,14 +138,12 @@ function(instance, properties) {
             qlContainer.style.fontFamily = "inherit"
             qlContainer.style.fontSize = "inherit"
         }
-        console.log("55")
+        //console.log("55")
         var qlp = document.querySelector('.ql-container p');
         if (qlContainer) {
             /**
              * Container Css
              */
-            console.log("66")
-
             if (qlp) {
                 qlp.style.color = properties.bubble.font_color();
                 qlp.style.fontFamily = "inherit"
@@ -165,7 +160,6 @@ function(instance, properties) {
                 qlToolbar.style.padding = `${properties.toolbar_padding}px`;
                 console.log("qlToolbar")
             }
-
             /**
              *item_hover_color
             */
@@ -177,23 +171,20 @@ function(instance, properties) {
             for (let i = 0; i < iconFill.length; i++) {
                 iconFill[i].style.fill = properties.toolbar_icon_color;
             }
-
             const pickers = parentElement.querySelectorAll('.ql-picker');
             for (let i = 0; i < pickers.length; i++) {
                 pickers[i].style.fill = properties.toolbar_picker_color;
             }
-
             const qlhover = parentElement.querySelectorAll('.ql-snow.ql-toolbar button:hover, .ql-snow .ql-toolbar button:hover, .ql-snow.ql-toolbar button:focus, .ql-snow .ql-toolbar button:focus, .ql-snow.ql-toolbar button.ql-active, .ql-snow .ql-toolbar button.ql-active, .ql-snow.ql-toolbar .ql-picker-label:hover, .ql-snow .ql-toolbar .ql-picker-label:hover, .ql-snow.ql-toolbar .ql-picker-label.ql-active, .ql-snow .ql-toolbar .ql-picker-label.ql-active, .ql-snow.ql-toolbar .ql-picker-item:hover, .ql-snow .ql-toolbar .ql-picker-item:hover, .ql-snow.ql-toolbar .ql-picker-item.ql-selected, .ql-snow .ql-toolbar .ql-picker-item.ql-selected')
             for (let i = 0; i < qlhover.length; i++) {
                 qlhover[i].style.color = properties.item_hover_color;
             }
-
             const buttons = parentElement.querySelectorAll('.ql-toolbar button');
             for (let i = 0; i < buttons.length; i++) {
                 buttons[i].style.height = `${properties.toolbar_icon_size}px`;
                 buttons[i].style.width = `${properties.toolbar_icon_size + 4}px`;
             }
-            console.log("last")
+            //console.log("last")
         }
     }
 }
