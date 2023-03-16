@@ -23,11 +23,12 @@
     "fields": {
         "AAD": {
             "caption": "Theme",
-            "doc": "Choose between bubble and snow themes.",
+            "default_val": "snow",
+            "doc": "Snow has toolbar top of editor, bubble has tooltip for selected text.",
             "editor": "Dropdown",
             "in_style": true,
             "name": "theme",
-            "options": "bubble,snow",
+            "options": "snow,bubble",
             "rank": 1
         },
         "AAE": {
@@ -36,15 +37,16 @@
             "editor": "DynamicValue",
             "name": "placeholder",
             "optional": true,
-            "rank": 5,
+            "rank": 4,
             "value": "text"
         },
         "AAF": {
             "caption": "Read Only",
+            "default_val": false,
             "doc": "Whether to initialize the editor in read-only mode.",
             "editor": "DynamicValue",
             "name": "readOnly",
-            "rank": 2,
+            "rank": 6,
             "value": "boolean"
         },
         "AAX": {
@@ -54,18 +56,19 @@
             "long_text": true,
             "name": "initial_content",
             "optional": true,
-            "rank": 4,
+            "rank": 3,
             "value": "text"
         },
         "AAZ": {
             "caption": "Initial Content Type",
-            "doc": "Whether the initial content is plain text or HTML.",
+            "default_val": "text",
+            "doc": "Whether the initial content is plain text or Quill format content.",
             "editor": "Dropdown",
             "long_text": false,
             "name": "initial_type",
             "optional": false,
             "options": "content,text",
-            "rank": 3,
+            "rank": 2,
             "value": "text"
         },
         "ABT": {
@@ -75,13 +78,14 @@
             "rank": 0
         },
         "ABU": {
-            "caption": "Toolbar Options",
+            "caption": "_________________________________________________________  ̿ ̿ ̿  Toolbar Options",
             "editor": "Label",
             "name": "toolbar_",
             "rank": 7
         },
         "ABV": {
-            "caption": "Toolbar Background",
+            "caption": " ̿ ̿ ̿   Background Color",
+            "default_val": "rgba(244, 244, 244, 1)",
             "doc": "The background color of the toolbar.",
             "editor": "Color",
             "in_style": true,
@@ -89,132 +93,141 @@
             "rank": 8
         },
         "ABW": {
-            "caption": "Toolbar Icon Color",
+            "caption": "▣ Icon's Color",
+            "default_val": "rgba(22, 22, 22, 1)",
             "doc": "The color of the icons in the toolbar.",
             "editor": "Color",
             "in_style": true,
             "name": "toolbar_icon_color",
-            "rank": 9
+            "rank": 14
         },
         "ABX": {
-            "caption": "Toolbar Border Width",
+            "caption": " ̿ ̿ ̿   Border Width",
+            "default_val": 0,
             "doc": "The width of the border around the toolbar.",
-            "editor": "StaticNumber",
+            "editor": "DynamicValue",
             "in_style": true,
             "name": "toolbar_border_width",
-            "rank": 10,
+            "rank": 9,
             "value": "number"
         },
         "ABY": {
-            "caption": "Toolbar Border Color",
+            "caption": " ̿ ̿ ̿   Border Color",
+            "default_val": "rgba(22, 22, 22, 1)",
             "doc": "The color of the border around the toolbar.",
             "editor": "Color",
             "in_style": true,
             "name": "toolbar_border_color",
-            "rank": 11
+            "rank": 10
         },
         "ABZ": {
-            "caption": "Text Area Options",
+            "caption": "________________________________________________________ ▭ Text Area Options",
             "editor": "Label",
             "name": "text_area_options",
-            "rank": 12
+            "rank": 19
         },
         "ABa": {
-            "caption": "Text Area Background",
+            "caption": "▭ Background Color",
+            "default_val": "rgba(255, 255, 255, 1)",
             "doc": "The background color of the text area.",
             "editor": "Color",
             "in_style": true,
             "name": "container_bg",
-            "rank": 13
+            "rank": 20
         },
         "ABb": {
-            "caption": "Text Area Border Width",
+            "caption": "▭ Border Width",
+            "default_val": 0,
             "doc": "The width of the border around the text area.",
-            "editor": "StaticNumber",
+            "editor": "DynamicValue",
             "in_style": true,
             "name": "container_border_width",
-            "rank": 14,
+            "rank": 21,
             "value": "number"
         },
         "ABc": {
-            "caption": "Text Area Border Color",
+            "caption": "▭ Border Color",
+            "default_val": "rgba(22, 22, 22, 1)",
             "doc": "The color of the border around the text area.",
             "editor": "Color",
             "in_style": true,
             "name": "container_border_color",
-            "rank": 15
+            "rank": 22
         },
         "ADK": {
             "caption": "Placeholder Color",
+            "default_val": "rgba(198, 198, 198, 1)",
             "doc": "The color of the placeholder text.",
             "editor": "Color",
             "in_style": true,
             "name": "placeholder_color",
             "optional": false,
-            "rank": 6
+            "rank": 5
         },
         "ADL": {
-            "caption": "Container Padding",
+            "caption": "▭  Padding",
+            "default_val": 8,
             "doc": "The padding around the edges of the text area.",
             "editor": "DynamicValue",
             "in_style": true,
             "name": "container_padding",
-            "rank": 16,
+            "rank": 23,
             "value": "number"
         },
         "ADM": {
-            "caption": "ToolbarSec",
+            "caption": "________________________________________________________  ▣▢▦▩ Modules",
             "editor": "Label",
             "name": "toolbarsec",
-            "rank": 17
+            "rank": 11
         },
         "ADN": {
-            "caption": "toolbarpreset",
+            "caption": "▣ Preset",
             "default_val": "Full Formatting",
             "editor": "Dropdown",
             "name": "toolbarpreset",
             "options": "Basic Formatting,Advanced Formatting,Content Creation,Full Formatting,Custom",
-            "rank": 18
+            "rank": 12
         },
         "ADO": {
-            "caption": "customtoolbar",
+            "caption": "▣ Custom Modules",
             "editor": "DynamicValue",
             "long_text": true,
             "name": "customtoolbar",
             "optional": true,
-            "rank": 19,
+            "rank": 13,
             "value": "text"
         },
         "ADQ": {
-            "caption": "toolbar_icon_size",
+            "caption": "▣ Icon's Size",
             "default_val": 24,
             "editor": "DynamicValue",
             "name": "toolbar_icon_size",
-            "rank": 20,
+            "rank": 15,
             "value": "number"
         },
         "ADR": {
-            "caption": "toolbar_picker_color",
+            "caption": "▣ Dropdown's Color",
             "default_val": "rgba(22,22,22,1)",
             "editor": "Color",
             "in_style": true,
             "name": "toolbar_picker_color",
-            "rank": 21
+            "rank": 16
         },
         "ADS": {
-            "caption": "item_hover_color",
+            "caption": "▣ Color on Hover",
             "default_val": "rgba(53,62,255,1)",
             "editor": "Color",
             "in_style": true,
             "name": "item_hover_color",
-            "rank": 22
+            "rank": 17
         },
         "ADX": {
-            "caption": "syntax",
+            "caption": "▣ Syntax Module",
             "default_val": false,
-            "editor": "Checkbox",
+            "editor": "DynamicValue",
             "name": "syntax",
-            "rank": 23
+            "rank": 18,
+            "value": "boolean"
         }
     },
     "has_reset_fn": true,
@@ -269,7 +282,7 @@
             "caption": "Last Change",
             "doc": "Details of the editor's last change.",
             "initialization_code": {
-                "fn": "function(properties, context) {\n\n\n\n}"
+                "fn": "function(properties, context) {\n\n}"
             },
             "name": "change",
             "value": "text"
