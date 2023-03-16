@@ -143,10 +143,6 @@ function(instance, properties, context) {
         pickers[i].style.fill = properties.toolbar_picker_color;
     }
 
-    const qlhover = parentElement.querySelectorAll('.ql-snow.ql-toolbar button:hover, .ql-snow .ql-toolbar button:hover, .ql-snow.ql-toolbar button:focus, .ql-snow .ql-toolbar button:focus, .ql-snow.ql-toolbar button.ql-active, .ql-snow .ql-toolbar button.ql-active, .ql-snow.ql-toolbar .ql-picker-label:hover, .ql-snow .ql-toolbar .ql-picker-label:hover, .ql-snow.ql-toolbar .ql-picker-label.ql-active, .ql-snow .ql-toolbar .ql-picker-label.ql-active, .ql-snow.ql-toolbar .ql-picker-item:hover, .ql-snow .ql-toolbar .ql-picker-item:hover, .ql-snow.ql-toolbar .ql-picker-item.ql-selected, .ql-snow .ql-toolbar .ql-picker-item.ql-selected')
-    for (let i = 0; i < qlhover.length; i++) {
-        qlhover[i].style.color = properties.item_hover_color;
-    }
 
     const buttons = parentElement.querySelectorAll('.ql-toolbar button');
     for (let i = 0; i < buttons.length; i++) {
@@ -171,6 +167,12 @@ function(instance, properties, context) {
         qlContainer.style.fontFamily = "inherit"
         qlContainer.style.fontSize = "inherit"
     }
+
+    const qlhover = parentElement.querySelectorAll('.ql-snow.ql-toolbar button:hover, .ql-snow .ql-toolbar button:hover, .ql-snow.ql-toolbar button:focus, .ql-snow .ql-toolbar button:focus, .ql-snow.ql-toolbar button.ql-active, .ql-snow .ql-toolbar button.ql-active, .ql-snow.ql-toolbar .ql-picker-label:hover, .ql-snow .ql-toolbar .ql-picker-label:hover, .ql-snow.ql-toolbar .ql-picker-label.ql-active, .ql-snow .ql-toolbar .ql-picker-label.ql-active, .ql-snow.ql-toolbar .ql-picker-item:hover, .ql-snow .ql-toolbar .ql-picker-item:hover, .ql-snow.ql-toolbar .ql-picker-item.ql-selected, .ql-snow .ql-toolbar .ql-picker-item.ql-selected')
+    for (let i = 0; i < qlhover.length; i++) {
+        qlhover[i].style.color = properties.item_hover_color;
+    }
+
     /*
     *Events Trigger
     */
