@@ -109,18 +109,7 @@ function(instance, properties, context) {
     /**
      * Container Css
      */
-    var toolbarHeight = qlToolbar.offsetHeight;
-    if (qlContainer) {
-        qlContainer.style.border = (properties.container_border_width > 0) ? `${properties.container_border_width}px solid ${properties.container_border_color}` : 'none';
-        qlContainer.style.backgroundColor = properties.container_bg;
-        qlContainer.style.padding = `${properties.container_padding}px`;
-        qlContainer.style.color = properties.placeholder_color;
-        qlContainer.style.minHeight = `${parseInt(properties.bubble.min_height_css(), 10) - toolbarHeight}px`;
-        qlContainer.style.maxHeight = `${parseInt(properties.bubble.max_height_css(), 10) - toolbarHeight}px`;
-        qlContainer.style.height = `${parseInt(properties.bubble.height(), 10) - toolbarHeight}px`;
-        qlContainer.style.fontFamily = "inherit"
-        qlContainer.style.fontSize = "inherit"
-    }
+    
 
     if (qlp) {
         qlp.style.color = properties.bubble.font_color();
@@ -168,6 +157,19 @@ function(instance, properties, context) {
     const pickerOption = parentElement.querySelectorAll('.ql-picker-options');
     for (let i = 0; i < pickerOption.length; i++) {
         pickerOption[i].style.backgroundColor = `${properties.toolbar_bg}px`;
+    }
+
+    var toolbarHeight = qlToolbar.offsetHeight;
+    if (qlContainer && toolbarHeight) {
+        qlContainer.style.border = (properties.container_border_width > 0) ? `${properties.container_border_width}px solid ${properties.container_border_color}` : 'none';
+        qlContainer.style.backgroundColor = properties.container_bg;
+        qlContainer.style.padding = `${properties.container_padding}px`;
+        qlContainer.style.color = properties.placeholder_color;
+        qlContainer.style.minHeight = `${parseInt(properties.bubble.min_height_css(), 10) - toolbarHeight}px`;
+        qlContainer.style.maxHeight = `${parseInt(properties.bubble.max_height_css(), 10) - toolbarHeight}px`;
+        qlContainer.style.height = `${parseInt(properties.bubble.height(), 10) - toolbarHeight}px`;
+        qlContainer.style.fontFamily = "inherit"
+        qlContainer.style.fontSize = "inherit"
     }
     /*
     *Events Trigger
