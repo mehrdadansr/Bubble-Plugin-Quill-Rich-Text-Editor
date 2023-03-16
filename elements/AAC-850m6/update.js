@@ -134,7 +134,12 @@ function(instance, properties, context) {
         buttons[i].style.height = `${properties.toolbar_icon_size}px`;
         buttons[i].style.width = `${properties.toolbar_icon_size}px`;
     }
-    
+
+    const qlhover = parentElement.querySelectorAll('.ql-snow.ql-toolbar button:hover, .ql-snow .ql-toolbar button:hover, .ql-snow.ql-toolbar button:focus, .ql-snow .ql-toolbar button:focus, .ql-snow.ql-toolbar button.ql-active, .ql-snow .ql-toolbar button.ql-active, .ql-snow.ql-toolbar .ql-picker-label:hover, .ql-snow .ql-toolbar .ql-picker-label:hover, .ql-snow.ql-toolbar .ql-picker-label.ql-active, .ql-snow .ql-toolbar .ql-picker-label.ql-active, .ql-snow.ql-toolbar .ql-picker-item:hover, .ql-snow .ql-toolbar .ql-picker-item:hover, .ql-snow.ql-toolbar .ql-picker-item.ql-selected, .ql-snow .ql-toolbar .ql-picker-item.ql-selected')
+    for (let i = 0; i < qlhover.length; i++) {
+        qlhover[i].style.color = properties.item_hover_color;
+    }
+
     var toolbarHeight = qlToolbar.offsetHeight;
     if (qlContainer && toolbarHeight) {
         qlContainer.style.border = (properties.container_border_width > 0) ? `${properties.container_border_width}px solid ${properties.container_border_color}` : 'none';
@@ -177,11 +182,6 @@ function(instance, properties, context) {
         qlp.style.fontSize = "inherit"
     }
 
-
-    const qlhover = parentElement.querySelectorAll('.ql-snow.ql-toolbar button:hover, .ql-snow .ql-toolbar button:hover, .ql-snow.ql-toolbar button:focus, .ql-snow .ql-toolbar button:focus, .ql-snow.ql-toolbar button.ql-active, .ql-snow .ql-toolbar button.ql-active, .ql-snow.ql-toolbar .ql-picker-label:hover, .ql-snow .ql-toolbar .ql-picker-label:hover, .ql-snow.ql-toolbar .ql-picker-label.ql-active, .ql-snow .ql-toolbar .ql-picker-label.ql-active, .ql-snow.ql-toolbar .ql-picker-item:hover, .ql-snow .ql-toolbar .ql-picker-item:hover, .ql-snow.ql-toolbar .ql-picker-item.ql-selected, .ql-snow .ql-toolbar .ql-picker-item.ql-selected')
-    for (let i = 0; i < qlhover.length; i++) {
-        qlhover[i].style.color = properties.item_hover_color;
-    }
 
     /*
     *Events Trigger
