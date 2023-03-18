@@ -169,6 +169,7 @@ const iconFill1 = parentElement.querySelectorAll('button .ql-fill');
 for (let i = 0; i < iconFill1.length; i++) {
   iconFill1[i].style.fill = properties.toolbar_icon_color;
 }
+
 const iconStrokeMiter = parentElement.querySelectorAll('button .ql-stroke-miter');
 for (let i = 0; i < iconStrokeMiter.length; i++) {
   iconStrokeMiter[i].style.fill = 'none';
