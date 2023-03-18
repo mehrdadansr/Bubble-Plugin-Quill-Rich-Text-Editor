@@ -157,13 +157,13 @@ function(instance, properties, context) {
     }
     
     // Apply the normal rule to iconStroke, iconFill, and iconStrokeMiter
-const iconStroke = parentElement.querySelectorAll('button .ql-stroke');
-for (let i = 0; i < iconStroke.length; i++) {
-  iconStroke[i].style.stroke = properties.toolbar_icon_color;
-  iconStroke[i].style.fill = 'none';
-  iconStroke[i].style.strokeLinecap = 'round';
-  iconStroke[i].style.strokeLinejoin = 'round';
-  iconStroke[i].style.strokeWidth = '2';
+const iconStroke1 = parentElement.querySelectorAll('button .ql-stroke');
+for (let i = 0; i < iconStroke1.length; i++) {
+  iconStroke1[i].style.stroke = properties.toolbar_icon_color;
+  iconStroke1[i].style.fill = 'none';
+  iconStroke1[i].style.strokeLinecap = 'round';
+  iconStroke1[i].style.strokeLinejoin = 'round';
+  iconStroke1[i].style.strokeWidth = '2';
 }
 const iconFill1 = parentElement.querySelectorAll('button .ql-fill');
 for (let i = 0; i < iconFill1.length; i++) {
