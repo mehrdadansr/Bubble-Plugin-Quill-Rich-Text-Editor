@@ -185,7 +185,7 @@ for (let i = 0; i < qlhover.length; i++) {
 }
 
 // Apply the normal rule to iconStroke and iconFill
-/*
+
 const iconStroke = parentElement.querySelectorAll('.ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke,  .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke,  .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter,  .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter ');
 for (let i = 0; i < iconStroke.length; i++) {
   iconStroke[i].style.stroke = properties.toolbar_icon_color;
@@ -210,7 +210,7 @@ for (let i = 0; i < iconStrokeNormal.length; i++) {
 for (let i = 0; i < iconFillNormal.length; i++) {
   iconFillNormal[i].style.fill = properties.toolbar_icon_color;
 }
-     */
+
 // Apply the hover/selected rule to qlhover
 const qlhoverStoke = parentElement.querySelectorAll('.ql-snow.ql-toolbar button:hover .ql-stroke, .ql-snow .ql-toolbar button:hover .ql-stroke, .ql-snow.ql-toolbar button:focus .ql-stroke, .ql-snow .ql-toolbar button:focus .ql-stroke, .ql-snow.ql-toolbar button.ql-active .ql-stroke, .ql-snow .ql-toolbar button.ql-active .ql-stroke, .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke, .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke, .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke, .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke, .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke, .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke, .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke, .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke, .ql-snow.ql-toolbar button:hover .ql-stroke-miter, .ql-snow .ql-toolbar button:hover .ql-stroke-miter, .ql-snow.ql-toolbar button:focus .ql-stroke-miter, .ql-snow .ql-toolbar button:focus .ql-stroke-miter, .ql-snow.ql-toolbar button.ql-active .ql-stroke-miter, .ql-snow .ql-toolbar button.ql-active .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter, .ql-active .ql-stroke');
 for (let i = 0; i < qlhoverStoke.length; i++) {
