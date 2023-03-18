@@ -179,6 +179,7 @@ function(instance, properties, context) {
     }
 
     // Apply the hover/selected rule to qlhover
+    /*
     const qlhover = parentElement.querySelectorAll('button:hover:not(.ql-active) .ql-stroke, button.ql-active .ql-stroke, .ql-picker-label:hover .ql-stroke, .ql-picker-label.ql-active .ql-stroke, .ql-picker-item:hover .ql-stroke, .ql-picker-item.ql-selected .ql-stroke, button:hover:not(.ql-active) .ql-fill, button.ql-active .ql-fill, .ql-picker-label:hover .ql-fill, .ql-picker-label.ql-active .ql-fill, .ql-picker-item:hover .ql-fill, .ql-picker-item.ql-selected .ql-fill, button:hover:not(.ql-active) .ql-stroke.ql-fill, button.ql-active .ql-stroke.ql-fill, .ql-picker-label:hover .ql-stroke.ql-fill, .ql-picker-label.ql-active .ql-stroke.ql-fill, .ql-picker-item:hover .ql-stroke.ql-fill, .ql-picker-item.ql-selected .ql-stroke.ql-fill, button:hover:not(.ql-active) .ql-stroke-miter, button.ql-active .ql-stroke-miter, .ql-picker-label:hover .ql-stroke-miter, .ql-picker-label.ql-active .ql-stroke-miter, .ql-picker-item:hover .ql-stroke-miter, .ql-picker-item.ql-selected .ql-stroke-miter');
     for (let i = 0; i < qlhover.length; i++) {
         qlhover[i].style.stroke = properties.item_hover_color;
@@ -200,6 +201,7 @@ function(instance, properties, context) {
     for (let i = 0; i < iconFill.length; i++) {
         iconFill[i].style.fill = properties.toolbar_icon_color;
     }
+    */
 
     const iconStrokeNormal = parentElement.querySelectorAll('.ql-snow .ql-stroke, .ql-snow .ql-stroke-miter');
     for (let i = 0; i < iconStrokeNormal.length; i++) {
@@ -231,8 +233,8 @@ function(instance, properties, context) {
         pickerOption[i].style.backgroundColor = `${properties.toolbar_bg}px`;
     }
 
-    var qlEditorDiv = document.querySelector('.ql-editor');
-    var qlp = qlEditorDiv.querySelectorAll('*');
+    
+    var qlp = qlContainer.querySelectorAll('*');
     if (qlp) {
         for (let i = 0; i < qlp.length; i++) {
             qlp[i].style.color = properties.bubble.font_color();
