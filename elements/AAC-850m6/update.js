@@ -165,9 +165,9 @@ for (let i = 0; i < iconStroke.length; i++) {
   iconStroke[i].style.strokeLinejoin = 'round';
   iconStroke[i].style.strokeWidth = '2';
 }
-const iconFill = parentElement.querySelectorAll('button .ql-fill');
-for (let i = 0; i < iconFill.length; i++) {
-  iconFill[i].style.fill = properties.toolbar_icon_color;
+const iconFill1 = parentElement.querySelectorAll('button .ql-fill');
+for (let i = 0; i < iconFill1.length; i++) {
+  iconFill1[i].style.fill = properties.toolbar_icon_color;
 }
 const iconStrokeMiter = parentElement.querySelectorAll('button .ql-stroke-miter');
 for (let i = 0; i < iconStrokeMiter.length; i++) {
