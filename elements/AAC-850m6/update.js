@@ -229,13 +229,12 @@ function(instance, properties, context) {
         pickerOption[i].style.backgroundColor = `${properties.toolbar_bg}px`;
     }
 
-
-    var qlp = parentElement.querySelectorAll('.ql-container p');
+    var qlEditorDiv = document.querySelector('.ql-editor');
+    var qlp = qlEditorDiv.querySelectorAll('*');
     if (qlp) {
         for (let i = 0; i < qlp.length; i++) {
             qlp[i].style.color = properties.bubble.font_color();
-            qlp[i].style.fontFamily = "inherit"
-            qlp[i].style.fontSize = properties.bubble.font_size()
+            qlp[i].style.fontSize = properties.bubble.font_size();
         }
     }
 
