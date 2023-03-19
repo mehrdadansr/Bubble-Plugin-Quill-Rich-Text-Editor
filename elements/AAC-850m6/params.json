@@ -61,13 +61,13 @@
         },
         "AAZ": {
             "caption": "Initial Content Type",
-            "default_val": "text",
+            "default_val": "Text",
             "doc": "Whether the initial content is plain text or Quill format content.",
             "editor": "Dropdown",
             "long_text": false,
             "name": "initial_type",
             "optional": false,
-            "options": "content,text",
+            "options": "Content,Text",
             "rank": 2,
             "value": "text"
         },

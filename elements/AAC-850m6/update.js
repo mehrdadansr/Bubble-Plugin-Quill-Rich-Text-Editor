@@ -92,7 +92,7 @@ function(instance, properties, context) {
     if (properties.initial_content) {
         if (properties.initial_type === "Content") {
             var initial_content = JSON.parse(properties.initial_content)
-            quill.setContents(properties.initial_content);
+            quill.setContents(initial_content);
         } else {
             quill.setText(properties.initial_content);
         }
