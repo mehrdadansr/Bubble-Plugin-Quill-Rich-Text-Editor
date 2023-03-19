@@ -131,7 +131,7 @@ function(instance, properties, context) {
 
 
 
-    /*
+   
     
         var toolbarHeight = qlToolbar.offsetHeight;
         if (qlContainer && toolbarHeight) {
@@ -145,9 +145,16 @@ function(instance, properties, context) {
             qlContainer.style.fontFamily = "inherit"
             qlContainer.style.fontSize = "inherit"
         }
+
+
+        const pickerOption = parentElement.querySelectorAll('.ql-picker-options');
+        for (let i = 0; i < pickerOption.length; i++) {
+            pickerOption[i].style.backgroundColor = `${properties.toolbar_bg}px`;
+        }
+    
         // Apply the normal rule to iconStroke
     
-        
+         /*
         
             const pickers = parentElement.querySelectorAll('.ql-picker');
             for (let i = 0; i < pickers.length; i++) {
@@ -228,11 +235,7 @@ function(instance, properties, context) {
       }
   
 
-    const pickerOption = parentElement.querySelectorAll('.ql-picker-options');
-    for (let i = 0; i < pickerOption.length; i++) {
-        pickerOption[i].style.backgroundColor = `${properties.toolbar_bg}px`;
-    }
-
+  
 
     var qlp = qlContainer.querySelectorAll('*');
     if (qlp) {
