@@ -5,6 +5,7 @@ function(instance, context) {
     instance.canvas.append(newDiv);
 	//newDiv.css("width", "100%");
 	//newDiv.css("height", "100%");
+    instance.data.kardam = 0;
 
 
 }
