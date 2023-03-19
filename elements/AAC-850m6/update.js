@@ -131,7 +131,7 @@ function(instance, properties, context) {
 
 
 
-
+/*
 
     var toolbarHeight = qlToolbar.offsetHeight;
     if (qlContainer && toolbarHeight) {
@@ -147,93 +147,93 @@ function(instance, properties, context) {
     }
     // Apply the normal rule to iconStroke
 
-/*
-
-    const pickers = parentElement.querySelectorAll('.ql-picker');
-    for (let i = 0; i < pickers.length; i++) {
-        pickers[i].style.fill = properties.toolbar_picker_color;
-        pickers[i].style.color = properties.toolbar_picker_color;
-
-    }
-
-    // Apply the normal rule to iconStroke, iconFill, and iconStrokeMiter
-    const iconStroke1 = parentElement.querySelectorAll('button .ql-stroke');
-    for (let i = 0; i < iconStroke1.length; i++) {
-        iconStroke1[i].style.stroke = properties.toolbar_icon_color;
-        iconStroke1[i].style.fill = 'none';
-        iconStroke1[i].style.strokeLinecap = 'round';
-        iconStroke1[i].style.strokeLinejoin = 'round';
-        iconStroke1[i].style.strokeWidth = '2';
-    }
-    const iconFill1 = parentElement.querySelectorAll('button .ql-fill');
-    for (let i = 0; i < iconFill1.length; i++) {
-        iconFill1[i].style.fill = properties.toolbar_icon_color;
-    }
-
-    const iconStrokeMiter = parentElement.querySelectorAll('button .ql-stroke-miter');
-    for (let i = 0; i < iconStrokeMiter.length; i++) {
-        iconStrokeMiter[i].style.fill = 'none';
-        iconStrokeMiter[i].style.stroke = properties.toolbar_icon_color;
-        iconStrokeMiter[i].style.strokeMiterlimit = '10';
-        iconStrokeMiter[i].style.strokeWidth = '2';
-    }
-
-    // Apply the hover/selected rule to qlhover
     
-    const qlhover = parentElement.querySelectorAll('button:hover:not(.ql-active) .ql-stroke, button.ql-active .ql-stroke, .ql-picker-label:hover .ql-stroke, .ql-picker-label.ql-active .ql-stroke, .ql-picker-item:hover .ql-stroke, .ql-picker-item.ql-selected .ql-stroke, button:hover:not(.ql-active) .ql-fill, button.ql-active .ql-fill, .ql-picker-label:hover .ql-fill, .ql-picker-label.ql-active .ql-fill, .ql-picker-item:hover .ql-fill, .ql-picker-item.ql-selected .ql-fill, button:hover:not(.ql-active) .ql-stroke.ql-fill, button.ql-active .ql-stroke.ql-fill, .ql-picker-label:hover .ql-stroke.ql-fill, .ql-picker-label.ql-active .ql-stroke.ql-fill, .ql-picker-item:hover .ql-stroke.ql-fill, .ql-picker-item.ql-selected .ql-stroke.ql-fill, button:hover:not(.ql-active) .ql-stroke-miter, button.ql-active .ql-stroke-miter, .ql-picker-label:hover .ql-stroke-miter, .ql-picker-label.ql-active .ql-stroke-miter, .ql-picker-item:hover .ql-stroke-miter, .ql-picker-item.ql-selected .ql-stroke-miter');
-    for (let i = 0; i < qlhover.length; i++) {
-        qlhover[i].style.stroke = properties.item_hover_color;
-        qlhover[i].style.fill = properties.item_hover_color;
-    }
+    
+        const pickers = parentElement.querySelectorAll('.ql-picker');
+        for (let i = 0; i < pickers.length; i++) {
+            pickers[i].style.fill = properties.toolbar_picker_color;
+            pickers[i].style.color = properties.toolbar_picker_color;
+    
+        }
+    
+        // Apply the normal rule to iconStroke, iconFill, and iconStrokeMiter
+        const iconStroke1 = parentElement.querySelectorAll('button .ql-stroke');
+        for (let i = 0; i < iconStroke1.length; i++) {
+            iconStroke1[i].style.stroke = properties.toolbar_icon_color;
+            iconStroke1[i].style.fill = 'none';
+            iconStroke1[i].style.strokeLinecap = 'round';
+            iconStroke1[i].style.strokeLinejoin = 'round';
+            iconStroke1[i].style.strokeWidth = '2';
+        }
+        const iconFill1 = parentElement.querySelectorAll('button .ql-fill');
+        for (let i = 0; i < iconFill1.length; i++) {
+            iconFill1[i].style.fill = properties.toolbar_icon_color;
+        }
+    
+        const iconStrokeMiter = parentElement.querySelectorAll('button .ql-stroke-miter');
+        for (let i = 0; i < iconStrokeMiter.length; i++) {
+            iconStrokeMiter[i].style.fill = 'none';
+            iconStrokeMiter[i].style.stroke = properties.toolbar_icon_color;
+            iconStrokeMiter[i].style.strokeMiterlimit = '10';
+            iconStrokeMiter[i].style.strokeWidth = '2';
+        }
+    
+        // Apply the hover/selected rule to qlhover
+        
+        const qlhover = parentElement.querySelectorAll('button:hover:not(.ql-active) .ql-stroke, button.ql-active .ql-stroke, .ql-picker-label:hover .ql-stroke, .ql-picker-label.ql-active .ql-stroke, .ql-picker-item:hover .ql-stroke, .ql-picker-item.ql-selected .ql-stroke, button:hover:not(.ql-active) .ql-fill, button.ql-active .ql-fill, .ql-picker-label:hover .ql-fill, .ql-picker-label.ql-active .ql-fill, .ql-picker-item:hover .ql-fill, .ql-picker-item.ql-selected .ql-fill, button:hover:not(.ql-active) .ql-stroke.ql-fill, button.ql-active .ql-stroke.ql-fill, .ql-picker-label:hover .ql-stroke.ql-fill, .ql-picker-label.ql-active .ql-stroke.ql-fill, .ql-picker-item:hover .ql-stroke.ql-fill, .ql-picker-item.ql-selected .ql-stroke.ql-fill, button:hover:not(.ql-active) .ql-stroke-miter, button.ql-active .ql-stroke-miter, .ql-picker-label:hover .ql-stroke-miter, .ql-picker-label.ql-active .ql-stroke-miter, .ql-picker-item:hover .ql-stroke-miter, .ql-picker-item.ql-selected .ql-stroke-miter');
+        for (let i = 0; i < qlhover.length; i++) {
+            qlhover[i].style.stroke = properties.item_hover_color;
+            qlhover[i].style.fill = properties.item_hover_color;
+        }
+    
+        // Apply the normal rule to iconStroke and iconFill
+    
+        const iconStroke = parentElement.querySelectorAll('.ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke,  .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke,  .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter,  .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter ');
+        for (let i = 0; i < iconStroke.length; i++) {
+            iconStroke[i].style.stroke = properties.toolbar_icon_color;
+        }
+        const iconColor = parentElement.querySelectorAll('.ql-snow.ql-toolbar button:hover:not(.ql-active),  .ql-snow .ql-toolbar button:hover:not(.ql-active)');
+        for (let i = 0; i < iconColor.length; i++) {
+            iconColor[i].style.stroke = properties.toolbar_icon_color;
+        }
+    
+        const iconFill = parentElement.querySelectorAll('.ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-fill, .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-fill, .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill,  .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill');
+        for (let i = 0; i < iconFill.length; i++) {
+            iconFill[i].style.fill = properties.toolbar_icon_color;
+        }
+        */
 
-    // Apply the normal rule to iconStroke and iconFill
-
-    const iconStroke = parentElement.querySelectorAll('.ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke,  .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke,  .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter,  .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter ');
-    for (let i = 0; i < iconStroke.length; i++) {
-        iconStroke[i].style.stroke = properties.toolbar_icon_color;
-    }
-    const iconColor = parentElement.querySelectorAll('.ql-snow.ql-toolbar button:hover:not(.ql-active),  .ql-snow .ql-toolbar button:hover:not(.ql-active)');
-    for (let i = 0; i < iconColor.length; i++) {
-        iconColor[i].style.stroke = properties.toolbar_icon_color;
-    }
-
-    const iconFill = parentElement.querySelectorAll('.ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-fill, .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-fill, .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill,  .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill');
-    for (let i = 0; i < iconFill.length; i++) {
-        iconFill[i].style.fill = properties.toolbar_icon_color;
-    }
-    */
-
-  /*
-  const iconStrokeNormal = parentElement.querySelectorAll('.ql-snow .ql-stroke, .ql-snow .ql-stroke-miter');
-    for (let i = 0; i < iconStrokeNormal.length; i++) {
-        iconStrokeNormal[i].style.fill = 'none';
-        iconStrokeNormal[i].style.stroke = properties.toolbar_icon_color;
-    }
-
-    const iconFillNormal = parentElement.querySelectorAll('.ql-snow .ql-fill,.ql-snow .ql-stroke.ql-fill');
-    for (let i = 0; i < iconFillNormal.length; i++) {
-        iconFillNormal[i].style.fill = properties.toolbar_icon_color;
-    }
-
-    // Apply the hover/selected rule to qlhover
-    const qlhoverStoke = parentElement.querySelectorAll('.ql-snow.ql-toolbar button:hover .ql-stroke, .ql-snow .ql-toolbar button:hover .ql-stroke, .ql-snow.ql-toolbar button:focus .ql-stroke, .ql-snow .ql-toolbar button:focus .ql-stroke, .ql-snow.ql-toolbar button.ql-active .ql-stroke, .ql-snow .ql-toolbar button.ql-active .ql-stroke, .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke, .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke, .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke, .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke, .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke, .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke, .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke, .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke, .ql-snow.ql-toolbar button:hover .ql-stroke-miter, .ql-snow .ql-toolbar button:hover .ql-stroke-miter, .ql-snow.ql-toolbar button:focus .ql-stroke-miter, .ql-snow .ql-toolbar button:focus .ql-stroke-miter, .ql-snow.ql-toolbar button.ql-active .ql-stroke-miter, .ql-snow .ql-toolbar button.ql-active .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter, .ql-active .ql-stroke');
-    for (let i = 0; i < qlhoverStoke.length; i++) {
-        qlhoverStoke[i].style.stroke = properties.item_hover_color;
-    }
-
-
-    const qlhoverFill = parentElement.querySelectorAll('.ql-snow.ql-toolbar button:hover .ql-fill, .ql-snow .ql-toolbar button:hover .ql-fill, .ql-snow.ql-toolbar button:focus .ql-fill, .ql-snow .ql-toolbar button:focus .ql-fill, .ql-snow.ql-toolbar button.ql-active .ql-fill, .ql-snow .ql-toolbar button.ql-active .ql-fill, .ql-snow.ql-toolbar .ql-picker-label:hover .ql-fill, .ql-snow .ql-toolbar .ql-picker-label:hover .ql-fill, .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-fill, .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-fill, .ql-snow.ql-toolbar .ql-picker-item:hover .ql-fill, .ql-snow .ql-toolbar .ql-picker-item:hover .ql-fill, .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill, .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-fill, .ql-snow.ql-toolbar button:hover .ql-stroke.ql-fill, .ql-snow .ql-toolbar button:hover .ql-stroke.ql-fill, .ql-snow.ql-toolbar button:focus .ql-stroke.ql-fill, .ql-snow .ql-toolbar button:focus .ql-stroke.ql-fill, .ql-snow.ql-toolbar button.ql-active .ql-stroke.ql-fill, .ql-snow .ql-toolbar button.ql-active .ql-stroke.ql-fill, .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill, .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill, .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill, .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill, .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill, .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill, .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill, .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill');
-    for (let i = 0; i < qlhoverFill.length; i++) {
-        qlhoverFill[i].style.fill = properties.item_hover_color;
-    }
-*/
+    /*
+    const iconStrokeNormal = parentElement.querySelectorAll('.ql-snow .ql-stroke, .ql-snow .ql-stroke-miter');
+      for (let i = 0; i < iconStrokeNormal.length; i++) {
+          iconStrokeNormal[i].style.fill = 'none';
+          iconStrokeNormal[i].style.stroke = properties.toolbar_icon_color;
+      }
+  
+      const iconFillNormal = parentElement.querySelectorAll('.ql-snow .ql-fill,.ql-snow .ql-stroke.ql-fill');
+      for (let i = 0; i < iconFillNormal.length; i++) {
+          iconFillNormal[i].style.fill = properties.toolbar_icon_color;
+      }
+  
+      // Apply the hover/selected rule to qlhover
+      const qlhoverStoke = parentElement.querySelectorAll('.ql-snow.ql-toolbar button:hover .ql-stroke, .ql-snow .ql-toolbar button:hover .ql-stroke, .ql-snow.ql-toolbar button:focus .ql-stroke, .ql-snow .ql-toolbar button:focus .ql-stroke, .ql-snow.ql-toolbar button.ql-active .ql-stroke, .ql-snow .ql-toolbar button.ql-active .ql-stroke, .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke, .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke, .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke, .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke, .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke, .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke, .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke, .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke, .ql-snow.ql-toolbar button:hover .ql-stroke-miter, .ql-snow .ql-toolbar button:hover .ql-stroke-miter, .ql-snow.ql-toolbar button:focus .ql-stroke-miter, .ql-snow .ql-toolbar button:focus .ql-stroke-miter, .ql-snow.ql-toolbar button.ql-active .ql-stroke-miter, .ql-snow .ql-toolbar button.ql-active .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter, .ql-active .ql-stroke');
+      for (let i = 0; i < qlhoverStoke.length; i++) {
+          qlhoverStoke[i].style.stroke = properties.item_hover_color;
+      }
+  
+  
+      const qlhoverFill = parentElement.querySelectorAll('.ql-snow.ql-toolbar button:hover .ql-fill, .ql-snow .ql-toolbar button:hover .ql-fill, .ql-snow.ql-toolbar button:focus .ql-fill, .ql-snow .ql-toolbar button:focus .ql-fill, .ql-snow.ql-toolbar button.ql-active .ql-fill, .ql-snow .ql-toolbar button.ql-active .ql-fill, .ql-snow.ql-toolbar .ql-picker-label:hover .ql-fill, .ql-snow .ql-toolbar .ql-picker-label:hover .ql-fill, .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-fill, .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-fill, .ql-snow.ql-toolbar .ql-picker-item:hover .ql-fill, .ql-snow .ql-toolbar .ql-picker-item:hover .ql-fill, .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill, .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-fill, .ql-snow.ql-toolbar button:hover .ql-stroke.ql-fill, .ql-snow .ql-toolbar button:hover .ql-stroke.ql-fill, .ql-snow.ql-toolbar button:focus .ql-stroke.ql-fill, .ql-snow .ql-toolbar button:focus .ql-stroke.ql-fill, .ql-snow.ql-toolbar button.ql-active .ql-stroke.ql-fill, .ql-snow .ql-toolbar button.ql-active .ql-stroke.ql-fill, .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill, .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill, .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill, .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill, .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill, .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill, .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill, .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill');
+      for (let i = 0; i < qlhoverFill.length; i++) {
+          qlhoverFill[i].style.fill = properties.item_hover_color;
+      }
+  
 
     const pickerOption = parentElement.querySelectorAll('.ql-picker-options');
     for (let i = 0; i < pickerOption.length; i++) {
         pickerOption[i].style.backgroundColor = `${properties.toolbar_bg}px`;
     }
 
-    
+
     var qlp = qlContainer.querySelectorAll('*');
     if (qlp) {
         for (let i = 0; i < qlp.length; i++) {
@@ -241,26 +241,22 @@ function(instance, properties, context) {
             qlp[i].style.fontSize = properties.bubble.font_size();
         }
     }
-    
-  
-      $('.ql-header:not(.ql-active) path').css({fill:properties.toolbar_icon_color})
-    
-   $('.ql-header.ql-active path').css({fill:'#212121'})
-    
-    var css = 'h1 { background: red; }',
-    head = document.head || document.getElementsByTagName('head')[0],
-    style = document.createElement('style');
+    */
 
-head.appendChild(style);
+    var css = '.ql-snow.ql-toolbar button:hover, .ql-snow .ql-toolbar button:hover, .ql-snow.ql-toolbar button:focus, .ql-snow .ql-toolbar button:focus, .ql-snow.ql-toolbar button.ql-active, .ql-snow .ql-toolbar button.ql-active, .ql-snow.ql-toolbar .ql-picker-label:hover, .ql-snow .ql-toolbar .ql-picker-label:hover, .ql-snow.ql-toolbar .ql-picker-label.ql-active, .ql-snow .ql-toolbar .ql-picker-label.ql-active, .ql-snow.ql-toolbar .ql-picker-item:hover, .ql-snow .ql-toolbar .ql-picker-item:hover, .ql-snow.ql-toolbar .ql-picker-item.ql-selected, .ql-snow .ql-toolbar .ql-picker-item.ql-selected { color: #06c; }';
+    var head = document.head || document.getElementsByTagName('head')[0];
+    var style = document.createElement('style');
 
-style.type = 'text/css';
-if (style.styleSheet){
-  // This is required for IE8 and below.
-  style.styleSheet.cssText = css;
-} else {
-  style.appendChild(document.createTextNode(css));
-}
-    
+    head.appendChild(style);
+
+    style.type = 'text/css';
+    if (style.styleSheet) {
+        // This is required for IE8 and below.
+        style.styleSheet.cssText = css;
+    } else {
+        style.appendChild(document.createTextNode(css));
+    }
+
 
     /*
     *Events Trigger
@@ -273,7 +269,6 @@ if (style.styleSheet){
         instance.publishState("lasttext", JSON.stringify(quill.getText()))
         instance.publishState("lastlength", JSON.stringify(quill.getLength()))
         instance.triggerEvent("textchange")
-
     });
     //on selection change
     quill.on('selection-change', function (range, oldRange, source) {
