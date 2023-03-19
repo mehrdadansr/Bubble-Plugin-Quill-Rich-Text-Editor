@@ -228,6 +228,43 @@
             "name": "syntax",
             "rank": 18,
             "value": "boolean"
+        },
+        "ADj": {
+            "caption": "syntax_bg",
+            "default_val": "rgba(33,33,33,1)",
+            "editor": "Color",
+            "in_style": true,
+            "name": "syntax_bg",
+            "rank": 24
+        },
+        "ADk": {
+            "caption": "syntax_font_color",
+            "default_val": "rgba(255,255,255,1)",
+            "editor": "Color",
+            "in_style": true,
+            "name": "syntax_font_color",
+            "rank": 25
+        },
+        "ADl": {
+            "caption": "quote_border_color",
+            "default_val": "rgba(0,55,255,1)",
+            "editor": "Color",
+            "name": "quote_border_color",
+            "rank": 26
+        },
+        "ADm": {
+            "caption": "quote_bg",
+            "default_val": "rgba(198, 198, 198, 1)",
+            "editor": "Color",
+            "name": "quote_bg",
+            "rank": 27
+        },
+        "ADn": {
+            "caption": "quote_font_color",
+            "default_val": "rgba(33, 33, 33, 1)",
+            "editor": "Color",
+            "name": "quote_font_color",
+            "rank": 28
         }
     },
     "has_reset_fn": true,
