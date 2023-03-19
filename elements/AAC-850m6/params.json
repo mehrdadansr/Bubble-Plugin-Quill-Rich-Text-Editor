@@ -283,21 +283,13 @@
             "rank": 30,
             "value": "text"
         },
-        "ADq": {
-            "caption": "font_sans",
-            "default_val": "Georgia, Times New Roman, serif",
-            "editor": "DynamicValue",
-            "name": "font_sans",
-            "rank": 31,
-            "value": "text"
-        },
         "ADr": {
             "caption": "font_mono",
             "default_val": "Monaco, Courier New, monospace",
             "doc": ".ql-editor .ql-font-monospace",
             "editor": "DynamicValue",
             "name": "font_mono",
-            "rank": 32,
+            "rank": 31,
             "value": "text"
         }
     },
