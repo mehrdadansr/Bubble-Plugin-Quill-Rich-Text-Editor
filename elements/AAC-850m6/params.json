@@ -265,6 +265,40 @@
             "editor": "Color",
             "name": "quote_font_color",
             "rank": 28
+        },
+        "ADo": {
+            "caption": "quote_border_width",
+            "default_val": 4,
+            "editor": "StaticNumber",
+            "name": "quote_border_width",
+            "rank": 29
+        },
+        "ADp": {
+            "caption": "font_serif",
+            "default_val": "Georgia, Times New Roman, serif",
+            "doc": ".ql-editor .ql-font-serif {font-family}",
+            "editor": "DynamicValue",
+            "name": "font_serif",
+            "optional": false,
+            "rank": 30,
+            "value": "text"
+        },
+        "ADq": {
+            "caption": "font_sans",
+            "default_val": "Georgia, Times New Roman, serif",
+            "editor": "DynamicValue",
+            "name": "font_sans",
+            "rank": 31,
+            "value": "text"
+        },
+        "ADr": {
+            "caption": "font_mono",
+            "default_val": "Monaco, Courier New, monospace",
+            "doc": ".ql-editor .ql-font-monospace",
+            "editor": "DynamicValue",
+            "name": "font_mono",
+            "rank": 32,
+            "value": "text"
         }
     },
     "has_reset_fn": true,
