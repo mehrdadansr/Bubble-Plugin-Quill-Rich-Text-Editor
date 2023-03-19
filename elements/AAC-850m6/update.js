@@ -104,8 +104,15 @@ function(instance, properties, context) {
     var parentElement = container.parentNode
     var qlToolbar = parentElement.querySelector('.ql-toolbar');
     var qlContainer = parentElement.querySelector('.ql-container');
+    
+    parentElement.style.overflow = "visible";
 
-
+    /*console.log(parentElement);
+    var parentu = $(`#${instance.data.divName}`).parent();
+    console.log(parentu);
+	$(`#${instance.data.divName}`).parent().addClass( "ql-container" );
+    $(`#${instance.data.divName}`).parent().parent().addClass( "ql-container" );
+    */
     /**
      * Toolbar CSS
      */

@@ -3,7 +3,7 @@ function(instance, properties) {
     var div = $(`<div id="editor"></div>`);
     instance.canvas.append(div);
 
-
+	
     if (window.Quill) {
         // If it is, initialize Quill editor
         var element = document.querySelector('.ql-toolbar.ql-snow');
@@ -18,7 +18,7 @@ function(instance, properties) {
         // Dynamically load Quill stylesheet
         const quillStylesheet = document.createElement('link');
         quillStylesheet.rel = 'stylesheet';
-        quillStylesheet.href = 'https://cdn.quilljs.com/1.3.6/quill.snow.css';
+        quillStylesheet.href = (properties.theme === "snow")?'https://cdn.quilljs.com/1.3.6/quill.snow.css' : 'https://cdn.quilljs.com/1.3.6/quill.bubble.css' ;
 
         document.head.appendChild(quillStylesheet);
 
