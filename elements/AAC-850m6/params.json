@@ -24,7 +24,7 @@
         "AAD": {
             "caption": "Theme",
             "default_val": "snow",
-            "doc": "Snow has toolbar top of editor, bubble has tooltip for selected text.",
+            "doc": "The theme of the editor interface. Choose between the Snow theme which has the toolbar on top of the editor, or the Bubble theme which has a tooltip for selected text.",
             "editor": "Dropdown",
             "in_style": true,
             "name": "theme",
@@ -33,7 +33,7 @@
         },
         "AAE": {
             "caption": "Placeholder Text",
-            "doc": "The text to show when the editor is empty.",
+            "doc": "The text that appears in the editor when there is no content.",
             "editor": "DynamicValue",
             "name": "placeholder",
             "optional": true,
@@ -41,7 +41,7 @@
             "value": "text"
         },
         "AAF": {
-            "caption": "Read Only",
+            "caption": "Read-only Mode",
             "default_val": false,
             "doc": "Whether to initialize the editor in read-only mode.",
             "editor": "DynamicValue",
@@ -51,7 +51,7 @@
         },
         "AAX": {
             "caption": "Initial Content",
-            "doc": "The initial content of the editor.",
+            "doc": "The initial content to be loaded into the editor.",
             "editor": "DynamicValue",
             "long_text": true,
             "name": "initial_content",
@@ -62,7 +62,7 @@
         "AAZ": {
             "caption": "Initial Content Type",
             "default_val": "Text",
-            "doc": "Whether the initial content is plain text or Quill format content.",
+            "doc": "The format of the initial content. Choose between plain text or Quill format content.",
             "editor": "Dropdown",
             "long_text": false,
             "name": "initial_type",
@@ -183,6 +183,7 @@
         "ADN": {
             "caption": "▣ Preset",
             "default_val": "Full Formatting",
+            "doc": "This setting allows to choose a preset configuration for toolbar. You can choose from several pre-defined options such as Basic Formatting, Advanced Formatting, or Full Formatting. Alternatively, you can create their own Custom preset.",
             "editor": "Dropdown",
             "name": "toolbarpreset",
             "options": "Basic Formatting,Advanced Formatting,Content Creation,Full Formatting,Custom",
