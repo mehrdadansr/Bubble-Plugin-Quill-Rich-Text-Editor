@@ -124,7 +124,7 @@
             "caption": "________________________________________________________ ▭ Text Area Options",
             "editor": "Label",
             "name": "text_area_options",
-            "rank": 19
+            "rank": 18
         },
         "ABa": {
             "caption": "▭ Background Color",
@@ -133,7 +133,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "container_bg",
-            "rank": 20
+            "rank": 19
         },
         "ABb": {
             "caption": "▭ Border Width",
@@ -142,7 +142,7 @@
             "editor": "DynamicValue",
             "in_style": true,
             "name": "container_border_width",
-            "rank": 21,
+            "rank": 20,
             "value": "number"
         },
         "ABc": {
@@ -152,7 +152,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "container_border_color",
-            "rank": 22
+            "rank": 21
         },
         "ADK": {
             "caption": "Placeholder Color",
@@ -171,11 +171,11 @@
             "editor": "DynamicValue",
             "in_style": true,
             "name": "container_padding",
-            "rank": 23,
+            "rank": 22,
             "value": "number"
         },
         "ADM": {
-            "caption": "________________________________________________________  ▣▢▦▩ Modules",
+            "caption": "______________________________________________________  ▣▢▦▩ Modules__",
             "editor": "Label",
             "name": "toolbarsec",
             "rank": 11
@@ -223,23 +223,24 @@
             "rank": 17
         },
         "ADX": {
-            "caption": "▣ Syntax Module",
+            "caption": "< > Syntax Highlighting",
             "default_val": false,
+            "doc": "Set to 'true' to enable syntax highlighting for code blocks and inline code snippets.",
             "editor": "DynamicValue",
             "name": "syntax",
-            "rank": 18,
+            "rank": 24,
             "value": "boolean"
         },
         "ADj": {
-            "caption": "syntax_bg",
+            "caption": "< > Background Color",
             "default_val": "rgba(33,33,33,1)",
             "editor": "Color",
             "in_style": true,
             "name": "syntax_bg",
-            "rank": 24
+            "rank": 26
         },
         "ADk": {
-            "caption": "syntax_font_color",
+            "caption": "< > Basic Font Color",
             "default_val": "rgba(255,255,255,1)",
             "editor": "Color",
             "in_style": true,
@@ -247,59 +248,87 @@
             "rank": 25
         },
         "ADl": {
-            "caption": "quote_border_color",
+            "caption": "“ ” Border Color",
             "default_val": "rgba(0,55,255,1)",
             "editor": "Color",
+            "in_style": true,
             "name": "quote_border_color",
-            "rank": 26
+            "rank": 32
         },
         "ADm": {
-            "caption": "quote_bg",
+            "caption": "“ ” Background Color",
             "default_val": "rgba(198, 198, 198, 1)",
             "editor": "Color",
+            "in_style": true,
             "name": "quote_bg",
-            "rank": 27
+            "rank": 30
         },
         "ADn": {
-            "caption": "quote_font_color",
+            "caption": "“ ” Font Color",
             "default_val": "rgba(33, 33, 33, 1)",
             "editor": "Color",
+            "in_style": true,
             "name": "quote_font_color",
-            "rank": 28
-        },
-        "ADo": {
-            "caption": "quote_border_width",
-            "default_val": 4,
-            "editor": "StaticNumber",
-            "name": "quote_border_width",
             "rank": 29
         },
-        "ADp": {
-            "caption": "font_serif",
-            "default_val": "Georgia, Times New Roman, serif",
-            "doc": ".ql-editor .ql-font-serif {font-family}",
+        "ADo": {
+            "caption": "“ ” Border Width",
+            "default_val": 4,
             "editor": "DynamicValue",
+            "in_style": true,
+            "name": "quote_border_width",
+            "rank": 31,
+            "value": "number"
+        },
+        "ADp": {
+            "caption": "Serif Fonts",
+            "default_val": "Georgia, Times New Roman, serif",
+            "doc": "Enter the font families for serif font. Default: Georgia, Times New Roman, serif",
+            "editor": "StaticText",
+            "in_style": true,
             "name": "font_serif",
             "optional": false,
-            "rank": 30,
+            "rank": 34,
             "value": "text"
         },
         "ADr": {
-            "caption": "font_mono",
+            "caption": "Monospace Fonts",
             "default_val": "Monaco, Courier New, monospace",
-            "doc": ".ql-editor .ql-font-monospace",
-            "editor": "DynamicValue",
+            "doc": "Enter the font families for monospace font. Default: Monaco, Courier New, monospace",
+            "editor": "StaticText",
+            "in_style": true,
             "name": "font_mono",
-            "rank": 31,
+            "rank": 35,
             "value": "text"
         },
         "ADs": {
-            "caption": "syntax_border_radius",
+            "caption": "< > Border Radius",
             "default_val": 3,
-            "doc": "",
-            "editor": "StaticNumber",
+            "doc": "Enter the border radius for the code block.",
+            "editor": "DynamicValue",
+            "in_style": true,
             "name": "syntax_border_radius",
-            "rank": 32
+            "rank": 27,
+            "value": "number"
+        },
+        "ADt": {
+            "caption": "________________________________________________________ < > Code Block",
+            "doc": "This section includes options related to the code blocks and inline code snippets.",
+            "editor": "Label",
+            "name": "codeblock",
+            "rank": 23
+        },
+        "ADu": {
+            "caption": "________________________________________________________ “ ” Quote Block",
+            "editor": "Label",
+            "name": "quoteblocksec",
+            "rank": 28
+        },
+        "ADv": {
+            "caption": "________________________________________________________ ⁋ Formatting",
+            "editor": "Label",
+            "name": "formattingsec",
+            "rank": 33
         }
     },
     "has_reset_fn": true,

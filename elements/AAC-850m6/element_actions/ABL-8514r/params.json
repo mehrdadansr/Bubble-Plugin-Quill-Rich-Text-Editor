@@ -1,5 +1,6 @@
 {
     "caption": "Get Format",
+    "doc": "Get format of custom part of text as element's state.",
     "fields": {
         "ABM": {
             "caption": "index",

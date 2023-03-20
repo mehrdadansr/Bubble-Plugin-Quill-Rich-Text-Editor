@@ -1,5 +1,6 @@
 {
     "caption": "Get Contents",
+    "doc": "Get quill formatted content of custom part of text as the element's state.",
     "fields": {
         "AAo": {
             "caption": "Start",

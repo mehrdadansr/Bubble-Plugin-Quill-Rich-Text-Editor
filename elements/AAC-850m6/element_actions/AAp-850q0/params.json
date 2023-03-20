@@ -1,5 +1,6 @@
 {
     "caption": "Get Text",
+    "doc": "Get simple text of custom part of text as the element's state.",
     "fields": {
         "AAr": {
             "caption": "index",

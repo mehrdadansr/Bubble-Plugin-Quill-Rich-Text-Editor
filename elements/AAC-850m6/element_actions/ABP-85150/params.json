@@ -1,5 +1,6 @@
 {
     "caption": "Remove Format",
+    "doc": "Remove formats of custom part of text.",
     "fields": {
         "ABQ": {
             "caption": "index",
