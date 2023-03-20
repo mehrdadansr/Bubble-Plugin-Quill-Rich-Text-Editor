@@ -295,7 +295,7 @@
         "ADs": {
             "caption": "syntax_border_radius",
             "default_val": 3,
-            "doc": "border-radius",
+            "doc": "",
             "editor": "StaticNumber",
             "name": "syntax_border_radius",
             "rank": 32
