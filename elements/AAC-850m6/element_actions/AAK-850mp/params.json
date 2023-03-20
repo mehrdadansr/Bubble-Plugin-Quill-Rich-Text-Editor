@@ -3,7 +3,8 @@
     "doc": "Overwrites editor with given contents. Contents should end with a newline. Returns a Delta representing the change. This will be the same as the Delta passed in, if given Delta had no invalid operations",
     "fields": {
         "AAa": {
-            "caption": "contents",
+            "caption": "Contents (Delta)",
+            "doc": "Delta is the way Quill stores the text and formatting you type into the editor. It's like a special code that keeps track of everything you do, like adding or deleting text, changing colors or fonts, and more.",
             "editor": "DynamicValue",
             "long_text": true,
             "name": "contents",

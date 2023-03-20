@@ -3,16 +3,18 @@
     "doc": "Get simple text of custom part of text as the element's state.",
     "fields": {
         "AAr": {
-            "caption": "index",
+            "caption": "Start Index",
             "default_val": 1,
+            "doc": "The starting index of the text to retrieve.",
             "editor": "DynamicValue",
             "name": "index",
             "rank": 0,
             "value": "number"
         },
         "AAs": {
-            "caption": "length",
+            "caption": "Length",
             "default_val": 0,
+            "doc": "The length of the text to retrieve, starting from the start index.",
             "editor": "DynamicValue",
             "name": "length",
             "rank": 1,

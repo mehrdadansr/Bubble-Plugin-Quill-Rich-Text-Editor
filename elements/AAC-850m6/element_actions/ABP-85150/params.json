@@ -3,14 +3,16 @@
     "doc": "Remove formats of custom part of text.",
     "fields": {
         "ABQ": {
-            "caption": "index",
+            "caption": "Start Index",
+            "doc": "The starting index of the text to retrieve.",
             "editor": "DynamicValue",
             "name": "index",
             "rank": 0,
             "value": "number"
         },
         "ABR": {
-            "caption": "length",
+            "caption": "Length",
+            "doc": "The length of the text to retrieve, starting from the start index.",
             "editor": "DynamicValue",
             "name": "length",
             "rank": 1,

@@ -3,7 +3,7 @@
     "doc": "Set ability for user to edit, via input devices like the mouse or keyboard.",
     "fields": {
         "AAj": {
-            "caption": "enable",
+            "caption": "Is Enable",
             "default_val": false,
             "editor": "DynamicValue",
             "name": "enable",

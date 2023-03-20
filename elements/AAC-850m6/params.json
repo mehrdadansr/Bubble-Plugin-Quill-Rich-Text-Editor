@@ -344,7 +344,7 @@
     },
     "states": {
         "AAG": {
-            "caption": "Editor Contents (with formatting)",
+            "caption": "Editor Contents (Delta)",
             "doc": "Retrieves contents of the editor, with formatting data, represented by a Delta object.",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
@@ -380,8 +380,8 @@
             "value": "boolean"
         },
         "AAe": {
-            "caption": "Last Change",
-            "doc": "Details of the editor's last change.",
+            "caption": "Delta (Last Changes)",
+            "doc": "Delta is the way Quill stores the text and formatting you type into the editor. It's like a special code that keeps track of everything you do, like adding or deleting text, changing colors or fonts, and more. This code helps Quill display and edit your content quickly and accurately.",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n}"
             },
