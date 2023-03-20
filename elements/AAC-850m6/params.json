@@ -291,6 +291,14 @@
             "name": "font_mono",
             "rank": 31,
             "value": "text"
+        },
+        "ADs": {
+            "caption": "syntax_border_radius",
+            "default_val": 3,
+            "doc": "border-radius",
+            "editor": "StaticNumber",
+            "name": "syntax_border_radius",
+            "rank": 32
         }
     },
     "has_reset_fn": true,
