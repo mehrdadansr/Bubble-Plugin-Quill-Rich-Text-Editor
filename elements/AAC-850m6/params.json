@@ -78,13 +78,13 @@
             "rank": 0
         },
         "ABU": {
-            "caption": "_________________________________________________________  ̿ ̿ ̿  Toolbar Options",
+            "caption": "_________________________________________________________ ⨽⨼ Toolbar Style",
             "editor": "Label",
             "name": "toolbar_",
             "rank": 7
         },
         "ABV": {
-            "caption": " ̿ ̿ ̿   Background Color",
+            "caption": "⨽⨼ Background Color",
             "default_val": "rgba(244, 244, 244, 1)",
             "doc": "The background color of the toolbar.",
             "editor": "Color",
@@ -93,7 +93,7 @@
             "rank": 8
         },
         "ABW": {
-            "caption": "▣ Icon's Color",
+            "caption": "□□□ Icon's Color",
             "default_val": "rgba(22, 22, 22, 1)",
             "doc": "The color of the icons in the toolbar.",
             "editor": "Color",
@@ -102,7 +102,7 @@
             "rank": 14
         },
         "ABX": {
-            "caption": " ̿ ̿ ̿   Border Width",
+            "caption": "⨽⨼ Border Width",
             "default_val": 0,
             "doc": "The width of the border around the toolbar.",
             "editor": "DynamicValue",
@@ -112,7 +112,7 @@
             "value": "number"
         },
         "ABY": {
-            "caption": " ̿ ̿ ̿   Border Color",
+            "caption": "⨽⨼ Border Color",
             "default_val": "rgba(22, 22, 22, 1)",
             "doc": "The color of the border around the toolbar.",
             "editor": "Color",
@@ -175,13 +175,13 @@
             "value": "number"
         },
         "ADM": {
-            "caption": "______________________________________________________  ▣▢▦▩ Modules__",
+            "caption": "______________________________________________________  □□□ Modules",
             "editor": "Label",
             "name": "toolbarsec",
             "rank": 11
         },
         "ADN": {
-            "caption": "▣ Preset",
+            "caption": "□□□ Presets",
             "default_val": "Full Formatting",
             "doc": "This setting allows to choose a preset configuration for toolbar. You can choose from several pre-defined options such as Basic Formatting, Advanced Formatting, or Full Formatting. Alternatively, you can create their own Custom preset.",
             "editor": "Dropdown",
@@ -190,7 +190,7 @@
             "rank": 12
         },
         "ADO": {
-            "caption": "▣ Custom Modules",
+            "caption": "□□□ Custom Modules",
             "editor": "DynamicValue",
             "long_text": true,
             "name": "customtoolbar",
@@ -199,15 +199,16 @@
             "value": "text"
         },
         "ADQ": {
-            "caption": "▣ Icon's Size",
+            "caption": "□□□ Icon's Size",
             "default_val": 24,
+            "doc": "",
             "editor": "DynamicValue",
             "name": "toolbar_icon_size",
             "rank": 15,
             "value": "number"
         },
         "ADR": {
-            "caption": "▣ Dropdown's Color",
+            "caption": "□□□ Text's Color",
             "default_val": "rgba(22,22,22,1)",
             "editor": "Color",
             "in_style": true,
@@ -215,7 +216,7 @@
             "rank": 16
         },
         "ADS": {
-            "caption": "▣ Color on Hover",
+            "caption": "□□□ Color on Hover",
             "default_val": "rgba(53,62,255,1)",
             "editor": "Color",
             "in_style": true,
@@ -339,7 +340,7 @@
         "BoxShadow": true,
         "Font": true,
         "MinWidth": true,
-        "Padding": true,
+        "Padding": false,
         "resizable": true
     },
     "states": {
