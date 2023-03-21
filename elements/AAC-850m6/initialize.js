@@ -7,5 +7,6 @@ function(instance, context) {
 	//newDiv.css("height", "100%");
     instance.data.kardam = 0;
 	instance.data.round = 0;
+	instance.data.parentID = "P"+instance.data.divName;
 
 }
