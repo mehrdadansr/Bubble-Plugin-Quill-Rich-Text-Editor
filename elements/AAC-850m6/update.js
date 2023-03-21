@@ -2,6 +2,10 @@ function(instance, properties, context) {
     //$("div[class^='ql-']")
     var container = document.getElementById(instance.data.divName);
 
+    if(instance.data.round === 0){
+    instance.data.qabli = properties
+        instance.data.round = 1
+    }
     /**
      * toolbar
      */
@@ -88,6 +92,8 @@ function(instance, properties, context) {
     }
 
     // Insert Initials
+    
+    if(instance.data.qabli !
     var quill = instance.data.quill;
     if (properties.initial_content) {
         if (properties.initial_type === "Content") {

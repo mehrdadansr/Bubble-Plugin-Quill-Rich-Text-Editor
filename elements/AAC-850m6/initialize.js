@@ -6,6 +6,6 @@ function(instance, context) {
 	//newDiv.css("width", "100%");
 	//newDiv.css("height", "100%");
     instance.data.kardam = 0;
-
+	instance.data.round = 0;
 
 }
