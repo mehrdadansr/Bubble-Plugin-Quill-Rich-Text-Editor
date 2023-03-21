@@ -3,7 +3,7 @@
     "add_is_visible": true,
     "add_large_file_upload_properties": false,
     "autobinding_value": "text",
-    "can_fit_height": false,
+    "can_fit_height": true,
     "category": "visual elements",
     "default_dim": {
         "height": 375,

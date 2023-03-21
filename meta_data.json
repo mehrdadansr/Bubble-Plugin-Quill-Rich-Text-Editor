@@ -11,6 +11,6 @@
     "image": "//s3.amazonaws.com/appforest_uf/f1678616009845x554431892714320830/Quilljs.png",
     "license": "open_source",
     "name": "Quill Rich Text Editor",
-    "plugin_instructions": "A Plugin for Bubble Powered by Quill JS\n\nWhat is Quill JS?\n\nQuill JS is a powerful, open-source text editor that is designed for modern web applications. It offers a clean and distraction-free interface that helps users focus on their writing, and it includes a variety of formatting options, including headings, bold and italic text, numbered and bulleted lists, and block quotes.\n\n**Features of the Quill RTE Plugin**\n\nThe Quill Rich Text Editor plugin brings the power of Quill's text editor to the platform, enabling your users create high level contents.\n\nHere are some of the features of the plugin:\n\n## Actions\n\nYou can do anything through the workflows:\n\n- Delete Text: Deletes part of text within the editor.\n- Set Text: Sets the text of the editor's contents.\n- Insert Text: Add texts to specific point of the editor.\n- Set Contents: Sets the contents of the editor.\n- Update Contents: Updates the contents of the editor with Delta (Quill Formatting)",
+    "plugin_instructions": "",
     "sa_node_version": 14
 }
