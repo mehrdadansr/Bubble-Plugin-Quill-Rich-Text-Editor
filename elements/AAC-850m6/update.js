@@ -246,8 +246,15 @@ function(instance, properties, context) {
             babaConti.style.fontSize = "inherit"
         }
 
+        var tooliCss = false;
+        let classRule = ['toolbar_icon_color','item_hover_color']
+        classRule.forEach(key =>{
+            tooliCss = (qabli[key] != properties.[key])? true : tooliCss;
+        })
+            
+        }
         // Apply Customized CSS Classes [One Time]
-        if (instance.data.kardam === 0) {
+        if (instance.data.kardam === 0 || tooliCss) {
             var css;
             var thisID = `#${instance.data.parentID}`;
             if (properties.theme === 'snow') {
