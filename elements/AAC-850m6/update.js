@@ -1,23 +1,67 @@
 function(instance, properties, context) {
-
+/**
+ * Import styles and script
+ */
     if (properties.syntax) {
         // Check if a script with the same src attribute already exists in the head element
-        var existingScript = document.querySelector('head script[src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"]');
+        let existingScript = document.querySelector('head script[src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"]');
         if (!existingScript) {
             // Create a new link element
-            var link = document.createElement('link');
+            let link = document.createElement('link');
             // Set the link element's attributes
             link.rel = 'stylesheet';
             link.href = '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css';
             // Append the link element to the head of the document
             document.head.appendChild(link);
             // If the script doesn't exist, create a new script element and append it to the head element
-            var script = document.createElement('script');
+            let script = document.createElement('script');
             script.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js';
             script.type = 'text/javascript';
             document.head.appendChild(script);
         }
     }
+    if (properties.math) {
+        // Check if a script with the same src attribute already exists in the head element
+        let existingScript = document.querySelector('head script[src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"]');
+        if (!existingScript) {
+            // Create a new link element
+            let link = document.createElement('link');
+            // Set the link element's attributes
+            link.rel = 'stylesheet';
+            link.href = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css';
+            // Append the link element to the head of the document
+            document.head.appendChild(link);
+            // If the script doesn't exist, create a new script element and append it to the head element
+            let script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js';
+            script.type = 'text/javascript';
+            document.head.appendChild(script);
+        }
+    }
+    let existingScript = document.querySelector('head script[src="https://cdn.quilljs.com/1.3.6/quill.js"]');
+    if (!existingScript) {
+        // Create a new link element
+        let link = document.createElement('link');
+        // Set the link element's attributes
+        link.rel = 'stylesheet';
+        if (properties.theme === 'snow') {
+        link.href = 'https://cdn.quilljs.com/1.3.6/quill.snow.css';    
+        } else {
+            link.href = 'https://cdn.quilljs.com/1.3.6/quill.bubble.css';    
+
+        }
+        
+        // Append the link element to the head of the document
+        document.head.appendChild(link);
+        // If the script doesn't exist, create a new script element and append it to the head element
+        let script = document.createElement('script');
+        script.src = 'https://cdn.quilljs.com/1.3.6/quill.js';
+        script.type = 'text/javascript';
+        document.head.appendChild(script);
+    }
+
+    
+
     var container = document.getElementById(instance.data.divName);
 
     if (instance.data.round === 0) {
