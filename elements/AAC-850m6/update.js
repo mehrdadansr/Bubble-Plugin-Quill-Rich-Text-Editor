@@ -38,28 +38,21 @@ function(instance, properties, context) {
             document.head.appendChild(script);
         }
     }
-    let existingScript = document.querySelector('head script[src="https://cdn.quilljs.com/1.3.6/quill.js"]');
-    if (!existingScript) {
-        // Create a new link element
-        let link = document.createElement('link');
-        // Set the link element's attributes
-        link.rel = 'stylesheet';
-        if (properties.theme === 'snow') {
-        link.href = 'https://cdn.quilljs.com/1.3.6/quill.snow.css';    
-        } else {
-            link.href = 'https://cdn.quilljs.com/1.3.6/quill.bubble.css';    
+    var existingQuillScript = document.querySelector('head script[src="https://cdn.quilljs.com/1.3.6/quill.js"]');
+    if (!existingQuillScript) {
+        const quillStylesheet = document.createElement('link');
+        quillStylesheet.rel = 'stylesheet';
+        quillStylesheet.href = (properties.theme === "snow") ? 'https://cdn.quilljs.com/1.3.6/quill.snow.css' : 'https://cdn.quilljs.com/1.3.6/quill.bubble.css';
 
-        }
-        
-        // Append the link element to the head of the document
-        document.head.appendChild(link);
-        // If the script doesn't exist, create a new script element and append it to the head element
-        let script = document.createElement('script');
-        script.src = 'https://cdn.quilljs.com/1.3.6/quill.js';
-        script.type = 'text/javascript';
-        document.head.appendChild(script);
-    }
+        document.head.appendChild(quillStylesheet);
 
+        // If not, dynamically load Quill library
+        const quillScript = document.createElement('script');
+        quillScript.src = 'https://cdn.quilljs.com/1.3.6/quill.js';
+        document.body.appendChild(quillScript);
+
+        // Initialize Quill editor after library and stylesheet have loaded
+        quillScript.onload = () => {
     
 
     var container = document.getElementById(instance.data.divName);
@@ -181,7 +174,7 @@ function(instance, properties, context) {
             instance.publishState("hasfocus", quill.hasFocus());
         });
     }
-
+        }}
     // Insert Initials
 
     if (instance.data.qabli !== properties || instance.data.kardam === 0) {
@@ -189,6 +182,7 @@ function(instance, properties, context) {
         instance.data.qabli = properties;
     }
 
+        
     function makeChanges() {
         var quill = instance.data.quill;
         if (properties.initial_content) {
