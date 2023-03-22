@@ -124,7 +124,7 @@
             "caption": "________________________________________________________ ▭ Text Area Options",
             "editor": "Label",
             "name": "text_area_options",
-            "rank": 18
+            "rank": 17
         },
         "ABa": {
             "caption": "▭ Background Color",
@@ -133,7 +133,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "container_bg",
-            "rank": 19
+            "rank": 18
         },
         "ABb": {
             "caption": "▭ Border Width",
@@ -142,7 +142,7 @@
             "editor": "DynamicValue",
             "in_style": true,
             "name": "container_border_width",
-            "rank": 20,
+            "rank": 19,
             "value": "number"
         },
         "ABc": {
@@ -152,7 +152,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "container_border_color",
-            "rank": 21
+            "rank": 20
         },
         "ADK": {
             "caption": "Placeholder Color",
@@ -171,7 +171,7 @@
             "editor": "DynamicValue",
             "in_style": true,
             "name": "container_padding",
-            "rank": 22,
+            "rank": 21,
             "value": "number"
         },
         "ADM": {
@@ -207,21 +207,13 @@
             "rank": 15,
             "value": "number"
         },
-        "ADR": {
-            "caption": "□□□ Text's Color",
-            "default_val": "rgba(22,22,22,1)",
-            "editor": "Color",
-            "in_style": true,
-            "name": "toolbar_picker_color",
-            "rank": 16
-        },
         "ADS": {
             "caption": "□□□ Color on Hover",
             "default_val": "rgba(53,62,255,1)",
             "editor": "Color",
             "in_style": true,
             "name": "item_hover_color",
-            "rank": 17
+            "rank": 16
         },
         "ADX": {
             "caption": "< > Syntax Highlighting",
@@ -229,7 +221,7 @@
             "doc": "Set to 'true' to enable syntax highlighting for code blocks and inline code snippets.",
             "editor": "DynamicValue",
             "name": "syntax",
-            "rank": 24,
+            "rank": 23,
             "value": "boolean"
         },
         "ADj": {
@@ -238,7 +230,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "syntax_bg",
-            "rank": 26
+            "rank": 25
         },
         "ADk": {
             "caption": "< > Basic Font Color",
@@ -246,7 +238,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "syntax_font_color",
-            "rank": 25
+            "rank": 24
         },
         "ADl": {
             "caption": "“ ” Border Color",
@@ -254,7 +246,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "quote_border_color",
-            "rank": 32
+            "rank": 31
         },
         "ADm": {
             "caption": "“ ” Background Color",
@@ -262,7 +254,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "quote_bg",
-            "rank": 30
+            "rank": 29
         },
         "ADn": {
             "caption": "“ ” Font Color",
@@ -270,7 +262,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "quote_font_color",
-            "rank": 29
+            "rank": 28
         },
         "ADo": {
             "caption": "“ ” Border Width",
@@ -278,7 +270,7 @@
             "editor": "DynamicValue",
             "in_style": true,
             "name": "quote_border_width",
-            "rank": 31,
+            "rank": 30,
             "value": "number"
         },
         "ADp": {
@@ -289,7 +281,7 @@
             "in_style": true,
             "name": "font_serif",
             "optional": false,
-            "rank": 34,
+            "rank": 33,
             "value": "text"
         },
         "ADr": {
@@ -299,7 +291,7 @@
             "editor": "StaticText",
             "in_style": true,
             "name": "font_mono",
-            "rank": 35,
+            "rank": 34,
             "value": "text"
         },
         "ADs": {
@@ -309,7 +301,7 @@
             "editor": "DynamicValue",
             "in_style": true,
             "name": "syntax_border_radius",
-            "rank": 27,
+            "rank": 26,
             "value": "number"
         },
         "ADt": {
@@ -317,19 +309,19 @@
             "doc": "This section includes options related to the code blocks and inline code snippets.",
             "editor": "Label",
             "name": "codeblock",
-            "rank": 23
+            "rank": 22
         },
         "ADu": {
             "caption": "________________________________________________________ “ ” Quote Block",
             "editor": "Label",
             "name": "quoteblocksec",
-            "rank": 28
+            "rank": 27
         },
         "ADv": {
             "caption": "________________________________________________________ ⁋ Formatting",
             "editor": "Label",
             "name": "formattingsec",
-            "rank": 33
+            "rank": 32
         }
     },
     "has_reset_fn": true,
