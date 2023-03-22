@@ -247,12 +247,12 @@ function(instance, properties, context) {
         }
 
         var tooliCss = false;
-        let classRule = ['toolbar_icon_color','item_hover_color']
-        classRule.forEach(key =>{
-            tooliCss = (qabli[key] != properties.[key])? true : tooliCss;
+        let classRule = ['toolbar_icon_color', 'item_hover_color']
+        classRule.forEach(key => {
+            tooliCss = (qabli[key] != properties[key]) ? true : tooliCss;
         })
-            
-        }
+
+
         // Apply Customized CSS Classes [One Time]
         if (instance.data.kardam === 0 || tooliCss) {
             var css;
