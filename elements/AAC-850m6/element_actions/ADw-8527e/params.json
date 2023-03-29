@@ -1,0 +1,22 @@
+{
+    "caption": "Set Selection",
+    "doc": "Sets user selection to given range, which will also focus the editor.",
+    "fields": {
+        "ADx": {
+            "caption": "Start Index",
+            "doc": "The starting index of the text to select.",
+            "editor": "DynamicValue",
+            "name": "index",
+            "rank": 0,
+            "value": "number"
+        },
+        "ADy": {
+            "caption": "length",
+            "doc": "The length of the text to select, starting from the start index.",
+            "editor": "DynamicValue",
+            "name": "length",
+            "rank": 1,
+            "value": "number"
+        }
+    }
+}

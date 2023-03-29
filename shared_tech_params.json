@@ -1,10 +1,4 @@
 {
-    "assets": {
-        "ADi": {
-            "name": "custom",
-            "url": "//meta.cdn.bubble.io/f1679212328066x977065268613955600/custom.css"
-        }
-    },
     "dependencies": {
         "plugin_api_version": 3,
         "use_jquery": true

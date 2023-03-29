@@ -99,7 +99,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "toolbar_icon_color",
-            "rank": 14
+            "rank": 15
         },
         "ABX": {
             "caption": "⨽⨼ Border Width",
@@ -124,7 +124,7 @@
             "caption": "________________________________________________________ ▭ Text Area Options",
             "editor": "Label",
             "name": "text_area_options",
-            "rank": 17
+            "rank": 18
         },
         "ABa": {
             "caption": "▭ Background Color",
@@ -133,7 +133,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "container_bg",
-            "rank": 18
+            "rank": 19
         },
         "ABb": {
             "caption": "▭ Border Width",
@@ -142,7 +142,7 @@
             "editor": "DynamicValue",
             "in_style": true,
             "name": "container_border_width",
-            "rank": 19,
+            "rank": 20,
             "value": "number"
         },
         "ABc": {
@@ -152,7 +152,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "container_border_color",
-            "rank": 20
+            "rank": 21
         },
         "ADK": {
             "caption": "Placeholder Color",
@@ -171,7 +171,7 @@
             "editor": "DynamicValue",
             "in_style": true,
             "name": "container_padding",
-            "rank": 21,
+            "rank": 22,
             "value": "number"
         },
         "ADM": {
@@ -191,6 +191,8 @@
         },
         "ADO": {
             "caption": "□□□ Custom Modules",
+            "default_val": "https://data-visualization-plotly.bubbleapps.io/version-test/quill-rich-text-editor?ref=editor&tab=Toolbar",
+            "doc": "In the plugin demo app, in the toolbar tab, you can create your own toolbar and choose which items to include.",
             "editor": "DynamicValue",
             "long_text": true,
             "name": "customtoolbar",
@@ -204,7 +206,7 @@
             "doc": "",
             "editor": "DynamicValue",
             "name": "toolbar_icon_size",
-            "rank": 15,
+            "rank": 16,
             "value": "number"
         },
         "ADS": {
@@ -213,7 +215,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "item_hover_color",
-            "rank": 16
+            "rank": 17
         },
         "ADX": {
             "caption": "< > Syntax Highlighting",
@@ -221,7 +223,7 @@
             "doc": "Set to 'true' to enable syntax highlighting for code blocks and inline code snippets.",
             "editor": "DynamicValue",
             "name": "syntax",
-            "rank": 23,
+            "rank": 24,
             "value": "boolean"
         },
         "ADj": {
@@ -230,7 +232,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "syntax_bg",
-            "rank": 25
+            "rank": 26
         },
         "ADk": {
             "caption": "< > Basic Font Color",
@@ -238,7 +240,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "syntax_font_color",
-            "rank": 24
+            "rank": 25
         },
         "ADl": {
             "caption": "“ ” Border Color",
@@ -246,7 +248,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "quote_border_color",
-            "rank": 31
+            "rank": 32
         },
         "ADm": {
             "caption": "“ ” Background Color",
@@ -254,7 +256,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "quote_bg",
-            "rank": 29
+            "rank": 30
         },
         "ADn": {
             "caption": "“ ” Font Color",
@@ -262,7 +264,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "quote_font_color",
-            "rank": 28
+            "rank": 29
         },
         "ADo": {
             "caption": "“ ” Border Width",
@@ -270,7 +272,7 @@
             "editor": "DynamicValue",
             "in_style": true,
             "name": "quote_border_width",
-            "rank": 30,
+            "rank": 31,
             "value": "number"
         },
         "ADp": {
@@ -281,7 +283,7 @@
             "in_style": true,
             "name": "font_serif",
             "optional": false,
-            "rank": 33,
+            "rank": 34,
             "value": "text"
         },
         "ADr": {
@@ -291,7 +293,7 @@
             "editor": "StaticText",
             "in_style": true,
             "name": "font_mono",
-            "rank": 34,
+            "rank": 35,
             "value": "text"
         },
         "ADs": {
@@ -301,7 +303,7 @@
             "editor": "DynamicValue",
             "in_style": true,
             "name": "syntax_border_radius",
-            "rank": 26,
+            "rank": 27,
             "value": "number"
         },
         "ADt": {
@@ -309,22 +311,31 @@
             "doc": "This section includes options related to the code blocks and inline code snippets.",
             "editor": "Label",
             "name": "codeblock",
-            "rank": 22
+            "rank": 23
         },
         "ADu": {
             "caption": "________________________________________________________ “ ” Quote Block",
             "editor": "Label",
             "name": "quoteblocksec",
-            "rank": 27
+            "rank": 28
         },
         "ADv": {
             "caption": "________________________________________________________ ⁋ Formatting",
             "editor": "Label",
             "name": "formattingsec",
-            "rank": 32
+            "rank": 33
+        },
+        "AEA": {
+            "caption": "Insert Formula",
+            "default_val": true,
+            "doc": "Enable Formula Insert feature. (The formula item should be in the toolbar.)",
+            "editor": "DynamicValue",
+            "name": "math",
+            "rank": 14,
+            "value": "boolean"
         }
     },
-    "has_reset_fn": true,
+    "has_reset_fn": false,
     "icon": "ion-ios-bookmarks-outline",
     "property_applications": {
         "Background": true,

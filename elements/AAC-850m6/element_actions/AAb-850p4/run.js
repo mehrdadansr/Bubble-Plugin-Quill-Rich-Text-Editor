@@ -1,3 +1,4 @@
 function(instance, properties, context) {
-  instance.data.quill.updateContents(properties.delta)
+    var delta = JSON.parse(properties.delta)
+  instance.data.quill.updateContents(delta)
 }

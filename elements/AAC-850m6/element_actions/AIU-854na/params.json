@@ -1,0 +1,22 @@
+{
+    "caption": "Insert Raw HTML",
+    "doc": "Improper handling of HTML can lead to cross site scripting (XSS) and failure to sanitize properly is both notoriously error-prone and a leading cause of web vulnerabilities. ",
+    "fields": {
+        "AIV": {
+            "caption": "Raw HTML",
+            "doc": "<p>Hello<strong>World</strong>!</p>",
+            "editor": "DynamicValue",
+            "name": "html_raw",
+            "rank": 1,
+            "value": "text"
+        },
+        "AIW": {
+            "caption": "Start Index",
+            "doc": "The starting index of the HTML to retrieve.",
+            "editor": "DynamicValue",
+            "name": "index",
+            "rank": 0,
+            "value": "number"
+        }
+    }
+}

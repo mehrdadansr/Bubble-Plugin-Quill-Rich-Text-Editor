@@ -4,12 +4,18 @@
     "fields": {
         "AAc": {
             "caption": "Delta",
-            "doc": "Delta is the way Quill stores the text and formatting you type into the editor. It's like a special code that keeps track of everything you do, like adding or deleting text, changing colors or fonts, and more. This code helps Quill display and edit your content quickly and accurately, and allows for collaboration features like sharing and versioning.",
+            "doc": "",
             "editor": "DynamicValue",
             "long_text": true,
             "name": "delta",
             "rank": 0,
             "value": "text"
+        },
+        "ADz": {
+            "caption": "Delta is the way Quill stores the text and formatting you type into the editor. It's like a special code that keeps track of everything you do, like adding or deleting text, changing colors or fonts, and more. This code helps Quill display and edit your content quickly and accurately, and allows for collaboration features like sharing and versioning. You can get the last delta from element's state `Delta (Last Changes)`.",
+            "editor": "Label",
+            "name": "delta_desc",
+            "rank": 1
         }
     }
 }

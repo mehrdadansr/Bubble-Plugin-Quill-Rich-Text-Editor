@@ -60,7 +60,7 @@ function(instance, properties, context) {
 
         // Initialize Quill editor after library and stylesheet have loaded
         quillScript.onload = () => {
-            console.log("runCount");
+            //console.log("runCount");
             /**
              * toolbar
              */
@@ -114,7 +114,7 @@ function(instance, properties, context) {
                     ];
                     break;
                 case 'Custom':
-                    toolbarOptions = JSON.parse(properties.customtoolbar)
+                    toolbarOptions = JSON.parse('[' + properties.customtoolbar + ']')
                     break;
                 default:
                     toolbarOptions = [
@@ -126,6 +126,8 @@ function(instance, properties, context) {
                     break;
             }
 
+            //console.log(JSON.stringify(toolbarOptions));
+            
             /**
             * New Quill
             */
@@ -189,12 +191,12 @@ function(instance, properties, context) {
         }
     } else if (instance.data.qabli !== properties) {
         makeChanges();
-        instance.data.qabli = properties;
+        
     }
 
 
     function makeChanges() {
-
+		var quill = instance.data.quill;
         // Get Elements
         var parentElement = container.parentNode
         var qlToolbar = parentElement.querySelector('.ql-toolbar');
@@ -209,6 +211,16 @@ function(instance, properties, context) {
         parentElement.style.flexDirection = "column";
         parentElement.id = instance.data.parentID
 
+        /*if(quill.getLength()){
+            if (properties.initial_content) {
+                    if (properties.initial_type === "Content") {
+                        var initial_content = JSON.parse(properties.initial_content)
+                        quill.setContents(initial_content);
+                    } else {
+                        quill.setText(properties.initial_content);
+                    }
+                }
+           }*/
 
         /**
          * Toolbar CSS
@@ -249,9 +261,10 @@ function(instance, properties, context) {
         var tooliCss = false;
         let classRule = ['toolbar_icon_color', 'item_hover_color']
         classRule.forEach(key => {
-            tooliCss = (qabli[key] != properties[key]) ? true : tooliCss;
+            tooliCss = (instance.data.qabli[key] != properties[key]) ? true : tooliCss;
         })
-
+		
+        
 
         // Apply Customized CSS Classes [One Time]
         if (instance.data.kardam === 0 || tooliCss) {
@@ -274,6 +287,8 @@ function(instance, properties, context) {
                 style.appendChild(document.createTextNode(css));
             }
             instance.data.kardam = 1;
+            
         }
+        instance.data.qabli = properties;
     }
 }
