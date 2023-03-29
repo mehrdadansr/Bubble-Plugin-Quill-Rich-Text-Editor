@@ -56,7 +56,7 @@ function(instance, properties, context) {
         // If not, dynamically load Quill library
         const quillScript = document.createElement('script');
         quillScript.src = 'https://cdn.quilljs.com/1.3.6/quill.js';
-        document.body.appendChild(quillScript);
+        document.head.appendChild(quillScript);
 
         // Initialize Quill editor after library and stylesheet have loaded
         quillScript.onload = () => {
@@ -127,7 +127,7 @@ function(instance, properties, context) {
             }
 
             //console.log(JSON.stringify(toolbarOptions));
-            
+
             /**
             * New Quill
             */
@@ -178,11 +178,21 @@ function(instance, properties, context) {
 
                 // Set Initial Value & Place Holder
                 if (properties.initial_content) {
-                    if (properties.initial_type === "Content") {
-                        var initial_content = JSON.parse(properties.initial_content)
-                        quill.setContents(initial_content);
-                    } else {
-                        quill.setText(properties.initial_content);
+
+                    switch (properties.initial_type) {
+                        case "Content":
+                            var initial_content = JSON.parse(properties.initial_content)
+                            quill.setContents(initial_content);
+                            break;
+                        case "Text":
+                            quill.setText(properties.initial_content);
+                            break;
+                        case "HTML":
+                            quill.clipboard.dangerouslyPasteHTML(properties.initial_content)
+                            break;
+                        default:
+                            console.log("Type not detected")
+                            break;
                     }
                 }
                 quill.root.dataset.placeholder = (properties.placeholder) ? properties.placeholder : '';
@@ -191,12 +201,12 @@ function(instance, properties, context) {
         }
     } else if (instance.data.qabli !== properties) {
         makeChanges();
-        
+
     }
 
 
     function makeChanges() {
-		var quill = instance.data.quill;
+        var quill = instance.data.quill;
         // Get Elements
         var parentElement = container.parentNode
         var qlToolbar = parentElement.querySelector('.ql-toolbar');
@@ -210,17 +220,6 @@ function(instance, properties, context) {
         parentElement.style.overflow = "visible";
         parentElement.style.flexDirection = "column";
         parentElement.id = instance.data.parentID
-
-        /*if(quill.getLength()){
-            if (properties.initial_content) {
-                    if (properties.initial_type === "Content") {
-                        var initial_content = JSON.parse(properties.initial_content)
-                        quill.setContents(initial_content);
-                    } else {
-                        quill.setText(properties.initial_content);
-                    }
-                }
-           }*/
 
         /**
          * Toolbar CSS
@@ -263,8 +262,8 @@ function(instance, properties, context) {
         classRule.forEach(key => {
             tooliCss = (instance.data.qabli[key] != properties[key]) ? true : tooliCss;
         })
-		
-        
+
+
 
         // Apply Customized CSS Classes [One Time]
         if (instance.data.kardam === 0 || tooliCss) {
@@ -287,7 +286,7 @@ function(instance, properties, context) {
                 style.appendChild(document.createTextNode(css));
             }
             instance.data.kardam = 1;
-            
+
         }
         instance.data.qabli = properties;
     }
