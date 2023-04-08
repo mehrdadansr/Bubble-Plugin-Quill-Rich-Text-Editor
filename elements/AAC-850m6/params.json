@@ -4,7 +4,7 @@
     "add_large_file_upload_properties": false,
     "autobinding_value": "text",
     "can_fit_height": true,
-    "category": "visual elements",
+    "category": "input forms",
     "default_dim": {
         "height": 375,
         "width": 400
@@ -67,14 +67,14 @@
             "long_text": false,
             "name": "initial_type",
             "optional": false,
-            "options": "Content,Text",
+            "options": "Content,Text,HTML",
             "rank": 2,
             "value": "text"
         },
         "ABT": {
             "caption": "Quill Editor",
             "editor": "Label",
-            "name": "ess",
+            "name": "essec",
             "rank": 0
         },
         "ABU": {

@@ -113,13 +113,23 @@ function(instance, properties) {
         //New QUILL
         var quill = new Quill('#editor', options);
         if (properties.initial_content) {
-            if (properties.initial_type === "Content") {
-                var initial_content = JSON.parse(properties.initial_content)
-                quill.setContents(initial_content);
-            } else {
-                quill.setText(properties.initial_content);
-            }
-        }
+
+                    switch (properties.initial_type) {
+                        case "Content":
+                            var initial_content = JSON.parse(properties.initial_content)
+                            quill.setContents(initial_content);
+                            break;
+                        case "Text":
+                            quill.setText(properties.initial_content);
+                            break;
+                        case "HTML":
+                            quill.clipboard.dangerouslyPasteHTML(properties.initial_content)
+                            break;
+                        default:
+                            console.log("Type not detected")
+                            break;
+                    }
+                }
         //console.log("44")
         var qlContainer = document.getElementById('editor');
         var parentElement = qlContainer.parentNode

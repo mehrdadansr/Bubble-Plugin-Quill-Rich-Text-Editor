@@ -53,10 +53,12 @@ function(instance, properties, context) {
 
         document.head.appendChild(quillStylesheet);
 
+        
         // If not, dynamically load Quill library
         const quillScript = document.createElement('script');
         quillScript.src = 'https://cdn.quilljs.com/1.3.6/quill.js';
-        document.head.appendChild(quillScript);
+        
+        document.body.appendChild(quillScript);
 
         // Initialize Quill editor after library and stylesheet have loaded
         quillScript.onload = () => {
@@ -138,6 +140,9 @@ function(instance, properties, context) {
                 /**
                  * options
                  **/
+                //Quill.register("modules/htmlEditButton", htmlEditButton);
+                
+                
                 var options = {
                     modules: {
                         syntax: properties.syntax,
@@ -146,6 +151,11 @@ function(instance, properties, context) {
                     readOnly: properties.readOnly,
                     theme: properties.theme
                 };
+                  
+
+
+               // addHTMLbutton(options, Quill);
+                
                 instance.data.quill = new Quill(container, options);
 
                 /*
@@ -203,6 +213,8 @@ function(instance, properties, context) {
         makeChanges();
 
     }
+    
+
 
 
     function makeChanges() {
