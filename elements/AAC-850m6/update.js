@@ -57,13 +57,7 @@ function(instance, properties, context) {
         quillScript.src = 'https://cdn.quilljs.com/1.3.6/quill.js';
 
         document.body.appendChild(quillScript);
-
-        // Initialize Quill editor after library and stylesheet have loaded
-        quillScript.onload = () => {
-            //console.log("runCount");
-            /**
-             * toolbar
-             */
+        
             const polyfillScript = document.createElement('script');
             polyfillScript.src = 'https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise';
 
@@ -73,7 +67,13 @@ function(instance, properties, context) {
             htmlScript.src = 'https://unpkg.com/quill-html-edit-button@2.2.7/dist/quill.htmlEditButton.min.js';
 
             document.body.appendChild(htmlScript);
-            Quill.register("modules/htmlEditButton", htmlEditButton);
+        // Initialize Quill editor after library and stylesheet have loaded
+        quillScript.onload = () => {
+            //console.log("runCount");
+            /**
+             * toolbar
+             */
+
 
 
             var toolbarOptions;
@@ -138,12 +138,14 @@ function(instance, properties, context) {
                     break;
             }
 
-            options["htmlEditButton"] = {
-                syntax: true,
-            }
+            
             /**
             * New Quill
             */
+            
+                      Quill.register("modules/htmlEditButton", htmlEditButton);
+
+            
             if (instance.data.quill) {
                 instance.data.quill.update();
 
@@ -160,7 +162,10 @@ function(instance, properties, context) {
                     readOnly: properties.readOnly,
                     theme: properties.theme
                 };
-
+                
+options.modules["htmlEditButton"] = {
+                syntax: true,
+            }
 
 
                 // addHTMLbutton(options, Quill);
