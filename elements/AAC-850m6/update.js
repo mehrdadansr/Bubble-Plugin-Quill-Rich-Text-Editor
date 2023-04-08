@@ -299,8 +299,8 @@ https://bubble.io/my_plugins    if (instance.data.round === 0) {
             }
 
             if (properties.editHTML) {
-                css += `${thisID} .ql-formats button {  color: ${properties.toolbar_icon_color};}`
-            }
+                css = css + `${thisID} .ql-formats button {  color: ${properties.toolbar_icon_color};}`
+            };
             var head = document.head || document.getElementsByTagName('head')[0];
             var style = document.createElement('style');
             head.appendChild(style);

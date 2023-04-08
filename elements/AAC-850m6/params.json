@@ -333,6 +333,14 @@
             "name": "math",
             "rank": 14,
             "value": "boolean"
+        },
+        "AIZ": {
+            "caption": "editHTML",
+            "default_val": true,
+            "editor": "DynamicValue",
+            "name": "editHTML",
+            "rank": 36,
+            "value": "boolean"
         }
     },
     "has_reset_fn": false,
