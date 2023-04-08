@@ -1,7 +1,7 @@
 function(instance, properties, context) {
     let p = properties;
     var container = document.getElementById(instance.data.divName);
-    if (instance.data.round === 0) {
+https://bubble.io/my_plugins    if (instance.data.round === 0) {
         instance.data.qabli = p;
         instance.data.round = 1
     }
