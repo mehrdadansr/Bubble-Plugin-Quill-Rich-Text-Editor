@@ -53,11 +53,9 @@ function(instance, properties, context) {
 
         document.head.appendChild(quillStylesheet);
 
-        
-        // If not, dynamically load Quill library
         const quillScript = document.createElement('script');
         quillScript.src = 'https://cdn.quilljs.com/1.3.6/quill.js';
-        
+
         document.body.appendChild(quillScript);
 
         // Initialize Quill editor after library and stylesheet have loaded
@@ -66,6 +64,18 @@ function(instance, properties, context) {
             /**
              * toolbar
              */
+            const polyfillScript = document.createElement('script');
+            polyfillScript.src = 'https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise';
+
+            document.body.appendChild(polyfillScript);
+
+            const htmlScript = document.createElement('script');
+            htmlScript.src = 'https://unpkg.com/quill-html-edit-button@2.2.7/dist/quill.htmlEditButton.min.js';
+
+            document.body.appendChild(htmlScript);
+            Quill.register("modules/htmlEditButton", htmlEditButton);
+
+
             var toolbarOptions;
             switch (properties.toolbarpreset) {
                 case 'Basic Formatting':
@@ -128,8 +138,9 @@ function(instance, properties, context) {
                     break;
             }
 
-            //console.log(JSON.stringify(toolbarOptions));
-
+            options["htmlEditButton"] = {
+                syntax: true,
+            }
             /**
             * New Quill
             */
@@ -140,9 +151,7 @@ function(instance, properties, context) {
                 /**
                  * options
                  **/
-                //Quill.register("modules/htmlEditButton", htmlEditButton);
-                
-                
+
                 var options = {
                     modules: {
                         syntax: properties.syntax,
@@ -151,11 +160,11 @@ function(instance, properties, context) {
                     readOnly: properties.readOnly,
                     theme: properties.theme
                 };
-                  
 
 
-               // addHTMLbutton(options, Quill);
-                
+
+                // addHTMLbutton(options, Quill);
+
                 instance.data.quill = new Quill(container, options);
 
                 /*
@@ -213,8 +222,6 @@ function(instance, properties, context) {
         makeChanges();
 
     }
-    
-
 
 
     function makeChanges() {
