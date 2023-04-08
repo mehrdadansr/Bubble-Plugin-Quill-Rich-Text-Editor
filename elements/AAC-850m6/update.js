@@ -57,16 +57,16 @@ function(instance, properties, context) {
         quillScript.src = 'https://cdn.quilljs.com/1.3.6/quill.js';
 
         document.body.appendChild(quillScript);
-        
-            const polyfillScript = document.createElement('script');
-            polyfillScript.src = 'https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise';
 
-            document.body.appendChild(polyfillScript);
+        const polyfillScript = document.createElement('script');
+        polyfillScript.src = 'https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise';
 
-            const htmlScript = document.createElement('script');
-            htmlScript.src = 'https://unpkg.com/quill-html-edit-button@2.2.7/dist/quill.htmlEditButton.min.js';
+        document.body.appendChild(polyfillScript);
 
-            document.body.appendChild(htmlScript);
+        const htmlScript = document.createElement('script');
+        htmlScript.src = 'https://unpkg.com/quill-html-edit-button@2.2.7/dist/quill.htmlEditButton.min.js';
+
+        document.body.appendChild(htmlScript);
         // Initialize Quill editor after library and stylesheet have loaded
         quillScript.onload = () => {
             //console.log("runCount");
@@ -138,14 +138,14 @@ function(instance, properties, context) {
                     break;
             }
 
-            
+
             /**
             * New Quill
             */
-            
-                      Quill.register("modules/htmlEditButton", htmlEditButton);
 
-            
+            Quill.register("modules/htmlEditButton", htmlEditButton);
+
+
             if (instance.data.quill) {
                 instance.data.quill.update();
 
@@ -162,10 +162,10 @@ function(instance, properties, context) {
                     readOnly: properties.readOnly,
                     theme: properties.theme
                 };
-                
-options.modules["htmlEditButton"] = {
-                syntax: true,
-            }
+
+                options.modules["htmlEditButton"] = {
+                    syntax: true,
+                }
 
 
                 // addHTMLbutton(options, Quill);
