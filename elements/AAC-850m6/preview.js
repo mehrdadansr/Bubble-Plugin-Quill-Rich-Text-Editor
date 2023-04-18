@@ -14,7 +14,6 @@ function(instance, properties) {
             //console.log('Element not found');
         }
     } else {
-        //console.log("11")
         // Dynamically load Quill stylesheet
         const quillStylesheet = document.createElement('link');
         quillStylesheet.rel = 'stylesheet';

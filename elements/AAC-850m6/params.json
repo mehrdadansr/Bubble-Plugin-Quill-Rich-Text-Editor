@@ -51,6 +51,7 @@
         },
         "AAX": {
             "caption": "Initial Content",
+            "default_val": "",
             "doc": "The initial content to be loaded into the editor.",
             "editor": "DynamicValue",
             "long_text": true,
@@ -61,7 +62,7 @@
         },
         "AAZ": {
             "caption": "Initial Content Type",
-            "default_val": "Text",
+            "default_val": "Content",
             "doc": "The format of the initial content. Choose between plain text or Quill format content.",
             "editor": "Dropdown",
             "long_text": false,
@@ -124,7 +125,7 @@
             "caption": "________________________________________________________ ▭ Text Area Options",
             "editor": "Label",
             "name": "text_area_options",
-            "rank": 18
+            "rank": 19
         },
         "ABa": {
             "caption": "▭ Background Color",
@@ -133,7 +134,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "container_bg",
-            "rank": 19
+            "rank": 20
         },
         "ABb": {
             "caption": "▭ Border Width",
@@ -142,7 +143,7 @@
             "editor": "DynamicValue",
             "in_style": true,
             "name": "container_border_width",
-            "rank": 20,
+            "rank": 21,
             "value": "number"
         },
         "ABc": {
@@ -152,7 +153,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "container_border_color",
-            "rank": 21
+            "rank": 22
         },
         "ADK": {
             "caption": "Placeholder Color",
@@ -171,7 +172,7 @@
             "editor": "DynamicValue",
             "in_style": true,
             "name": "container_padding",
-            "rank": 22,
+            "rank": 23,
             "value": "number"
         },
         "ADM": {
@@ -223,7 +224,7 @@
             "doc": "Set to 'true' to enable syntax highlighting for code blocks and inline code snippets.",
             "editor": "DynamicValue",
             "name": "syntax",
-            "rank": 24,
+            "rank": 25,
             "value": "boolean"
         },
         "ADj": {
@@ -232,7 +233,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "syntax_bg",
-            "rank": 26
+            "rank": 27
         },
         "ADk": {
             "caption": "< > Basic Font Color",
@@ -240,7 +241,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "syntax_font_color",
-            "rank": 25
+            "rank": 26
         },
         "ADl": {
             "caption": "“ ” Border Color",
@@ -248,7 +249,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "quote_border_color",
-            "rank": 32
+            "rank": 33
         },
         "ADm": {
             "caption": "“ ” Background Color",
@@ -256,7 +257,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "quote_bg",
-            "rank": 30
+            "rank": 31
         },
         "ADn": {
             "caption": "“ ” Font Color",
@@ -264,7 +265,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "quote_font_color",
-            "rank": 29
+            "rank": 30
         },
         "ADo": {
             "caption": "“ ” Border Width",
@@ -272,7 +273,7 @@
             "editor": "DynamicValue",
             "in_style": true,
             "name": "quote_border_width",
-            "rank": 31,
+            "rank": 32,
             "value": "number"
         },
         "ADp": {
@@ -283,7 +284,7 @@
             "in_style": true,
             "name": "font_serif",
             "optional": false,
-            "rank": 34,
+            "rank": 35,
             "value": "text"
         },
         "ADr": {
@@ -293,7 +294,7 @@
             "editor": "StaticText",
             "in_style": true,
             "name": "font_mono",
-            "rank": 35,
+            "rank": 36,
             "value": "text"
         },
         "ADs": {
@@ -303,7 +304,7 @@
             "editor": "DynamicValue",
             "in_style": true,
             "name": "syntax_border_radius",
-            "rank": 27,
+            "rank": 28,
             "value": "number"
         },
         "ADt": {
@@ -311,19 +312,19 @@
             "doc": "This section includes options related to the code blocks and inline code snippets.",
             "editor": "Label",
             "name": "codeblock",
-            "rank": 23
+            "rank": 24
         },
         "ADu": {
             "caption": "________________________________________________________ “ ” Quote Block",
             "editor": "Label",
             "name": "quoteblocksec",
-            "rank": 28
+            "rank": 29
         },
         "ADv": {
             "caption": "________________________________________________________ ⁋ Formatting",
             "editor": "Label",
             "name": "formattingsec",
-            "rank": 33
+            "rank": 34
         },
         "AEA": {
             "caption": "Insert Formula",
@@ -335,11 +336,12 @@
             "value": "boolean"
         },
         "AIZ": {
-            "caption": "editHTML",
-            "default_val": true,
+            "caption": "□□□ Edit HTML",
+            "default_val": false,
+            "doc": "A tool to change the HTML content of the editor.",
             "editor": "DynamicValue",
             "name": "editHTML",
-            "rank": 36,
+            "rank": 18,
             "value": "boolean"
         }
     },

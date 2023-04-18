@@ -1,4 +1,10 @@
 {
+    "assets": {
+        "AIa": {
+            "name": "quill.htmlEditButton.min",
+            "url": "//meta.cdn.bubble.io/f1680953833915x329763331470189100/quill.htmlEditButton.min.js"
+        }
+    },
     "dependencies": {
         "plugin_api_version": 3,
         "use_jquery": true
