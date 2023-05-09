@@ -165,18 +165,11 @@ Quill.register("modules/htmlEditButton", htmlEditButton);
                     loadjs('//meta.cdn.bubble.io/f1680953833915x329763331470189100/quill.htmlEditButton.min.js', function() {
   
 });
-             		/* let existingeditHTMLScript = document.querySelector('body script[src="//meta.cdn.bubble.io/f1680953833915x329763331470189100/quill.htmlEditButton.min.js"]');
-   					 if (existingeditHTMLScript) {
-                           Quill.register("modules/htmlEditButton", htmlEditButton);
-                   		 options.modules["htmlEditButton"] = {
-                             syntax: false
-                         }
-             	   }*/
+
                    }
 
 
 
-                // addHTMLbutton(options, Quill);
 
                 instance.data.quill = new Quill(container, options);
 
@@ -192,6 +185,8 @@ Quill.register("modules/htmlEditButton", htmlEditButton);
                     instance.publishState("lastcontents", JSON.stringify(quill.getContents()))
                     instance.publishState("lasttext", JSON.stringify(quill.getText()))
                     instance.publishState("lastlength", JSON.stringify(quill.getLength()))
+                    instance.publishState("getHTML", quill.root.innerHTML)
+
                     instance.triggerEvent("textchange")
                 });
                 //on selection change
@@ -257,6 +252,11 @@ Quill.register("modules/htmlEditButton", htmlEditButton);
          * Toolbar CSS
          */
         if (qlToolbar) {
+            if(properties.toolbar_hide){
+                qlToolbar.classList.add("hide-toolbar")
+            }else{
+				qlToolbar.classList.remove(".hide-toolbar")
+            }
             qlToolbar.style.border = (properties.toolbar_border_width > 0) ? `${properties.toolbar_border_width}px solid ${properties.toolbar_border_color}` : 'none';
             qlToolbar.style.backgroundColor = properties.toolbar_bg;
             qlToolbar.style.padding = `${properties.toolbar_padding}px`;

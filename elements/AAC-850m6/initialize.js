@@ -8,4 +8,5 @@ function(instance, context) {
     instance.data.kardam = 0;
 	instance.data.round = 0;
 	instance.data.parentID = "P"+instance.data.divName;
+    
 }

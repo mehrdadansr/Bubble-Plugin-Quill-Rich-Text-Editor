@@ -1,16 +1,19 @@
 <script src="//unpkg.com/loadjs@latest/dist/loadjs.min.js"></script>
 
 <style>
-.ql-editor.ql-blank::before {
+	.ql-editor.ql-blank::before {
     color: inherit;
     content: attr(data-placeholder);
     font-style: italic;
-    left: 0;
+    left: 0px !important;
     pointer-events: none;
     position: absolute;
-    right: 0;
-    padding-left: inherit;
-	padding-right: inherit;
+    right: 0px !important;
+    padding-left: inherit !important;
+	padding-right: inherit !important;
+}
+	.ql-toolbar.hide-toolbar{
+	display: none !important;
 }
 </style>
  <script

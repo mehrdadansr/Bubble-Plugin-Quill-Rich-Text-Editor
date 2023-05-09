@@ -6,6 +6,7 @@
         }
     },
     "dependencies": {
+        "alpha_opt_in": false,
         "plugin_api_version": 3,
         "use_jquery": true
     }

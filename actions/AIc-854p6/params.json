@@ -1,0 +1,24 @@
+{
+    "category": "plugins",
+    "display": "Delta to HTML (Server)",
+    "fields": {
+        "AIb": {
+            "caption": "Quill Content (Delta)",
+            "editor": "DynamicValue",
+            "long_text": true,
+            "name": "html",
+            "rank": 0,
+            "value": "text"
+        }
+    },
+    "return_value": {
+        "AED": {
+            "caption": "HTML",
+            "name": "delta",
+            "rank": 0,
+            "value": "text"
+        }
+    },
+    "type": "server_side",
+    "use_packages": true
+}
