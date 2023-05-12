@@ -207,8 +207,8 @@ function(instance, properties, context) {
 
                 // Set Initial Value & Place Holder
                 if (properties.initial_content) {
-                    if (!properties.data.initial_content) {
-                        properties.data["initial_content"] = `${properties.initial_content}`
+                    if (!instance.data.initial_content) {
+                        instance.data["initial_content"] = `${properties.initial_content}`
                     }
 
                     switch (properties.initial_type) {
@@ -242,7 +242,7 @@ function(instance, properties, context) {
         var quill = instance.data.quill;
         // Get Elements
 
-        if (properties.initial_content && properties.data.initial_content !== `${properties.initial_content}`) {
+        if (properties.initial_content && instance.data.initial_content !== `${properties.initial_content}`) {
 
             switch (properties.initial_type) {
                 case "Content":
