@@ -138,7 +138,7 @@ function(instance, properties, context) {
 
             if (instance.data.quill) {
                 instance.data.quill.update();
-                
+
 
             } else {
                 /**
@@ -158,16 +158,17 @@ function(instance, properties, context) {
                 if (properties.editHTML) {
                     loadjs(['https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise', '//meta.cdn.bubble.io/f1680953833915x329763331470189100/quill.htmlEditButton.min.js'], 'htmlButton');
 
-loadjs.ready('htmlButton', function() {
-Quill.register("modules/htmlEditButton", htmlEditButton);
-  options.modules["htmlEditButton"] = {
-    syntax: false
-  }});
-                    loadjs('//meta.cdn.bubble.io/f1680953833915x329763331470189100/quill.htmlEditButton.min.js', function() {
-  
-});
+                    loadjs.ready('htmlButton', function () {
+                        Quill.register("modules/htmlEditButton", htmlEditButton);
+                        options.modules["htmlEditButton"] = {
+                            syntax: false
+                        }
+                    });
+                    loadjs('//meta.cdn.bubble.io/f1680953833915x329763331470189100/quill.htmlEditButton.min.js', function () {
 
-                   }
+                    });
+
+                }
 
 
 
@@ -206,6 +207,9 @@ Quill.register("modules/htmlEditButton", htmlEditButton);
 
                 // Set Initial Value & Place Holder
                 if (properties.initial_content) {
+                    if (!properties.data.initial_content) {
+                        properties.data["initial_content"] = `${properties.initial_content}`
+                    }
 
                     switch (properties.initial_type) {
                         case "Content":
@@ -229,6 +233,7 @@ Quill.register("modules/htmlEditButton", htmlEditButton);
         }
     } else if (instance.data.qabli !== properties) {
         makeChanges();
+        console.log("make changes")
 
     }
 
@@ -236,6 +241,27 @@ Quill.register("modules/htmlEditButton", htmlEditButton);
     function makeChanges() {
         var quill = instance.data.quill;
         // Get Elements
+
+        if (properties.initial_content && properties.data.initial_content !== `${properties.initial_content}`) {
+
+            switch (properties.initial_type) {
+                case "Content":
+                    var initial_content = JSON.parse(properties.initial_content)
+                    quill.setContents(initial_content);
+                    break;
+                case "Text":
+                    quill.setText(properties.initial_content);
+                    break;
+                case "HTML":
+                    quill.clipboard.dangerouslyPasteHTML(properties.initial_content)
+                    break;
+                default:
+                    console.log("Type not detected")
+                    break;
+            }
+        }
+        quill.root.dataset.placeholder = (properties.placeholder) ? properties.placeholder : '';
+
         var parentElement = container.parentNode
         var qlToolbar = parentElement.querySelector('.ql-toolbar');
         var qlContainer = parentElement.querySelector('.ql-editor');
@@ -253,10 +279,10 @@ Quill.register("modules/htmlEditButton", htmlEditButton);
          * Toolbar CSS
          */
         if (qlToolbar) {
-            if(properties.toolbar_hide){
+            if (properties.toolbar_hide) {
                 qlToolbar.classList.add("hide-toolbar")
-            }else{
-				qlToolbar.classList.remove(".hide-toolbar")
+            } else {
+                qlToolbar.classList.remove(".hide-toolbar")
             }
             qlToolbar.style.border = (properties.toolbar_border_width > 0) ? `${properties.toolbar_border_width}px solid ${properties.toolbar_border_color}` : 'none';
             qlToolbar.style.backgroundColor = properties.toolbar_bg;
