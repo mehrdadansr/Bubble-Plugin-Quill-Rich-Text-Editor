@@ -231,7 +231,8 @@ function(instance, properties, context) {
             }
             makeChanges();
         }
-    } else if (instance.data.qabli !== properties) {
+        //} else if (instance.data.qabli !== properties) {
+    } else {
         makeChanges();
         console.log("make changes")
 
