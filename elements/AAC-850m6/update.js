@@ -241,6 +241,7 @@ function(instance, properties, context) {
 
     function makeChanges() {
         var quill = instance.data.quill;
+          console.log("make changu")
         // Get Elements
 
         if (properties.initial_content && instance.data.initial_content !== `${properties.initial_content}`) {
