@@ -46,7 +46,7 @@
             "doc": "Whether to initialize the editor in read-only mode.",
             "editor": "DynamicValue",
             "name": "readOnly",
-            "rank": 6,
+            "rank": 7,
             "value": "boolean"
         },
         "AAX": {
@@ -82,7 +82,7 @@
             "caption": "_________________________________________________________ ⨽⨼ Toolbar Style",
             "editor": "Label",
             "name": "toolbar_",
-            "rank": 7
+            "rank": 8
         },
         "ABV": {
             "caption": "⨽⨼ Background Color",
@@ -91,7 +91,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "toolbar_bg",
-            "rank": 9
+            "rank": 10
         },
         "ABW": {
             "caption": "□□□ Icon's Color",
@@ -100,7 +100,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "toolbar_icon_color",
-            "rank": 16
+            "rank": 17
         },
         "ABX": {
             "caption": "⨽⨼ Border Width",
@@ -109,7 +109,7 @@
             "editor": "DynamicValue",
             "in_style": true,
             "name": "toolbar_border_width",
-            "rank": 10,
+            "rank": 11,
             "value": "number"
         },
         "ABY": {
@@ -119,13 +119,13 @@
             "editor": "Color",
             "in_style": true,
             "name": "toolbar_border_color",
-            "rank": 11
+            "rank": 12
         },
         "ABZ": {
             "caption": "________________________________________________________ ▭ Text Area Options",
             "editor": "Label",
             "name": "text_area_options",
-            "rank": 20
+            "rank": 21
         },
         "ABa": {
             "caption": "▭ Background Color",
@@ -134,7 +134,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "container_bg",
-            "rank": 21
+            "rank": 22
         },
         "ABb": {
             "caption": "▭ Border Width",
@@ -143,7 +143,7 @@
             "editor": "DynamicValue",
             "in_style": true,
             "name": "container_border_width",
-            "rank": 22,
+            "rank": 23,
             "value": "number"
         },
         "ABc": {
@@ -153,7 +153,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "container_border_color",
-            "rank": 23
+            "rank": 24
         },
         "ADK": {
             "caption": "Placeholder Color",
@@ -172,14 +172,14 @@
             "editor": "DynamicValue",
             "in_style": true,
             "name": "container_padding",
-            "rank": 24,
+            "rank": 25,
             "value": "number"
         },
         "ADM": {
             "caption": "______________________________________________________  □□□ Modules",
             "editor": "Label",
             "name": "toolbarsec",
-            "rank": 12
+            "rank": 13
         },
         "ADN": {
             "caption": "□□□ Presets",
@@ -188,7 +188,7 @@
             "editor": "Dropdown",
             "name": "toolbarpreset",
             "options": "Basic Formatting,Advanced Formatting,Content Creation,Full Formatting,Custom",
-            "rank": 13
+            "rank": 14
         },
         "ADO": {
             "caption": "□□□ Custom Modules",
@@ -198,7 +198,7 @@
             "long_text": true,
             "name": "customtoolbar",
             "optional": true,
-            "rank": 14,
+            "rank": 15,
             "value": "text"
         },
         "ADQ": {
@@ -207,7 +207,7 @@
             "doc": "",
             "editor": "DynamicValue",
             "name": "toolbar_icon_size",
-            "rank": 17,
+            "rank": 18,
             "value": "number"
         },
         "ADS": {
@@ -216,7 +216,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "item_hover_color",
-            "rank": 18
+            "rank": 19
         },
         "ADX": {
             "caption": "< > Syntax Highlighting",
@@ -224,7 +224,7 @@
             "doc": "Set to 'true' to enable syntax highlighting for code blocks and inline code snippets.",
             "editor": "DynamicValue",
             "name": "syntax",
-            "rank": 26,
+            "rank": 27,
             "value": "boolean"
         },
         "ADj": {
@@ -233,7 +233,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "syntax_bg",
-            "rank": 28
+            "rank": 29
         },
         "ADk": {
             "caption": "< > Basic Font Color",
@@ -241,7 +241,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "syntax_font_color",
-            "rank": 27
+            "rank": 28
         },
         "ADl": {
             "caption": "“ ” Border Color",
@@ -249,7 +249,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "quote_border_color",
-            "rank": 34
+            "rank": 35
         },
         "ADm": {
             "caption": "“ ” Background Color",
@@ -257,7 +257,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "quote_bg",
-            "rank": 32
+            "rank": 33
         },
         "ADn": {
             "caption": "“ ” Font Color",
@@ -265,7 +265,7 @@
             "editor": "Color",
             "in_style": true,
             "name": "quote_font_color",
-            "rank": 31
+            "rank": 32
         },
         "ADo": {
             "caption": "“ ” Border Width",
@@ -273,7 +273,7 @@
             "editor": "DynamicValue",
             "in_style": true,
             "name": "quote_border_width",
-            "rank": 33,
+            "rank": 34,
             "value": "number"
         },
         "ADp": {
@@ -284,7 +284,7 @@
             "in_style": true,
             "name": "font_serif",
             "optional": false,
-            "rank": 36,
+            "rank": 37,
             "value": "text"
         },
         "ADr": {
@@ -294,7 +294,7 @@
             "editor": "StaticText",
             "in_style": true,
             "name": "font_mono",
-            "rank": 37,
+            "rank": 38,
             "value": "text"
         },
         "ADs": {
@@ -304,7 +304,7 @@
             "editor": "DynamicValue",
             "in_style": true,
             "name": "syntax_border_radius",
-            "rank": 29,
+            "rank": 30,
             "value": "number"
         },
         "ADt": {
@@ -312,19 +312,19 @@
             "doc": "This section includes options related to the code blocks and inline code snippets.",
             "editor": "Label",
             "name": "codeblock",
-            "rank": 25
+            "rank": 26
         },
         "ADu": {
             "caption": "________________________________________________________ “ ” Quote Block",
             "editor": "Label",
             "name": "quoteblocksec",
-            "rank": 30
+            "rank": 31
         },
         "ADv": {
             "caption": "________________________________________________________ ⁋ Formatting",
             "editor": "Label",
             "name": "formattingsec",
-            "rank": 35
+            "rank": 36
         },
         "AEA": {
             "caption": "Insert Formula",
@@ -332,7 +332,7 @@
             "doc": "Enable Formula Insert feature. (The formula item should be in the toolbar.)",
             "editor": "DynamicValue",
             "name": "math",
-            "rank": 15,
+            "rank": 16,
             "value": "boolean"
         },
         "AIZ": {
@@ -341,7 +341,7 @@
             "doc": "A tool to change the HTML content of the editor.",
             "editor": "DynamicValue",
             "name": "editHTML",
-            "rank": 19,
+            "rank": 20,
             "value": "boolean"
         },
         "AIe": {
@@ -349,8 +349,17 @@
             "default_val": false,
             "editor": "DynamicValue",
             "name": "toolbar_hide",
-            "rank": 8,
+            "rank": 9,
             "value": "boolean"
+        },
+        "AIf": {
+            "caption": "Placeholder Style",
+            "default_val": "italic",
+            "editor": "Dropdown",
+            "in_style": true,
+            "name": "placeholder_style",
+            "options": "normal,italic",
+            "rank": 6
         }
     },
     "has_reset_fn": false,
