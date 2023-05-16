@@ -157,16 +157,17 @@ function(instance, properties, context) {
                 if (properties.editHTML) {
                     loadjs(['https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise', '//meta.cdn.bubble.io/f1680953833915x329763331470189100/quill.htmlEditButton.min.js'], 'htmlButton');
 
-loadjs.ready('htmlButton', function() {
-Quill.register("modules/htmlEditButton", htmlEditButton);
-  options.modules["htmlEditButton"] = {
-    syntax: false
-  }});
-                    loadjs('//meta.cdn.bubble.io/f1680953833915x329763331470189100/quill.htmlEditButton.min.js', function() {
-  
-});
+                    loadjs.ready('htmlButton', function () {
+                        Quill.register("modules/htmlEditButton", htmlEditButton);
+                        options.modules["htmlEditButton"] = {
+                            syntax: false
+                        }
+                    });
+                    loadjs('//meta.cdn.bubble.io/f1680953833915x329763331470189100/quill.htmlEditButton.min.js', function () {
 
-                   }
+                    });
+
+                }
 
 
 
@@ -252,10 +253,10 @@ Quill.register("modules/htmlEditButton", htmlEditButton);
          * Toolbar CSS
          */
         if (qlToolbar) {
-            if(properties.toolbar_hide){
+            if (properties.toolbar_hide) {
                 qlToolbar.classList.add("hide-toolbar")
-            }else{
-				qlToolbar.classList.remove(".hide-toolbar")
+            } else {
+                qlToolbar.classList.remove(".hide-toolbar")
             }
             qlToolbar.style.border = (properties.toolbar_border_width > 0) ? `${properties.toolbar_border_width}px solid ${properties.toolbar_border_color}` : 'none';
             qlToolbar.style.backgroundColor = properties.toolbar_bg;
@@ -280,6 +281,7 @@ Quill.register("modules/htmlEditButton", htmlEditButton);
             qlContainer.style.backgroundColor = properties.container_bg;
             qlContainer.style.padding = `${properties.container_padding}px`;
             qlContainer.style.color = properties.placeholder_color;
+            qlContainer.style.fontStyle = properties.placeholder_style;
             qlContainer.style.minHeight = `${parseInt(properties.bubble.min_height_css(), 10) - toolbarHeight}px`;
             qlContainer.style.maxHeight = `${parseInt(properties.bubble.max_height_css(), 10) - toolbarHeight}px`;
             if (!properties.bubble.fit_height()) {
