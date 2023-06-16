@@ -6,61 +6,11 @@ function(instance, properties, context) {
         instance.data.round = 1
     }
 
+    createQuill()
     /**
      * Import styles and script
      */
-    if (properties.syntax) {
-        // Check if a script with the same src attribute already exists in the head element
-        let existingScript = document.querySelector('head script[src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"]');
-        if (!existingScript) {
-            // Create a new link element
-            let link = document.createElement('link');
-            // Set the link element's attributes
-            link.rel = 'stylesheet';
-            link.href = '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css';
-            // Append the link element to the head of the document
-            document.head.appendChild(link);
-            // If the script doesn't exist, create a new script element and append it to the head element
-            let script = document.createElement('script');
-            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js';
-            script.type = 'text/javascript';
-            document.head.appendChild(script);
-        }
-    }
-    if (properties.math) {
-        // Check if a script with the same src attribute already exists in the head element
-        let existingScript = document.querySelector('head script[src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"]');
-        if (!existingScript) {
-            // Create a new link element
-            let link = document.createElement('link');
-            // Set the link element's attributes
-            link.rel = 'stylesheet';
-            link.href = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css';
-            // Append the link element to the head of the document
-            document.head.appendChild(link);
-            // If the script doesn't exist, create a new script element and append it to the head element
-            let script = document.createElement('script');
-            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js';
-            script.type = 'text/javascript';
-            document.head.appendChild(script);
-        }
-    }
-    var existingQuillScript = document.querySelector('head script[src="https://cdn.quilljs.com/1.3.6/quill.js"]');
-    if (!existingQuillScript) {
-        const quillStylesheet = document.createElement('link');
-        quillStylesheet.rel = 'stylesheet';
-        quillStylesheet.href = (properties.theme === "snow") ? 'https://cdn.quilljs.com/1.3.6/quill.snow.css' : 'https://cdn.quilljs.com/1.3.6/quill.bubble.css';
-
-        document.head.appendChild(quillStylesheet);
-
-        const quillScript = document.createElement('script');
-        quillScript.src = 'https://cdn.quilljs.com/1.3.6/quill.js';
-
-        document.body.appendChild(quillScript);
-
-
-        // Initialize Quill editor after library and stylesheet have loaded
-        quillScript.onload = () => {
+  function createQuill(){
 
 
             /**

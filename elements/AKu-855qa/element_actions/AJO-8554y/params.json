@@ -1,0 +1,30 @@
+{
+    "caption": "Insert Embed",
+    "doc": "This action allows you to insert an embed at a specified index in the editor's content.",
+    "fields": {
+        "AJP": {
+            "caption": "Index",
+            "doc": "The index at which to insert the embed.",
+            "editor": "DynamicValue",
+            "name": "index",
+            "rank": 0,
+            "value": "number"
+        },
+        "AJQ": {
+            "caption": "Type",
+            "doc": "The type of embed to insert, such as \"image\", \"video\", or \"audio\".",
+            "editor": "DynamicValue",
+            "name": "type",
+            "rank": 1,
+            "value": "text"
+        },
+        "AJR": {
+            "caption": "Value",
+            "doc": "The value of the embed to insert, which can be anything depending on the type of embed.",
+            "editor": "DynamicValue",
+            "name": "value",
+            "rank": 2,
+            "value": "_any_thing"
+        }
+    }
+}

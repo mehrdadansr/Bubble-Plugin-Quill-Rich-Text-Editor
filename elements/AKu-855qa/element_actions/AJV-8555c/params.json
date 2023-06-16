@@ -1,0 +1,28 @@
+{
+    "caption": "Insert Text",
+    "fields": {
+        "AJW": {
+            "caption": "Start Index",
+            "doc": "The starting index of the text to retrieve.",
+            "editor": "DynamicValue",
+            "name": "index",
+            "rank": 0,
+            "value": "number"
+        },
+        "AJX": {
+            "caption": "Text",
+            "editor": "DynamicValue",
+            "name": "text",
+            "rank": 1,
+            "value": "text"
+        },
+        "AJY": {
+            "caption": "Formats",
+            "doc": "The formatting options to apply, such as \"bold\", \"italic\", \"underline\", \"font size\", and more. e.g., 'color', 'red'",
+            "editor": "key_value_list",
+            "name": "formats",
+            "rank": 2,
+            "value": "text"
+        }
+    }
+}

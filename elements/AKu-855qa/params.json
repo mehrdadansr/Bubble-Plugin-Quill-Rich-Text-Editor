@@ -9,19 +9,19 @@
         "height": 375,
         "width": 400
     },
-    "display": "Quill Editor",
+    "display": "Quill Editor (copy)",
     "events": {
-        "AAU": {
+        "AJt": {
             "caption": "Text changed",
             "name": "textchange"
         },
-        "AAV": {
+        "AJu": {
             "caption": "User Selection Changed",
             "name": "selectionchange"
         }
     },
     "fields": {
-        "AAD": {
+        "AJv": {
             "caption": "Theme",
             "default_val": "snow",
             "doc": "The theme of the editor interface. Choose between the Snow theme which has the toolbar on top of the editor, or the Bubble theme which has a tooltip for selected text.",
@@ -31,7 +31,7 @@
             "options": "snow,bubble",
             "rank": 1
         },
-        "AAE": {
+        "AJw": {
             "caption": "Placeholder Text",
             "doc": "The text that appears in the editor when there is no content.",
             "editor": "DynamicValue",
@@ -40,7 +40,7 @@
             "rank": 4,
             "value": "text"
         },
-        "AAF": {
+        "AJx": {
             "caption": "Read-only Mode",
             "default_val": false,
             "doc": "Whether to initialize the editor in read-only mode.",
@@ -49,7 +49,7 @@
             "rank": 7,
             "value": "boolean"
         },
-        "AAX": {
+        "AJy": {
             "caption": "Initial Content",
             "default_val": "",
             "doc": "The initial content to be loaded into the editor.",
@@ -60,7 +60,7 @@
             "rank": 3,
             "value": "text"
         },
-        "AAZ": {
+        "AJz": {
             "caption": "Initial Content Type",
             "default_val": "Content",
             "doc": "The format of the initial content. Choose between plain text or Quill format content.",
@@ -72,19 +72,19 @@
             "rank": 2,
             "value": "text"
         },
-        "ABT": {
+        "AKA": {
             "caption": "Quill Editor",
             "editor": "Label",
             "name": "essec",
             "rank": 0
         },
-        "ABU": {
+        "AKB": {
             "caption": "_________________________________________________________ ⨽⨼ Toolbar Style",
             "editor": "Label",
             "name": "toolbar_",
             "rank": 8
         },
-        "ABV": {
+        "AKC": {
             "caption": "⨽⨼ Background Color",
             "default_val": "rgba(244, 244, 244, 1)",
             "doc": "The background color of the toolbar.",
@@ -93,7 +93,7 @@
             "name": "toolbar_bg",
             "rank": 10
         },
-        "ABW": {
+        "AKD": {
             "caption": "□□□ Icon's Color",
             "default_val": "rgba(22, 22, 22, 1)",
             "doc": "The color of the icons in the toolbar.",
@@ -102,7 +102,7 @@
             "name": "toolbar_icon_color",
             "rank": 17
         },
-        "ABX": {
+        "AKE": {
             "caption": "⨽⨼ Border Width",
             "default_val": 0,
             "doc": "The width of the border around the toolbar.",
@@ -112,7 +112,7 @@
             "rank": 11,
             "value": "number"
         },
-        "ABY": {
+        "AKF": {
             "caption": "⨽⨼ Border Color",
             "default_val": "rgba(22, 22, 22, 1)",
             "doc": "The color of the border around the toolbar.",
@@ -121,13 +121,13 @@
             "name": "toolbar_border_color",
             "rank": 12
         },
-        "ABZ": {
+        "AKG": {
             "caption": "________________________________________________________ ▭ Text Area Options",
             "editor": "Label",
             "name": "text_area_options",
             "rank": 21
         },
-        "ABa": {
+        "AKH": {
             "caption": "▭ Background Color",
             "default_val": "rgba(255, 255, 255, 1)",
             "doc": "The background color of the text area.",
@@ -136,7 +136,7 @@
             "name": "container_bg",
             "rank": 22
         },
-        "ABb": {
+        "AKI": {
             "caption": "▭ Border Width",
             "default_val": 0,
             "doc": "The width of the border around the text area.",
@@ -146,7 +146,7 @@
             "rank": 23,
             "value": "number"
         },
-        "ABc": {
+        "AKJ": {
             "caption": "▭ Border Color",
             "default_val": "rgba(22, 22, 22, 1)",
             "doc": "The color of the border around the text area.",
@@ -155,7 +155,7 @@
             "name": "container_border_color",
             "rank": 24
         },
-        "ADK": {
+        "AKK": {
             "caption": "Placeholder Color",
             "default_val": "rgba(198, 198, 198, 1)",
             "doc": "The color of the placeholder text.",
@@ -165,7 +165,7 @@
             "optional": false,
             "rank": 5
         },
-        "ADL": {
+        "AKL": {
             "caption": "▭  Padding",
             "default_val": 8,
             "doc": "The padding around the edges of the text area.",
@@ -175,13 +175,13 @@
             "rank": 25,
             "value": "number"
         },
-        "ADM": {
+        "AKM": {
             "caption": "______________________________________________________  □□□ Modules",
             "editor": "Label",
             "name": "toolbarsec",
             "rank": 13
         },
-        "ADN": {
+        "AKN": {
             "caption": "□□□ Presets",
             "default_val": "Full Formatting",
             "doc": "This setting allows to choose a preset configuration for toolbar. You can choose from several pre-defined options such as Basic Formatting, Advanced Formatting, or Full Formatting. Alternatively, you can create their own Custom preset.",
@@ -190,7 +190,7 @@
             "options": "Basic Formatting,Advanced Formatting,Content Creation,Full Formatting,Custom",
             "rank": 14
         },
-        "ADO": {
+        "AKO": {
             "caption": "□□□ Custom Modules",
             "default_val": "https://data-visualization-plotly.bubbleapps.io/version-test/quill-rich-text-editor?ref=editor&tab=Toolbar",
             "doc": "In the plugin demo app, in the toolbar tab, you can create your own toolbar and choose which items to include.",
@@ -201,7 +201,7 @@
             "rank": 15,
             "value": "text"
         },
-        "ADQ": {
+        "AKP": {
             "caption": "□□□ Icon's Size",
             "default_val": 24,
             "doc": "",
@@ -210,7 +210,7 @@
             "rank": 18,
             "value": "number"
         },
-        "ADS": {
+        "AKQ": {
             "caption": "□□□ Color on Hover",
             "default_val": "rgba(53,62,255,1)",
             "editor": "Color",
@@ -218,7 +218,7 @@
             "name": "item_hover_color",
             "rank": 19
         },
-        "ADX": {
+        "AKR": {
             "caption": "< > Syntax Highlighting",
             "default_val": false,
             "doc": "Set to 'true' to enable syntax highlighting for code blocks and inline code snippets.",
@@ -227,7 +227,7 @@
             "rank": 27,
             "value": "boolean"
         },
-        "ADj": {
+        "AKS": {
             "caption": "< > Background Color",
             "default_val": "rgba(33,33,33,1)",
             "editor": "Color",
@@ -235,7 +235,7 @@
             "name": "syntax_bg",
             "rank": 29
         },
-        "ADk": {
+        "AKT": {
             "caption": "< > Basic Font Color",
             "default_val": "rgba(255,255,255,1)",
             "editor": "Color",
@@ -243,7 +243,7 @@
             "name": "syntax_font_color",
             "rank": 28
         },
-        "ADl": {
+        "AKU": {
             "caption": "“ ” Border Color",
             "default_val": "rgba(0,55,255,1)",
             "editor": "Color",
@@ -251,7 +251,7 @@
             "name": "quote_border_color",
             "rank": 35
         },
-        "ADm": {
+        "AKV": {
             "caption": "“ ” Background Color",
             "default_val": "rgba(198, 198, 198, 1)",
             "editor": "Color",
@@ -259,7 +259,7 @@
             "name": "quote_bg",
             "rank": 33
         },
-        "ADn": {
+        "AKW": {
             "caption": "“ ” Font Color",
             "default_val": "rgba(33, 33, 33, 1)",
             "editor": "Color",
@@ -267,7 +267,7 @@
             "name": "quote_font_color",
             "rank": 32
         },
-        "ADo": {
+        "AKX": {
             "caption": "“ ” Border Width",
             "default_val": 4,
             "editor": "DynamicValue",
@@ -276,7 +276,7 @@
             "rank": 34,
             "value": "number"
         },
-        "ADp": {
+        "AKY": {
             "caption": "Serif Fonts",
             "default_val": "Georgia, Times New Roman, serif",
             "doc": "Enter the font families for serif font. Default: Georgia, Times New Roman, serif",
@@ -287,7 +287,7 @@
             "rank": 37,
             "value": "text"
         },
-        "ADr": {
+        "AKZ": {
             "caption": "Monospace Fonts",
             "default_val": "Monaco, Courier New, monospace",
             "doc": "Enter the font families for monospace font. Default: Monaco, Courier New, monospace",
@@ -297,7 +297,7 @@
             "rank": 38,
             "value": "text"
         },
-        "ADs": {
+        "AKa": {
             "caption": "< > Border Radius",
             "default_val": 3,
             "doc": "Enter the border radius for the code block.",
@@ -307,26 +307,26 @@
             "rank": 30,
             "value": "number"
         },
-        "ADt": {
+        "AKb": {
             "caption": "________________________________________________________ < > Code Block",
             "doc": "This section includes options related to the code blocks and inline code snippets.",
             "editor": "Label",
             "name": "codeblock",
             "rank": 26
         },
-        "ADu": {
+        "AKc": {
             "caption": "________________________________________________________ “ ” Quote Block",
             "editor": "Label",
             "name": "quoteblocksec",
             "rank": 31
         },
-        "ADv": {
+        "AKd": {
             "caption": "________________________________________________________ ⁋ Formatting",
             "editor": "Label",
             "name": "formattingsec",
             "rank": 36
         },
-        "AEA": {
+        "AKe": {
             "caption": "Insert Formula",
             "default_val": true,
             "doc": "Enable Formula Insert feature. (The formula item should be in the toolbar.)",
@@ -335,7 +335,7 @@
             "rank": 16,
             "value": "boolean"
         },
-        "AIZ": {
+        "AKf": {
             "caption": "□□□ Edit HTML (beta)",
             "default_val": false,
             "doc": "A tool to change the HTML content of the editor.",
@@ -344,7 +344,7 @@
             "rank": 20,
             "value": "boolean"
         },
-        "AIe": {
+        "AKg": {
             "caption": "⨽⨼ Hide Toolbar",
             "default_val": false,
             "editor": "DynamicValue",
@@ -352,7 +352,7 @@
             "rank": 9,
             "value": "boolean"
         },
-        "AIf": {
+        "AKh": {
             "caption": "Placeholder Style",
             "default_val": "italic",
             "editor": "Dropdown",
@@ -363,7 +363,7 @@
         }
     },
     "has_reset_fn": false,
-    "icon": "ion-ios-bookmarks-outline",
+    "icon": "ion-ios-bookmarks",
     "property_applications": {
         "Background": true,
         "Border": true,
@@ -374,7 +374,7 @@
         "resizable": true
     },
     "states": {
-        "AAG": {
+        "AKi": {
             "caption": "Editor Contents (Delta)",
             "doc": "Retrieves contents of the editor, with formatting data, represented by a Delta object.",
             "initialization_code": {
@@ -383,7 +383,7 @@
             "name": "lastcontents",
             "value": "text"
         },
-        "AAH": {
+        "AKj": {
             "caption": "Text Length",
             "doc": "Retrieves the length of the editor contents.",
             "initialization_code": {
@@ -392,7 +392,7 @@
             "name": "lastlength",
             "value": "number"
         },
-        "AAI": {
+        "AKk": {
             "caption": "Editor Text (plain text)",
             "doc": "Retrieves the string contents of the editor. Non-string content are omitted, so the returned string’s length may be shorter than the editor’s total length.",
             "initialization_code": {
@@ -401,7 +401,7 @@
             "name": "lasttext",
             "value": "text"
         },
-        "AAT": {
+        "AKl": {
             "caption": "Editor Has Focus",
             "doc": "Checks if editor has focus.",
             "initialization_code": {
@@ -410,7 +410,7 @@
             "name": "hasfocus",
             "value": "boolean"
         },
-        "AAe": {
+        "AKm": {
             "caption": "Delta (Last Changes)",
             "doc": "Delta is the way Quill stores the text and formatting you type into the editor. It's like a special code that keeps track of everything you do, like adding or deleting text, changing colors or fonts, and more. This code helps Quill display and edit your content quickly and accurately.",
             "initialization_code": {
@@ -419,7 +419,7 @@
             "name": "change",
             "value": "text"
         },
-        "AAf": {
+        "AKn": {
             "caption": "Pre-Change Contents",
             "doc": "Content of editor before last change.",
             "initialization_code": {
@@ -428,7 +428,7 @@
             "name": "beforechange",
             "value": "text"
         },
-        "AAh": {
+        "AKo": {
             "caption": "Selection Start Index",
             "doc": "User selection start point.",
             "initialization_code": {
@@ -437,7 +437,7 @@
             "name": "selectionindex",
             "value": "number"
         },
-        "AAi": {
+        "AKp": {
             "caption": "Selection Length",
             "doc": "User selection length.",
             "initialization_code": {
@@ -446,7 +446,7 @@
             "name": "selectionlength",
             "value": "number"
         },
-        "AAk": {
+        "AKq": {
             "caption": "Get Editor Contents",
             "doc": "Action output - retrieves editor contents.",
             "initialization_code": {
@@ -455,7 +455,7 @@
             "name": "getcontents",
             "value": "text"
         },
-        "AAm": {
+        "AKr": {
             "caption": "Get Editor Text (plain text)",
             "doc": "Action output - retrieves editor text (without formatting).",
             "initialization_code": {
@@ -464,7 +464,7 @@
             "name": "gettext",
             "value": "text"
         },
-        "ABS": {
+        "AKs": {
             "caption": "Get Editor Format",
             "doc": "Action output - retrieves editor formatting.",
             "initialization_code": {
@@ -473,7 +473,7 @@
             "name": "getformat",
             "value": "text"
         },
-        "AId": {
+        "AKt": {
             "caption": "HTML",
             "doc": "Instant HTML of editor's content after any changes",
             "initialization_code": {

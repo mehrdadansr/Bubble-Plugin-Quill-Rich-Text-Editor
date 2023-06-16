@@ -1,0 +1,25 @@
+{
+    "caption": "Get Contents",
+    "doc": "Get quill formatted content of custom part of text as the element's state.",
+    "fields": {
+        "AJJ": {
+            "caption": "Start Index",
+            "default_val": 1,
+            "doc": "The starting index of the text to retrieve.",
+            "editor": "DynamicValue",
+            "name": "index",
+            "optional": false,
+            "rank": 0,
+            "value": "number"
+        },
+        "AJK": {
+            "caption": "Length",
+            "default_val": 0,
+            "doc": "The length of the text to retrieve, starting from the start index.",
+            "editor": "DynamicValue",
+            "name": "length",
+            "rank": 1,
+            "value": "number"
+        }
+    }
+}

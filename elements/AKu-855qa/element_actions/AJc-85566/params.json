@@ -1,0 +1,30 @@
+{
+    "caption": "Format Text",
+    "doc": "Formats text in the editor.",
+    "fields": {
+        "AJd": {
+            "caption": "Start Index",
+            "doc": "The starting index of the text to retrieve.",
+            "editor": "DynamicValue",
+            "name": "index",
+            "rank": 0,
+            "value": "number"
+        },
+        "AJe": {
+            "caption": "Length",
+            "doc": "The length of the text to format, starting from the start index.",
+            "editor": "DynamicValue",
+            "name": "length",
+            "rank": 1,
+            "value": "number"
+        },
+        "AJf": {
+            "caption": "Formats",
+            "doc": "The formatting options to apply, such as \"bold\", \"italic\", \"underline\", \"font size\", and more. e.g., 'color', 'red'",
+            "editor": "key_value_list",
+            "name": "formats",
+            "rank": 2,
+            "value": "text"
+        }
+    }
+}

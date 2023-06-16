@@ -1,0 +1,14 @@
+{
+    "caption": "Set Text",
+    "doc": "Sets contents of editor with given text, returning a Delta representing the change. Note Quill documents must end with a newline so one will be added for you if omitted.",
+    "fields": {
+        "AJA": {
+            "caption": "Simple Text",
+            "editor": "DynamicValue",
+            "long_text": true,
+            "name": "text",
+            "rank": 0,
+            "value": "text"
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "caption": "Get Format",
+    "doc": "Get format of custom part of text as element's state.",
+    "fields": {
+        "AJh": {
+            "caption": "Start Index",
+            "doc": "The starting index of the text to retrieve.",
+            "editor": "DynamicValue",
+            "name": "index",
+            "rank": 0,
+            "value": "number"
+        },
+        "AJi": {
+            "caption": "Length",
+            "doc": "The length of the text to retrieve, starting from the start index.",
+            "editor": "DynamicValue",
+            "name": "length",
+            "rank": 1,
+            "value": "number"
+        },
+        "AJj": {
+            "caption": "current",
+            "default_val": false,
+            "doc": "If true, the user’s current selection range is used.",
+            "editor": "DynamicValue",
+            "name": "current",
+            "rank": 2,
+            "value": "boolean"
+        }
+    }
+}

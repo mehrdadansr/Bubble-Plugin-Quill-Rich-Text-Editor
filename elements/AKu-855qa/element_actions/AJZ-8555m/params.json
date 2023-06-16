@@ -1,0 +1,22 @@
+{
+    "caption": "Format",
+    "doc": "Format text at user’s current selection,  If the user’s selection length is 0, i.e. it is a cursor, the format will be set active, so the next character the user types will have that formatting.",
+    "fields": {
+        "AJa": {
+            "caption": "Name",
+            "doc": "color",
+            "editor": "DynamicValue",
+            "name": "name",
+            "rank": 0,
+            "value": "text"
+        },
+        "AJb": {
+            "caption": "Value",
+            "doc": "red",
+            "editor": "DynamicValue",
+            "name": "value",
+            "rank": 1,
+            "value": "_any_thing"
+        }
+    }
+}
