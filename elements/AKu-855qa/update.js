@@ -20,7 +20,7 @@ function(instance, properties, context) {
         quillScript.src = 'https://cdn.quilljs.com/1.3.6/quill.js';
         document.body.appendChild(quillScript);
          quillScript.onload = () => {
-             addImageDrop()
+             properties.dropImage && addImageDrop();
               createQuill()
          }
         
@@ -122,7 +122,7 @@ window.Quill.register('modules/imageDrop',exports.ImageDrop);}
                 var options = {
                     modules: {
                         syntax: properties.syntax,
-                        imageDrop: true,
+                        imageDrop: properties.dropImage,
                         toolbar: toolbarOptions
                     },
                     readOnly: properties.readOnly,

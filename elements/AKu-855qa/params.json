@@ -73,7 +73,7 @@
             "value": "text"
         },
         "AKA": {
-            "caption": "Quill Editor",
+            "caption": "Quill Editor S - with more features",
             "editor": "Label",
             "name": "essec",
             "rank": 0
@@ -360,6 +360,21 @@
             "name": "placeholder_style",
             "options": "normal,italic",
             "rank": 6
+        },
+        "AKx": {
+            "caption": "________________________________________________________ ✨ Extra Features",
+            "editor": "Label",
+            "name": "sec_extra",
+            "rank": 39
+        },
+        "AKy": {
+            "caption": "🖼️ Image Drop ",
+            "default_val": false,
+            "doc": "Allow images to be pasted and drag/dropped into the editor",
+            "editor": "DynamicValue",
+            "name": "dropImage",
+            "rank": 40,
+            "value": "boolean"
         }
     },
     "has_reset_fn": false,
