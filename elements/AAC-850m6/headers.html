@@ -1,8 +1,11 @@
 <script src="//unpkg.com/loadjs@latest/dist/loadjs.min.js"></script>
 
 <style>
+    
+
+    
 	.ql-editor.ql-blank::before {
-    color: inherit !important;
+    color: inherit;
     content: attr(data-placeholder);
     font-style: inherit !important;
     left: 0px !important;
@@ -12,9 +15,14 @@
     padding-left: inherit !important;
 	padding-right: inherit !important;
 }
+    
+    .ql-editor:not(.ql-blank) {
+  font-style: normal !important;
+}
 	.ql-toolbar.hide-toolbar{
 	display: none !important;
 }
+
 </style>
  <script
       src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise"
