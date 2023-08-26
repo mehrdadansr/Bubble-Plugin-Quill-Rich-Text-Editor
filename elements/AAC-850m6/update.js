@@ -45,7 +45,7 @@ function(instance, properties, context) {
             document.head.appendChild(script);
         }
     }
-    var existingQuillScript = document.querySelector('head script[src="https://cdn.quilljs.com/1.3.6/quill.js"]');
+    const existingQuillScript = document.querySelector('head script[src="https://cdn.quilljs.com/1.3.6/quill.js"]');
     if (!existingQuillScript) {
         const quillStylesheet = document.createElement('link');
         quillStylesheet.rel = 'stylesheet';
@@ -54,7 +54,7 @@ function(instance, properties, context) {
         document.head.appendChild(quillStylesheet);
 
         const quillScript = document.createElement('script');
-        quillScript.src = 'https://cdn.quilljs.com/1.3.6/quill.js';
+        quillScript.src = "https://cdn.quilljs.com/1.3.6/quill.js";
 
         document.body.appendChild(quillScript);
 
@@ -185,10 +185,10 @@ function(instance, properties, context) {
                 quill.on('text-change', function (delta, oldDelta, source) {
                     instance.publishState("change", JSON.stringify(delta))
                     instance.publishState("beforechange", JSON.stringify(oldDelta))
-                    instance.publishState("lastcontents", JSON.stringify(quill.getContents()))
-                    instance.publishState("lasttext", JSON.stringify(quill.getText()))
-                    instance.publishState("lastlength", JSON.stringify(quill.getLength()))
-                    instance.publishState("getHTML", quill.root.innerHTML)
+              //      instance.publishState("lastcontents", JSON.stringify(quill.getContents()));
+              //      instance.publishState("lasttext", quill.getText())
+                    instance.publishState("lastlength", JSON.stringify(quill.getLength() - 1));
+                    instance.publishState("getHTML", quill.root.innerHTML);
 
                     instance.triggerEvent("textchange")
                 });
@@ -198,12 +198,27 @@ function(instance, properties, context) {
                         instance.publishState("selectionindex", range.index + 1)
                         instance.publishState("selectionlength", range.length)
                         instance.triggerEvent("selectionchange")
+                        
                     }
                 });
                 //on editor change
-                quill.on('editor-change', function (delta, oldDelta, source) {
+                quill.on('editor-change', function (eventName, ...args) {
                     quill.update();
+					 if (eventName === 'selection-change') {
+  						 let range = args[0]
+                         if(range) instance.publishState("caretIndex", range.index + 1)
+ 					 }
+					if (eventName === 'text-change') {
+  					//	 let delta = args[0]
+                      	instance.publishState("lasttext", quill.getText())
+                        instance.publishState("lastcontents", JSON.stringify(quill.getContents()))
+						//instance.publishState("lastlength", quill.getLength())
+ 					 }
+                    
                     instance.publishState("hasfocus", quill.hasFocus());
+                    if (!quill.hasFocus()) instance.publishState("caretIndex", null)
+                    instance.triggerEvent("anyChange")
+
                 });
 
                 // Set Initial Value & Place Holder

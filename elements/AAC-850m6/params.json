@@ -18,6 +18,10 @@
         "AAV": {
             "caption": "User Selection Changed",
             "name": "selectionchange"
+        },
+        "ALA": {
+            "caption": "Changed",
+            "name": "anyChange"
         }
     },
     "fields": {
@@ -481,6 +485,14 @@
             },
             "name": "getHTML",
             "value": "text"
+        },
+        "AKz": {
+            "caption": "Caret Index",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "caretIndex",
+            "value": "number"
         }
     },
     "support_autobinding": false
