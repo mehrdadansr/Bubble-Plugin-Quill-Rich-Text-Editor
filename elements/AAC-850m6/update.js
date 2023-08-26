@@ -1,9 +1,10 @@
 function(instance, properties, context) {
-    let p = properties;
-    var container = document.getElementById(instance.data.divName);
+
+    const container = document.getElementById(instance.data.divName);
     if (instance.data.round === 0) {
-        instance.data.qabli = p;
-        instance.data.round = 1
+        const { bubble, ...otherProp } = properties;
+        instance.data.qabli = otherProp;
+        instance.data.round = 1;
     }
 
     /**
@@ -74,7 +75,7 @@ function(instance, properties, context) {
                         [{ 'indent': '-1' }, { 'indent': '+1' }],
                         [{ 'color': [] }, { 'background': [] }, 'link'],
                         [{ 'header': [1, 2, 3, false] }]
-                    ]
+                    ];
                     break;
                 case 'Advanced Formatting':
                     toolbarOptions = [
@@ -84,7 +85,7 @@ function(instance, properties, context) {
                         [{ 'color': [] }, { 'background': [] }, { 'font': [] }, { 'size': ['small', false, 'large', 'huge'] }],
                         [{ 'direction': 'rtl' }, { 'align': [] }],
                         ['clean']
-                    ]
+                    ];
                     break;
                 case 'Content Creation':
                     toolbarOptions = [
@@ -93,7 +94,7 @@ function(instance, properties, context) {
                         [{ 'color': [] }, { 'background': [] }, { 'font': [] }, { 'size': ['small', false, 'large'] }, { 'align': [] }, { 'direction': 'rtl' }],
                         ['link', 'image', 'video'],
                         ['clean']
-                    ]
+                    ];
                     break;
                 case 'Full Formatting':
                     toolbarOptions = [
@@ -116,7 +117,7 @@ function(instance, properties, context) {
                     ];
                     break;
                 case 'Custom':
-                    toolbarOptions = JSON.parse('[' + properties.customtoolbar + ']')
+                    toolbarOptions = JSON.parse('[' + properties.customtoolbar + ']');
                     break;
                 default:
                     toolbarOptions = [
@@ -124,7 +125,7 @@ function(instance, properties, context) {
                         [{ 'header': [1, 2, 3, false] }],
                         [{ 'list': 'ordered' }, { 'list': 'bullet' }],
                         ['clean']
-                    ]
+                    ];
                     break;
             }
 
@@ -138,7 +139,7 @@ function(instance, properties, context) {
 
             if (instance.data.quill) {
                 instance.data.quill.update();
-                makeChanges()
+                makeChanges();
                 instance.data.quill.root.dataset.placeholder = (properties.placeholder) ? properties.placeholder : '';
 
             } else {
@@ -156,20 +157,20 @@ function(instance, properties, context) {
                 };
 
 
-                if (properties.editHTML) {
-                    loadjs(['https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise', '//meta.cdn.bubble.io/f1680953833915x329763331470189100/quill.htmlEditButton.min.js'], 'htmlButton');
+                // if (properties.editHTML) {
+                //     loadjs(['https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise', '//meta.cdn.bubble.io/f1680953833915x329763331470189100/quill.htmlEditButton.min.js'], 'htmlButton');
 
-                    loadjs.ready('htmlButton', function () {
-                        Quill.register("modules/htmlEditButton", htmlEditButton);
-                        options.modules["htmlEditButton"] = {
-                            syntax: false
-                        }
-                    });
-                    loadjs('//meta.cdn.bubble.io/f1680953833915x329763331470189100/quill.htmlEditButton.min.js', function () {
+                //     loadjs.ready('htmlButton', function () {
+                //         Quill.register("modules/htmlEditButton", htmlEditButton);
+                //         options.modules["htmlEditButton"] = {
+                //             syntax: false
+                //         };
+                //     });
+                //     loadjs('//meta.cdn.bubble.io/f1680953833915x329763331470189100/quill.htmlEditButton.min.js', function () {
 
-                    });
+                //     });
 
-                }
+                // }
 
 
 
@@ -183,41 +184,41 @@ function(instance, properties, context) {
                 //on text change
                 var quill = instance.data.quill;
                 quill.on('text-change', function (delta, oldDelta, source) {
-                    instance.publishState("change", JSON.stringify(delta))
-                    instance.publishState("beforechange", JSON.stringify(oldDelta))
-              //      instance.publishState("lastcontents", JSON.stringify(quill.getContents()));
-              //      instance.publishState("lasttext", quill.getText())
+                    instance.publishState("change", JSON.stringify(delta));
+                    instance.publishState("beforechange", JSON.stringify(oldDelta));
+                    //      instance.publishState("lastcontents", JSON.stringify(quill.getContents()));
+                    //      instance.publishState("lasttext", quill.getText())
                     instance.publishState("lastlength", JSON.stringify(quill.getLength() - 1));
                     instance.publishState("getHTML", quill.root.innerHTML);
 
-                    instance.triggerEvent("textchange")
+                    instance.triggerEvent("textchange");
                 });
                 //on selection change
                 quill.on('selection-change', function (range, oldRange, source) {
                     if (range) {
-                        instance.publishState("selectionindex", range.index + 1)
-                        instance.publishState("selectionlength", range.length)
-                        instance.triggerEvent("selectionchange")
-                        
+                        instance.publishState("selectionindex", range.index + 1);
+                        instance.publishState("selectionlength", range.length);
+                        instance.triggerEvent("selectionchange");
+
                     }
                 });
                 //on editor change
                 quill.on('editor-change', function (eventName, ...args) {
                     quill.update();
-					 if (eventName === 'selection-change') {
-  						 let range = args[0]
-                         if(range) instance.publishState("caretIndex", range.index + 1)
- 					 }
-					if (eventName === 'text-change') {
-  					//	 let delta = args[0]
-                      	instance.publishState("lasttext", quill.getText())
-                        instance.publishState("lastcontents", JSON.stringify(quill.getContents()))
-						//instance.publishState("lastlength", quill.getLength())
- 					 }
-                    
+                    if (eventName === 'selection-change') {
+                        let range = args[0];
+                        if (range) instance.publishState("caretIndex", range.index + 1);
+                    }
+                    if (eventName === 'text-change') {
+                        //	 let delta = args[0]
+                        instance.publishState("lasttext", quill.getText());
+                        instance.publishState("lastcontents", JSON.stringify(quill.getContents()));
+                        //instance.publishState("lastlength", quill.getLength())
+                    }
+
                     instance.publishState("hasfocus", quill.hasFocus());
-                    if (!quill.hasFocus()) instance.publishState("caretIndex", null)
-                    instance.triggerEvent("anyChange")
+                    if (!quill.hasFocus()) instance.publishState("caretIndex", null);
+                    instance.triggerEvent("anyChange");
 
                 });
 
@@ -226,98 +227,109 @@ function(instance, properties, context) {
 
                     switch (properties.initial_type) {
                         case "Content":
-                            var initial_content = JSON.parse(properties.initial_content)
+                            var initial_content = JSON.parse(properties.initial_content);
                             quill.setContents(initial_content);
                             break;
                         case "Text":
                             quill.setText(properties.initial_content);
                             break;
                         case "HTML":
-                            quill.clipboard.dangerouslyPasteHTML(properties.initial_content)
+                            quill.clipboard.dangerouslyPasteHTML(properties.initial_content);
                             break;
                         default:
-                            console.log("Type not detected")
+                            console.log("Type not detected");
                             break;
                     }
                 }
                 quill.root.dataset.placeholder = (properties.placeholder) ? properties.placeholder : '';
-            }
+            };
+            makeChanges();
+        };
+    } else {
+        const { bubble, ...otherProp } = properties;
+        if (instance.data.qabli !== otherProp) {
             makeChanges();
         }
-    } else if (instance.data.qabli !== properties) {
-        makeChanges();
-
     }
 
 
     function makeChanges() {
-        var quill = instance.data.quill;
+        const quill = instance.data.quill;
         // Get Elements
-        var parentElement = container.parentNode
-        var qlToolbar = parentElement.querySelector('.ql-toolbar');
-        var qlContainer = parentElement.querySelector('.ql-editor');
-        var babaConti = parentElement.querySelector('.ql-container');
+        if (!container) return;
+        let parentElement = instance.canvas[0];
+        //container.parentNode;
+        if (!parentElement) return;
+        parentElement.classList.add('ql-parent');
+        // let qlToolbar = parentElement.querySelector('.ql-toolbar');
+        let qlContainer = parentElement.querySelector('.ql-editor');
+        let babaConti = parentElement.querySelector('.ql-container');
 
         /**
          * Parent Element Styles
         */
-        parentElement.style.display = "flex";
-        parentElement.style.overflow = "visible";
-        parentElement.style.flexDirection = "column";
-        parentElement.id = instance.data.parentID
+        // parentElement.style.display = "flex";
+        // parentElement.style.overflow = "visible";
+        // parentElement.style.flexDirection = "column";
+        parentElement.id = instance.data.parentID;
 
         /**
          * Toolbar CSS
          */
-        if (qlToolbar) {
-            if (properties.toolbar_hide) {
-                qlToolbar.classList.add("hide-toolbar")
-            } else {
-                qlToolbar.classList.remove(".hide-toolbar")
-            }
-            qlToolbar.style.border = (properties.toolbar_border_width > 0) ? `${properties.toolbar_border_width}px solid ${properties.toolbar_border_color}` : 'none';
-            qlToolbar.style.backgroundColor = properties.toolbar_bg;
-            qlToolbar.style.padding = `${properties.toolbar_padding}px`;
 
-            const buttons = parentElement.querySelectorAll('.ql-toolbar button');
-            for (let i = 0; i < buttons.length; i++) {
-                buttons[i].style.height = `${properties.toolbar_icon_size}px`;
-                buttons[i].style.width = `${properties.toolbar_icon_size}px`;
-            }
-            const pickerOption = parentElement.querySelectorAll('.ql-picker-options');
-            for (let i = 0; i < pickerOption.length; i++) {
-                pickerOption[i].style.backgroundColor = `${properties.toolbar_bg}px`;
-            }
-        }
+        styleQuillToolbar(parentElement, properties);
 
-        if (qlContainer) {
-            var parentHeighDiff = properties.bubble.height() - parentElement.clientHeight;
-            var toolbarHeight = qlToolbar.offsetHeight + parentHeighDiff;
+        styleQuillContainer(qlContainer, babaConti, properties);
 
-            babaConti.style.border = (properties.container_border_width > 0) ? `${properties.container_border_width}px solid ${properties.container_border_color}` : 'none';
-            qlContainer.style.backgroundColor = properties.container_bg;
-            qlContainer.style.padding = `${properties.container_padding}px`;
-            qlContainer.style.color = properties.placeholder_color;
-            qlContainer.style.fontStyle = properties.placeholder_style;
-            qlContainer.style.minHeight = `${parseInt(properties.bubble.min_height_css(), 10) - toolbarHeight}px`;
-            qlContainer.style.maxHeight = `${parseInt(properties.bubble.max_height_css(), 10) - toolbarHeight}px`;
-            if (!properties.bubble.fit_height()) {
-                qlContainer.style.height = `${parentElement.clientHeight - qlToolbar.offsetHeight}px`;
-            }
-            babaConti.style.fontFamily = "inherit"
-            babaConti.style.fontSize = "inherit"
-        }
+        // if (qlToolbar) {
+        //     if (properties.toolbar_hide) {
+        //         qlToolbar.classList.add("hide-toolbar");
+        //     } else {
+        //         qlToolbar.classList.remove(".hide-toolbar");
+        //     }
+        //     qlToolbar.style.border = (properties.toolbar_border_width > 0) ? `${properties.toolbar_border_width}px solid ${properties.toolbar_border_color}` : 'none';
+        //     qlToolbar.style.backgroundColor = properties.toolbar_bg;
+        //     qlToolbar.style.padding = `${properties.toolbar_padding}px`;
 
-        var tooliCss = false;
-        let classRule = ['toolbar_icon_color', 'item_hover_color']
+        //     const buttons = parentElement.querySelectorAll('.ql-toolbar button');
+        //     for (let i = 0; i < buttons.length; i++) {
+        //         buttons[i].style.height = `${properties.toolbar_icon_size}px`;
+        //         buttons[i].style.width = `${properties.toolbar_icon_size}px`;
+        //     }
+        //     const pickerOption = parentElement.querySelectorAll('.ql-picker-options');
+        //     for (let i = 0; i < pickerOption.length; i++) {
+        //         pickerOption[i].style.backgroundColor = `${properties.toolbar_bg}px`;
+        //     }
+        // }
+
+        // if (qlContainer) {
+        //     var parentHeighDiff = properties.bubble.height() - parentElement.clientHeight;
+        //     var toolbarHeight = qlToolbar.offsetHeight || 0 + parentHeighDiff;
+
+        //     babaConti.style.border = (properties.container_border_width > 0) ? `${properties.container_border_width}px solid ${properties.container_border_color}` : 'none';
+        //     qlContainer.style.backgroundColor = properties.container_bg;
+        //     qlContainer.style.padding = `${properties.container_padding}px`;
+        //     qlContainer.style.color = properties.placeholder_color;
+        //     qlContainer.style.fontStyle = properties.placeholder_style;
+        //     qlContainer.style.minHeight = `${parseInt(properties.bubble.min_height_css(), 10) - toolbarHeight}px`;
+        //     qlContainer.style.maxHeight = `${parseInt(properties.bubble.max_height_css(), 10) - toolbarHeight}px`;
+        //     if (!properties.bubble.fit_height()) {
+        //         qlContainer.style.height = `${parentElement.clientHeight - qlToolbar.offsetHeight}px`;
+        //     }
+        //     babaConti.style.fontFamily = "inherit";
+        //     babaConti.style.fontSize = "inherit";
+        // }
+
+        var toolbarCss = false;
+        let classRule = ['toolbar_icon_color', 'item_hover_color'];
         classRule.forEach(key => {
-            tooliCss = (instance.data.qabli[key] != properties[key]) ? true : tooliCss;
-        })
+            toolbarCss = (instance.data.qabli[key] !== properties[key]) ? true : toolbarCss;
+        });
 
         // Apply Customized CSS Classes [One Time]
-        if (instance.data.kardam === 0 || tooliCss) {
-            var css;
-            var thisID = `#${instance.data.parentID}`;
+        if (instance.data.kardam === 0 || toolbarCss) {
+            let css;
+            const thisID = `#${instance.data.parentID}`;
             if (properties.theme === 'snow') {
 
                 css = `${thisID} .ql-snow.ql-toolbar button:hover, ${thisID} .ql-snow .ql-toolbar button:hover, ${thisID} .ql-snow.ql-toolbar button:focus, ${thisID} .ql-snow .ql-toolbar button:focus, ${thisID} .ql-snow.ql-toolbar button.ql-active, ${thisID} .ql-snow .ql-toolbar button.ql-active, ${thisID} .ql-snow.ql-toolbar .ql-picker-label:hover, ${thisID} .ql-snow .ql-toolbar .ql-picker-label:hover, ${thisID} .ql-snow.ql-toolbar .ql-picker-label.ql-active, ${thisID} .ql-snow .ql-toolbar .ql-picker-label.ql-active, ${thisID} .ql-snow.ql-toolbar .ql-picker-item:hover, ${thisID} .ql-snow .ql-toolbar .ql-picker-item:hover, ${thisID} .ql-snow.ql-toolbar .ql-picker-item.ql-selected, ${thisID} .ql-snow .ql-toolbar .ql-picker-item.ql-selected { color: ${properties.item_hover_color}; } ${thisID} .ql-snow.ql-toolbar button:hover .ql-fill, ${thisID} .ql-snow .ql-toolbar button:hover .ql-fill, ${thisID} .ql-snow.ql-toolbar button:focus .ql-fill, ${thisID} .ql-snow .ql-toolbar button:focus .ql-fill, ${thisID} .ql-snow.ql-toolbar button.ql-active .ql-fill, ${thisID} .ql-snow .ql-toolbar button.ql-active .ql-fill, ${thisID} .ql-snow.ql-toolbar .ql-picker-label:hover .ql-fill, ${thisID} .ql-snow .ql-toolbar .ql-picker-label:hover .ql-fill, ${thisID} .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-fill, ${thisID} .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-fill, ${thisID} .ql-snow.ql-toolbar .ql-picker-item:hover .ql-fill, ${thisID} .ql-snow .ql-toolbar .ql-picker-item:hover .ql-fill, ${thisID} .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill, ${thisID} .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-fill, ${thisID} .ql-snow.ql-toolbar button:hover .ql-stroke.ql-fill, ${thisID} .ql-snow .ql-toolbar button:hover .ql-stroke.ql-fill, ${thisID} .ql-snow.ql-toolbar button:focus .ql-stroke.ql-fill, ${thisID} .ql-snow .ql-toolbar button:focus .ql-stroke.ql-fill, ${thisID} .ql-snow.ql-toolbar button.ql-active .ql-stroke.ql-fill, ${thisID} .ql-snow .ql-toolbar button.ql-active .ql-stroke.ql-fill, ${thisID} .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill, ${thisID} .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill, ${thisID} .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill, ${thisID} .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill, ${thisID} .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill, ${thisID} .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill, ${thisID} .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill, ${thisID} .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill { fill: ${properties.item_hover_color}; } ${thisID} .ql-snow.ql-toolbar button:hover .ql-stroke, ${thisID} .ql-snow .ql-toolbar button:hover .ql-stroke, ${thisID} .ql-snow.ql-toolbar button:focus .ql-stroke, ${thisID} .ql-snow .ql-toolbar button:focus .ql-stroke, ${thisID} .ql-snow.ql-toolbar button.ql-active .ql-stroke, ${thisID} .ql-snow .ql-toolbar button.ql-active .ql-stroke, ${thisID} .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke, ${thisID} .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke, ${thisID} .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke, ${thisID} .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke, ${thisID} .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke, ${thisID} .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke, ${thisID} .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke, ${thisID} .ql-snow.ql-toolbar button:hover .ql-stroke-miter, ${thisID} .ql-snow .ql-toolbar button:hover .ql-stroke-miter, ${thisID} .ql-snow.ql-toolbar button:focus .ql-stroke-miter,${thisID} .ql-snow .ql-toolbar button:focus .ql-stroke-miter, ${thisID} .ql-snow.ql-toolbar button.ql-active .ql-stroke-miter, ${thisID} .ql-snow .ql-toolbar button.ql-active .ql-stroke-miter, ${thisID} .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter, ${thisID} .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter, ${thisID} .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter, ${thisID} .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter, ${thisID} .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter, ${thisID} .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter, ${thisID} .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {  stroke: ${properties.item_hover_color};} ${thisID} .ql-snow .ql-stroke {fill: none;  stroke: ${properties.toolbar_icon_color};  stroke-linecap: round;  stroke-linejoin: round; stroke-width: 2;} ${thisID} .ql-snow .ql-stroke-miter {  fill: none;  stroke: ${properties.toolbar_icon_color};  stroke-miterlimit: 10;  stroke-width: 2;} ${thisID} .ql-snow .ql-fill, ${thisID} .ql-snow .ql-stroke .ql-fill {  fill: ${properties.toolbar_icon_color};} ${thisID} .ql-snow .ql-empty {  fill: none;} ${thisID} .ql-snow .ql-picker {  color: ${properties.toolbar_icon_color};  display: inline-block;  float: left;  font-size: 14px;  font-weight: 500;  height: 24px;  position: relative;  vertical-align: middle;} ${thisID} .ql-snow .ql-picker-options {  background-color: ${properties.toolbar_bg}; min-width: 100%;  padding: 4px 8px;} ${thisID} .ql-snow .ql-picker.ql-expanded .ql-picker-label {  color: ${properties.toolbar_bg};  z-index: 2;} ${thisID} .ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-fill {  fill: ${properties.toolbar_icon_color};} ${thisID} .ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {  stroke: ${properties.toolbar_border_color};} ${thisID} .ql-editor p, .ql-editor ol, ${thisID} .ql-editor ul, .ql-editor pre, .ql-editor blockquote, .ql-editor h1, ${thisID} .ql-editor h2, ${thisID} .ql-editor h3, ${thisID} .ql-editor h4, ${thisID} .ql-editor h5, ${thisID} .ql-editor h6 {  color: ${properties.bubble.font_color()};} ${thisID} .ql-snow .ql-editor pre.ql-syntax { color: ${properties.syntax_font_color}; background-color: ${properties.syntax_bg}; border-radius: ${properties.syntax_border_radius}px;} ${thisID} .ql-snow .ql-editor blockquote { border-left: ${properties.quote_border_width}px solid ${properties.quote_border_color}; padding-left: 16px;   background-color: ${properties.quote_bg};} ${thisID} .ql-editor .ql-font-serif { font-family: ${properties.font_serif};} ${thisID} .ql-editor .ql-font-monospace { font-family: ${properties.font_mono};} ${thisID} .ql-formats button {  color: ${properties.toolbar_icon_color};}`;
@@ -325,19 +337,93 @@ function(instance, properties, context) {
                 css = `${thisID} .ql-bubble.ql-toolbar button:hover, ${thisID} .ql-bubble .ql-toolbar button:hover, ${thisID} .ql-bubble.ql-toolbar button:focus, ${thisID} .ql-bubble .ql-toolbar button:focus, ${thisID} .ql-bubble.ql-toolbar button.ql-active, ${thisID} .ql-bubble .ql-toolbar button.ql-active, ${thisID} .ql-bubble.ql-toolbar .ql-picker-label:hover, ${thisID} .ql-bubble .ql-toolbar .ql-picker-label:hover, ${thisID} .ql-bubble.ql-toolbar .ql-picker-label.ql-active, ${thisID} .ql-bubble .ql-toolbar .ql-picker-label.ql-active, ${thisID} .ql-bubble.ql-toolbar .ql-picker-item:hover, ${thisID} .ql-bubble .ql-toolbar .ql-picker-item:hover, ${thisID} .ql-bubble.ql-toolbar .ql-picker-item.ql-selected, ${thisID} .ql-bubble .ql-toolbar .ql-picker-item.ql-selected { color: ${properties.item_hover_color}; } ${thisID} .ql-bubble.ql-toolbar button:hover .ql-fill, ${thisID} .ql-bubble .ql-toolbar button:hover .ql-fill, ${thisID} .ql-bubble.ql-toolbar button:focus .ql-fill, ${thisID} .ql-bubble .ql-toolbar button:focus .ql-fill, ${thisID} .ql-bubble.ql-toolbar button.ql-active .ql-fill, ${thisID} .ql-bubble .ql-toolbar button.ql-active .ql-fill, ${thisID} .ql-bubble.ql-toolbar .ql-picker-label:hover .ql-fill, ${thisID} .ql-bubble .ql-toolbar .ql-picker-label:hover .ql-fill, ${thisID} .ql-bubble.ql-toolbar .ql-picker-label.ql-active .ql-fill, ${thisID} .ql-bubble .ql-toolbar .ql-picker-label.ql-active .ql-fill, ${thisID} .ql-bubble.ql-toolbar .ql-picker-item:hover .ql-fill, ${thisID} .ql-bubble .ql-toolbar .ql-picker-item:hover .ql-fill, ${thisID} .ql-bubble.ql-toolbar .ql-picker-item.ql-selected .ql-fill, ${thisID} .ql-bubble .ql-toolbar .ql-picker-item.ql-selected .ql-fill, ${thisID} .ql-bubble.ql-toolbar button:hover .ql-stroke.ql-fill, ${thisID} .ql-bubble .ql-toolbar button:hover .ql-stroke.ql-fill, ${thisID} .ql-bubble.ql-toolbar button:focus .ql-stroke.ql-fill, ${thisID} .ql-bubble .ql-toolbar button:focus .ql-stroke.ql-fill, ${thisID} .ql-bubble.ql-toolbar button.ql-active .ql-stroke.ql-fill, ${thisID} .ql-bubble .ql-toolbar button.ql-active .ql-stroke.ql-fill, ${thisID} .ql-bubble.ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill, ${thisID} .ql-bubble .ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill, ${thisID} .ql-bubble.ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill, ${thisID} .ql-bubble .ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill, ${thisID} .ql-bubble.ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill, ${thisID} .ql-bubble .ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill, ${thisID} .ql-bubble.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill, ${thisID} .ql-bubble .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill { fill: ${properties.item_hover_color}; } ${thisID} .ql-bubble.ql-toolbar button:hover .ql-stroke, ${thisID} .ql-bubble .ql-toolbar button:hover .ql-stroke, ${thisID} .ql-bubble.ql-toolbar button:focus .ql-stroke, ${thisID} .ql-bubble .ql-toolbar button:focus .ql-stroke, ${thisID} .ql-bubble.ql-toolbar button.ql-active .ql-stroke,${thisID} .ql-bubble .ql-toolbar button.ql-active .ql-stroke, ${thisID} .ql-bubble.ql-toolbar .ql-picker-label:hover .ql-stroke, ${thisID} .ql-bubble .ql-toolbar .ql-picker-label:hover .ql-stroke, ${thisID} .ql-bubble.ql-toolbar .ql-picker-label.ql-active .ql-stroke, ${thisID} .ql-bubble .ql-toolbar .ql-picker-label.ql-active .ql-stroke, ${thisID} .ql-bubble.ql-toolbar .ql-picker-item:hover .ql-stroke,${thisID} .ql-bubble .ql-toolbar .ql-picker-item:hover .ql-stroke, ${thisID} .ql-bubble.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,${thisID} .ql-bubble .ql-toolbar .ql-picker-item.ql-selected .ql-stroke, ${thisID} .ql-bubble.ql-toolbar button:hover .ql-stroke-miter, ${thisID} .ql-bubble .ql-toolbar button:hover .ql-stroke-miter, ${thisID} .ql-bubble.ql-toolbar button:focus .ql-stroke-miter, ${thisID} .ql-bubble .ql-toolbar button:focus .ql-stroke-miter, ${thisID} .ql-bubble.ql-toolbar button.ql-active .ql-stroke-miter, ${thisID} .ql-bubble .ql-toolbar button.ql-active .ql-stroke-miter, ${thisID} .ql-bubble.ql-toolbar .ql-picker-label:hover .ql-stroke-miter, ${thisID} .ql-bubble .ql-toolbar .ql-picker-label:hover .ql-stroke-miter, ${thisID} .ql-bubble.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter, ${thisID} .ql-bubble .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter, ${thisID} .ql-bubble.ql-toolbar .ql-picker-item:hover .ql-stroke-miter, ${thisID} .ql-bubble .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,${thisID} .ql-bubble.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,${thisID} .ql-bubble .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {  stroke: ${properties.item_hover_color};} ${thisID} .ql-bubble .ql-stroke {  fill: none;  stroke: ${properties.toolbar_icon_color};  stroke-linecap: round;  stroke-linejoin: round;  stroke-width: 2;} ${thisID} .ql-bubble .ql-stroke-miter {  fill: none;  stroke: ${properties.toolbar_icon_color};  stroke-miterlimit: 10;  stroke-width: 2;} ${thisID} .ql-bubble .ql-fill, ${thisID} .ql-bubble .ql-stroke .ql-fill {  fill: ${properties.toolbar_icon_color};} ${thisID} .ql-bubble .ql-empty {  fill: none;} ${thisID} .ql-bubble .ql-picker {  color: ${properties.toolbar_icon_color};  display: inline-block;  float: left;  font-size: 14px;  font-weight: 500;  height: 24px;  position: relative;  vertical-align: middle;} ${thisID} .ql-bubble .ql-picker-options {  background-color: ${properties.toolbar_bg};   min-width: 100%;  padding: 4px 8px;} ${thisID} .ql-bubble .ql-picker.ql-expanded .ql-picker-label {  color: ${properties.toolbar_bg};  z-index: 2;} ${thisID} .ql-bubble .ql-picker.ql-expanded .ql-picker-label .ql-fill {  fill: ${properties.toolbar_icon_color};} ${thisID} .ql-bubble .ql-picker.ql-expanded .ql-picker-label .ql-stroke {  stroke: ${properties.toolbar_border_color};} .ql-editor p, .ql-editor ol, .ql-editor ul, .ql-editor pre, .ql-editor blockquote, .ql-editor h1, .ql-editor h2, .ql-editor h3, .ql-editor h4, .ql-editor h5, .ql-editor h6 {  color: ${properties.bubble.font_color()};} ${thisID} .ql-bubble .ql-editor pre.ql-syntax { color: ${properties.syntax_font_color}; background-color: ${properties.syntax_bg}; border-radius: ${properties.syntax_border_radius}px;} ${thisID} .ql-bubble .ql-editor blockquote { border-left: ${properties.quote_border_width}px solid ${properties.quote_border_color}; margin-bottom: 5px; margin-top: 5px; padding-left: 16px;   background-color: ${properties.quote_bg};} .ql-editor .ql-font-serif { font-family: ${properties.font_serif};} .ql-editor .ql-font-monospace { font-family: ${properties.font_mono};} ${thisID} .ql-formats button { color: ${properties.toolbar_icon_color};}`;
             }
 
-            var head = document.head || document.getElementsByTagName('head')[0];
-            var style = document.createElement('style');
-            head.appendChild(style);
-            style.type = 'text/css';
-            if (style.styleSheet) {
-                // This is required for IE8 and below.
-                style.styleSheet.cssText = css;
-            } else {
-                style.appendChild(document.createTextNode(css));
-            }
+            appendStyles(css);
             instance.data.kardam = 1;
 
         }
-        instance.data.qabli = properties;
+        const { bubble, ...otherProperties } = properties;
+        instance.data.qabli = otherProperties;
     }
+
+    function appendStyles(css) {
+        const head = document.head || document.getElementsByTagName('head')[0];
+        const styleElement = document.createElement('style');
+        styleElement.appendChild(document.createTextNode(css));
+        head.appendChild(styleElement);
+    }
+
+
+    /**
+    * Modify the styles of the Quill toolbar and its elements based on provided properties.
+    *
+    * @param {Element} parentElement - The parent element to start the query from.
+    * @param {Object} properties - The properties to modify the styles.
+    */
+    function styleQuillToolbar(parentElement, properties) {
+        /** @type {HTMLElement | null} */
+        const qlToolbar = parentElement.querySelector('.ql-toolbar');
+
+        if (!qlToolbar) return; // Exit if the toolbar is not found
+
+        if (properties.toolbar_hide) {
+            qlToolbar.classList.add("hide-toolbar");
+        } else {
+            qlToolbar.classList.remove("hide-toolbar"); // Fixed the class name here (removed the dot)
+        }
+
+        qlToolbar.style.border = (properties.toolbar_border_width > 0) ? `${properties.toolbar_border_width}px solid ${properties.toolbar_border_color}` : 'none';
+        qlToolbar.style.backgroundColor = properties.toolbar_bg;
+        qlToolbar.style.padding = `${properties.toolbar_padding}px`;
+
+        // Modify buttons styles
+        const buttons = parentElement.querySelectorAll('.ql-toolbar button');
+        for (let button of buttons) {
+            button.style.height = `${properties.toolbar_icon_size}px`;
+            button.style.width = `${properties.toolbar_icon_size}px`;
+        }
+
+        // Modify picker options styles
+        const pickerOptions = parentElement.querySelectorAll('.ql-picker-options');
+
+        for (let option of pickerOptions) {
+            option.style.backgroundColor = properties.toolbar_bg;
+        }
+    }
+
+
+    function styleQuillContainer(qlContainer, babaConti, properties) {
+        try {
+            if (!qlContainer) {
+                throw new Error("The qlContainer element is not provided or is null.");
+            }
+
+            // Style the container
+            qlContainer.style.backgroundColor = properties.container_bg;
+            qlContainer.style.padding = `${properties.container_padding}px`;
+            qlContainer.style.color = properties.placeholder_color;
+            qlContainer.style.fontStyle = properties.placeholder_style;
+
+            if (properties.bubble.fit_height()) {
+                qlContainer.style.overflowY = "visible"; // Let the container grow with the content
+                qlContainer.style.flexGrow = "0"; // Do not occupy the remaining space
+            } else {
+                qlContainer.style.overflowY = "auto"; // Show scrollbar if the content exceeds
+                qlContainer.style.flexGrow = "1"; // Occupy the remaining space
+            }
+
+            // Style the 'babaConti' element
+            babaConti.style.border = properties.container_border_width > 0
+                ? `${properties.container_border_width}px solid ${properties.container_border_color}`
+                : 'none';
+            babaConti.style.fontFamily = "inherit";
+            babaConti.style.fontSize = "inherit";
+
+        } catch (error) {
+            console.error("Error styling Quill container:", error.message);
+        }
+    }
+
+
+
+
 }

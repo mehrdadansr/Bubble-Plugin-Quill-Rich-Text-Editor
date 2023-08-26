@@ -1,28 +1,34 @@
 <script src="//unpkg.com/loadjs@latest/dist/loadjs.min.js"></script>
 
 <style>
-    
-
-    
-	.ql-editor.ql-blank::before {
-    color: inherit;
-    content: attr(data-placeholder);
-    font-style: inherit !important;
-    left: 0px !important;
-    pointer-events: none;
-    position: absolute;
-    right: 0px !important;
-    padding-left: inherit !important;
-	padding-right: inherit !important;
+.ql-editor.ql-blank::before {
+  color: inherit;
+  content: attr(data-placeholder);
+  font-style: inherit !important;
+  left: 0px !important;
+  pointer-events: none;
+  position: absolute;
+  right: 0px !important;
+  padding-left: inherit !important;
+  padding-right: inherit !important;
 }
     
-    .ql-editor:not(.ql-blank) {
+.ql-editor:not(.ql-blank) {
   font-style: normal !important;
 }
-	.ql-toolbar.hide-toolbar{
+
+.ql-toolbar.hide-toolbar{
 	display: none !important;
 }
 
+.ql-parent {
+  display: flex;
+  flex-direction: column;
+}
+
+.ql-container {
+  overflow-y: auto; 
+}
 </style>
  <script
       src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise"
