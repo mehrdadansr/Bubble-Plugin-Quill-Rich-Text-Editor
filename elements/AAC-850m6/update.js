@@ -4,7 +4,7 @@ function(instance, properties, context) {
     if (instance.data.round === 0) {
         const { bubble, ...otherProp } = properties;
         instance.data.qabli = otherProp;
-        
+
     }
 
     /**
@@ -68,78 +68,78 @@ function(instance, properties, context) {
             /**
              * toolbar
              */
-           // let toolbarOptions;
- const getToolbarOptions = (properties) => {
-    const toolbarPresets = {
-          'Basic Formatting': [
-        ['bold', 'italic', 'underline'],
-        [{ 'indent': '-1' }, { 'indent': '+1' }],
-        [{ 'color': [] }, { 'background': [] }, 'link'],
-        [{ 'header': [1, 2, 3, false] }]
-    ],
-    'Advanced Formatting': [
-        ['bold', 'italic', 'underline', 'strike', { 'script': 'sub' }, { 'script': 'super' }],
-        [{ 'list': 'bullet' }, { 'indent': '+1' }],
-        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-        [{ 'color': [] }, { 'background': [] }, { 'font': [] }, { 'size': ['small', false, 'large', 'huge'] }],
-        [{ 'direction': 'rtl' }, { 'align': [] }],
-        ['clean']
-    ],
-    'Content Creation': [
-        ['bold', 'italic', 'underline', { 'list': 'ordered' }, { 'list': 'bullet' }],
-        [{ 'header': [1, 2, 3, false] }, 'blockquote', 'code-block'],
-        [{ 'color': [] }, { 'background': [] }, { 'font': [] }, { 'size': ['small', false, 'large'] }, { 'align': [] }, { 'direction': 'rtl' }],
-        ['link', 'image', 'video'],
-        ['clean']
-    ],
-    'Full Formatting': [
-        ['bold', 'italic', 'underline', 'strike'],
-        ['blockquote', 'code-block'],
-        [{ 'header': 1 }, { 'header': 2 }],
-        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-        [{ 'script': 'sub' }, { 'script': 'super' }],
-        [{ 'indent': '-1' }, { 'indent': '+1' }],
-        [{ 'direction': 'rtl' }],
-        [{ 'size': ['small', false, 'large', 'huge'] }],
-        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-        ['link', 'image', 'video', 'formula'],
-        [{ 'color': [] }, { 'background': [] }],
-        [{ 'font': [] }],
-        [{ 'align': [] }],
-        ['clean']
-    ],
-        'Custom': () => {
-            try {
-                return JSON.parse('[' + properties.customtoolbar + ']');
-            } catch (error) {
-                console.error("Error parsing custom toolbar:", error.message);
-                return [
-            ['bold', 'italic', 'underline', 'link'],
-            [{ 'header': [1, 2, 3, false] }],
-            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-            ['clean']
-        ]; // Return a default value.
-            }
-        },
-        'default': [
-            ['bold', 'italic', 'underline', 'link'],
-            [{ 'header': [1, 2, 3, false] }],
-            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-            ['clean']
-        ]
-    };
+            // let toolbarOptions;
+            const getToolbarOptions = (properties) => {
+                const toolbarPresets = {
+                    'Basic Formatting': [
+                        ['bold', 'italic', 'underline'],
+                        [{ 'indent': '-1' }, { 'indent': '+1' }],
+                        [{ 'color': [] }, { 'background': [] }, 'link'],
+                        [{ 'header': [1, 2, 3, false] }]
+                    ],
+                    'Advanced Formatting': [
+                        ['bold', 'italic', 'underline', 'strike', { 'script': 'sub' }, { 'script': 'super' }],
+                        [{ 'list': 'bullet' }, { 'indent': '+1' }],
+                        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                        [{ 'color': [] }, { 'background': [] }, { 'font': [] }, { 'size': ['small', false, 'large', 'huge'] }],
+                        [{ 'direction': 'rtl' }, { 'align': [] }],
+                        ['clean']
+                    ],
+                    'Content Creation': [
+                        ['bold', 'italic', 'underline', { 'list': 'ordered' }, { 'list': 'bullet' }],
+                        [{ 'header': [1, 2, 3, false] }, 'blockquote', 'code-block'],
+                        [{ 'color': [] }, { 'background': [] }, { 'font': [] }, { 'size': ['small', false, 'large'] }, { 'align': [] }, { 'direction': 'rtl' }],
+                        ['link', 'image', 'video'],
+                        ['clean']
+                    ],
+                    'Full Formatting': [
+                        ['bold', 'italic', 'underline', 'strike'],
+                        ['blockquote', 'code-block'],
+                        [{ 'header': 1 }, { 'header': 2 }],
+                        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                        [{ 'script': 'sub' }, { 'script': 'super' }],
+                        [{ 'indent': '-1' }, { 'indent': '+1' }],
+                        [{ 'direction': 'rtl' }],
+                        [{ 'size': ['small', false, 'large', 'huge'] }],
+                        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                        ['link', 'image', 'video', 'formula'],
+                        [{ 'color': [] }, { 'background': [] }],
+                        [{ 'font': [] }],
+                        [{ 'align': [] }],
+                        ['clean']
+                    ],
+                    'Custom': () => {
+                        try {
+                            return JSON.parse('[' + properties.customtoolbar + ']');
+                        } catch (error) {
+                            console.error("Error parsing custom toolbar:", error.message);
+                            return [
+                                ['bold', 'italic', 'underline', 'link'],
+                                [{ 'header': [1, 2, 3, false] }],
+                                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                                ['clean']
+                            ]; // Return a default value.
+                        }
+                    },
+                    'default': [
+                        ['bold', 'italic', 'underline', 'link'],
+                        [{ 'header': [1, 2, 3, false] }],
+                        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                        ['clean']
+                    ]
+                };
 
-    const toolbarOption = toolbarPresets[properties.toolbarpreset];
+                const toolbarOption = toolbarPresets[properties.toolbarpreset];
 
-    // If toolbarOption is a function ('Custom')
-    return (typeof toolbarOption === "function" ? toolbarOption() : toolbarOption) || toolbarPresets.default;
-};
-            
+                // If toolbarOption is a function ('Custom')
+                return (typeof toolbarOption === "function" ? toolbarOption() : toolbarOption) || toolbarPresets.default;
+            };
 
-const toolbarOptions = getToolbarOptions(properties)
 
-            
-            
+            const toolbarOptions = getToolbarOptions(properties);
+
+
+
 
             /**
             * New Quill
@@ -279,8 +279,10 @@ const toolbarOptions = getToolbarOptions(properties)
          * Parent Element Styles
         */
         // parentElement.style.display = "flex";
-        // parentElement.style.overflow = "visible";
+
         // parentElement.style.flexDirection = "column";
+
+        if (properties.theme === 'bubble') parentElement.style.overflow = "visible";
         parentElement.id = instance.data.parentID;
 
         /**
@@ -416,7 +418,7 @@ const toolbarOptions = getToolbarOptions(properties)
 
             if (properties.bubble.fit_height()) {
                 qlContainer.style.overflowY = "visible"; // Let the container grow with the content
-                qlContainer.style.flexGrow = "0"; // Do not occupy the remaining space
+                qlContainer.style.flexGrow = "1"; // Do not occupy the remaining space
             } else {
                 qlContainer.style.overflowY = "auto"; // Show scrollbar if the content exceeds
                 qlContainer.style.flexGrow = "1"; // Occupy the remaining space
