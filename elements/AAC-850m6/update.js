@@ -4,7 +4,7 @@ function(instance, properties, context) {
     if (instance.data.round === 0) {
         const { bubble, ...otherProp } = properties;
         instance.data.qabli = otherProp;
-        instance.data.round = 1;
+        
     }
 
     /**
@@ -47,7 +47,8 @@ function(instance, properties, context) {
         }
     }
     const existingQuillScript = document.querySelector('head script[src="https://cdn.quilljs.com/1.3.6/quill.js"]');
-    if (!existingQuillScript) {
+    if (!existingQuillScript && instance.data.round === 0) {
+        instance.data.round = 1;
         const quillStylesheet = document.createElement('link');
         quillStylesheet.rel = 'stylesheet';
         quillStylesheet.href = (properties.theme === "snow") ? 'https://cdn.quilljs.com/1.3.6/quill.snow.css' : 'https://cdn.quilljs.com/1.3.6/quill.bubble.css';
@@ -139,70 +140,6 @@ const toolbarOptions = getToolbarOptions(properties)
 
             
             
-            
-            /*
-            switch (properties.toolbarpreset) {
-                case 'Basic Formatting':
-                    toolbarOptions = [
-                        ['bold', 'italic', 'underline'],
-                        [{ 'indent': '-1' }, { 'indent': '+1' }],
-                        [{ 'color': [] }, { 'background': [] }, 'link'],
-                        [{ 'header': [1, 2, 3, false] }]
-                    ];
-                    break;
-                case 'Advanced Formatting':
-                    toolbarOptions = [
-                        ['bold', 'italic', 'underline', 'strike', { 'script': 'sub' }, { 'script': 'super' }],
-                        [{ 'list': 'bullet' }, { 'indent': '+1' }],
-                        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-                        [{ 'color': [] }, { 'background': [] }, { 'font': [] }, { 'size': ['small', false, 'large', 'huge'] }],
-                        [{ 'direction': 'rtl' }, { 'align': [] }],
-                        ['clean']
-                    ];
-                    break;
-                case 'Content Creation':
-                    toolbarOptions = [
-                        ['bold', 'italic', 'underline', { 'list': 'ordered' }, { 'list': 'bullet' }],
-                        [{ 'header': [1, 2, 3, false] }, 'blockquote', 'code-block'],
-                        [{ 'color': [] }, { 'background': [] }, { 'font': [] }, { 'size': ['small', false, 'large'] }, { 'align': [] }, { 'direction': 'rtl' }],
-                        ['link', 'image', 'video'],
-                        ['clean']
-                    ];
-                    break;
-                case 'Full Formatting':
-                    toolbarOptions = [
-                        ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-                        ['blockquote', 'code-block'],
-
-                        [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-                        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-                        [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
-                        [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
-                        [{ 'direction': 'rtl' }],                         // text direction
-
-                        [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-                        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-                        ['link', 'image', 'video', 'formula'],          // add's image support
-                        [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-                        [{ 'font': [] }],
-                        [{ 'align': [] }],
-                        ['clean']                                         // remove formatting button
-                    ];
-                    break;
-                case 'Custom':
-                    toolbarOptions = JSON.parse('[' + properties.customtoolbar + ']');
-                    break;
-                default:
-                    toolbarOptions = [
-                        ['bold', 'italic', 'underline', 'link'],
-                        [{ 'header': [1, 2, 3, false] }],
-                        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-                        ['clean']
-                    ];
-                    break;
-            }
-            */
-
 
             /**
             * New Quill
@@ -467,7 +404,8 @@ const toolbarOptions = getToolbarOptions(properties)
     function styleQuillContainer(qlContainer, babaConti, properties) {
         try {
             if (!qlContainer) {
-                throw new Error("The qlContainer element is not provided or is null.");
+                //throw new Error("The qlContainer element is not provided or is null.");
+                return;
             }
 
             // Style the container
