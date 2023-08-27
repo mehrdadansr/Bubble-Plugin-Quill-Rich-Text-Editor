@@ -67,7 +67,80 @@ function(instance, properties, context) {
             /**
              * toolbar
              */
-            var toolbarOptions;
+           // let toolbarOptions;
+ const getToolbarOptions = (properties) => {
+    const toolbarPresets = {
+          'Basic Formatting': [
+        ['bold', 'italic', 'underline'],
+        [{ 'indent': '-1' }, { 'indent': '+1' }],
+        [{ 'color': [] }, { 'background': [] }, 'link'],
+        [{ 'header': [1, 2, 3, false] }]
+    ],
+    'Advanced Formatting': [
+        ['bold', 'italic', 'underline', 'strike', { 'script': 'sub' }, { 'script': 'super' }],
+        [{ 'list': 'bullet' }, { 'indent': '+1' }],
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        [{ 'color': [] }, { 'background': [] }, { 'font': [] }, { 'size': ['small', false, 'large', 'huge'] }],
+        [{ 'direction': 'rtl' }, { 'align': [] }],
+        ['clean']
+    ],
+    'Content Creation': [
+        ['bold', 'italic', 'underline', { 'list': 'ordered' }, { 'list': 'bullet' }],
+        [{ 'header': [1, 2, 3, false] }, 'blockquote', 'code-block'],
+        [{ 'color': [] }, { 'background': [] }, { 'font': [] }, { 'size': ['small', false, 'large'] }, { 'align': [] }, { 'direction': 'rtl' }],
+        ['link', 'image', 'video'],
+        ['clean']
+    ],
+    'Full Formatting': [
+        ['bold', 'italic', 'underline', 'strike'],
+        ['blockquote', 'code-block'],
+        [{ 'header': 1 }, { 'header': 2 }],
+        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+        [{ 'script': 'sub' }, { 'script': 'super' }],
+        [{ 'indent': '-1' }, { 'indent': '+1' }],
+        [{ 'direction': 'rtl' }],
+        [{ 'size': ['small', false, 'large', 'huge'] }],
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        ['link', 'image', 'video', 'formula'],
+        [{ 'color': [] }, { 'background': [] }],
+        [{ 'font': [] }],
+        [{ 'align': [] }],
+        ['clean']
+    ],
+        'Custom': () => {
+            try {
+                return JSON.parse('[' + properties.customtoolbar + ']');
+            } catch (error) {
+                console.error("Error parsing custom toolbar:", error.message);
+                return [
+            ['bold', 'italic', 'underline', 'link'],
+            [{ 'header': [1, 2, 3, false] }],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            ['clean']
+        ]; // Return a default value.
+            }
+        },
+        'default': [
+            ['bold', 'italic', 'underline', 'link'],
+            [{ 'header': [1, 2, 3, false] }],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            ['clean']
+        ]
+    };
+
+    const toolbarOption = toolbarPresets[properties.toolbarpreset];
+
+    // If toolbarOption is a function ('Custom')
+    return (typeof toolbarOption === "function" ? toolbarOption() : toolbarOption) || toolbarPresets.default;
+};
+            
+
+const toolbarOptions = getToolbarOptions(properties)
+
+            
+            
+            
+            /*
             switch (properties.toolbarpreset) {
                 case 'Basic Formatting':
                     toolbarOptions = [
@@ -128,6 +201,7 @@ function(instance, properties, context) {
                     ];
                     break;
             }
+            */
 
 
             /**
@@ -147,7 +221,7 @@ function(instance, properties, context) {
                  * options
                  **/
 
-                var options = {
+                let options = {
                     modules: {
                         syntax: properties.syntax,
                         toolbar: toolbarOptions
@@ -199,7 +273,6 @@ function(instance, properties, context) {
                         instance.publishState("selectionindex", range.index + 1);
                         instance.publishState("selectionlength", range.length);
                         instance.triggerEvent("selectionchange");
-
                     }
                 });
                 //on editor change
@@ -320,7 +393,7 @@ function(instance, properties, context) {
         //     babaConti.style.fontSize = "inherit";
         // }
 
-        var toolbarCss = false;
+        let toolbarCss = false;
         let classRule = ['toolbar_icon_color', 'item_hover_color'];
         classRule.forEach(key => {
             toolbarCss = (instance.data.qabli[key] !== properties[key]) ? true : toolbarCss;
