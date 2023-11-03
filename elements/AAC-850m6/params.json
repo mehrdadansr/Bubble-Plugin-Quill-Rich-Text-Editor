@@ -381,8 +381,10 @@
             "value": "boolean"
         },
         "ALD": {
-            "caption": "bubbleStyles",
+            "caption": "🖌️ Bubble Text Styles",
+            "doc": "This feature allows you to use the same bubble style for different text elements in the Quill editor.  You can enter the names of the styles you want to use for each text element, such as headings, paragraphs, etc. Use a comma to separate them.  The styles will be applied based on the tags of the text elements (such as h1, Normal: p, etc.).",
             "editor": "DynamicValue",
+            "long_text": true,
             "name": "bubbleStyles",
             "optional": true,
             "rank": 41,
