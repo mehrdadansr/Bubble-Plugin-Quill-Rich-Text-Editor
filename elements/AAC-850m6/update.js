@@ -397,6 +397,9 @@ function(instance, properties, context) {
         const styleNames = bubbleStyles.split(',');
         const thisID = instance.data.parentID;
         const styleProps = styleNames.map(name => stylePropsByName(name));
+       // console.log(styleProps);
+        if(!styleProps || !styleProps[0]) return;
+        
         createCssRules(thisID, styleProps);
     }
 
@@ -405,16 +408,33 @@ function(instance, properties, context) {
         document.head.appendChild(styleElement);
 
         // CSS properties mapping
-        const cssPropertyMap = {
-            '%b': value => value ? 'font-weight: bold;' : '',
-            '%f': value => `font-family: ${value.split(':::')[0]};`,
-            '%fc': value => `color: ${value};`,
-            '%fs': value => `font-size: ${value}px;`,
-            '%lh': value => `line-height: ${value};`,
-            'font_family': () => '', // Already handled by '%f'
-            'font_weight': value => `font-weight: ${value};`
-            // Add more mappings as needed
-        };
+ const cssPropertyMap = {
+    '%b': value => value ? 'font-weight: bold;' : '',
+    '%f': value => `font-family: ${value.split(':::')[0]};`,
+    '%i': value => value ? 'font-style: italic;' : '',
+    '%u': value => value ? 'text-decoration: underline;' : '',
+    '%bc': value => `border-color: ${value};`,
+    '%br': value => `border-radius: ${value}px;`,
+    '%bw': value => `border-width: ${value}px;`,
+    '%fc': value => `color: ${value};`,
+    '%fs': value => `font-size: ${value}px;`,
+    '%lh': value => `line-height: ${value};`,
+    '%ls': value => `letter-spacing: ${value}px;`,
+    '%vc': value => value ? 'display: flex; align-items: center;' : '',
+    '%ws': value => `word-spacing: ${value}px;`,
+    '%bas': value => `background-style: ${value};`,
+    '%bgc': value => `background-color: ${value};`,
+    '%bos': value => `border-style: ${value};`,
+    '%tes': value => value ? 'text-shadow: 1px 1px 2px #000;' : '',
+    '%tsb': value => `text-shadow-blur: ${value}px;`,
+    'opacity': value => `opacity: ${value / 100};`,
+    'font_weight': value => `font-weight: ${value};`,
+    'padding_top': value => `padding-top: ${value}px;`,
+    'padding_left': value => `padding-left: ${value}px;`,
+    'padding_right': value => `padding-right: ${value}px;`,
+    'padding_bottom': value => `padding-bottom: ${value}px;`,
+    // Other properties can be added here
+  };
 
         let cssContent = '';
 
@@ -444,7 +464,7 @@ function(instance, properties, context) {
         let obj = window.app.styles;
         for (let key in obj) {
             if (obj.hasOwnProperty(key)) {
-                if (obj[key]['%x'] === 'text' && obj[key]['%d'] === style) {
+                if (obj[key]['%x'] === 'Text' && obj[key]['%d'] === style) {
                     return obj[key]['%p'];
                 }
             }

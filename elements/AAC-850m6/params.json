@@ -379,6 +379,14 @@
             "name": "dropImage",
             "rank": 40,
             "value": "boolean"
+        },
+        "ALD": {
+            "caption": "bubbleStyles",
+            "editor": "DynamicValue",
+            "name": "bubbleStyles",
+            "optional": true,
+            "rank": 41,
+            "value": "text"
         }
     },
     "has_reset_fn": false,
