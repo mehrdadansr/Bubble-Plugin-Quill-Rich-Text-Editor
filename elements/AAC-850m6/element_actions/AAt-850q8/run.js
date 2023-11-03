@@ -1,4 +1,7 @@
 function(instance, properties, context) {
-  var delta = instance.data.quill.insertEmbed(properties.index, properties.type, properties.value)
-  instance.publishState("change", JSON.stringify(delta))
+  const { index, type, value } = properties;
+  if (index == null || type == null || value == null || !instance.data.quill) return;
+
+  const delta = instance.data.quill.insertEmbed(index, type, value);
+  instance.publishState("change", JSON.stringify(delta));
 }

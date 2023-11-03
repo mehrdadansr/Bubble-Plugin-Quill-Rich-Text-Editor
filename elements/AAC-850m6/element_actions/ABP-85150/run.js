@@ -1,5 +1,7 @@
 function(instance, properties, context) {
-  var delta = instance.data.quill.removeFormat(properties.index, properties.length)
-  instance.publishState("change", JSON.stringify(delta))
+  const { index, length } = properties;
+  if (index == null || length == null || !instance.data.quill) return;
+  var delta = instance.data.quill.removeFormat(index, length);
+  instance.publishState("change", JSON.stringify(delta));
 
 }

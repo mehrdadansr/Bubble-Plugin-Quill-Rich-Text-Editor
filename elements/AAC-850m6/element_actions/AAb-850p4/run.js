@@ -1,4 +1,14 @@
 function(instance, properties, context) {
-    var delta = JSON.parse(properties.delta)
-  instance.data.quill.updateContents(delta)
+  const { delta } = properties;
+  if (delta == null || !instance.data.quill) return;
+
+  try {
+    const contents = JSON.parse(delta);
+    instance.data.quill.updateContents(contents);
+  } catch (error) {
+    console.log('There is a problem with parse the delta', error.message);
+  }
+
+
+
 }

@@ -1,5 +1,7 @@
 function(instance, properties, context) {
-	var text = properties.text 
-    var delta = instance.data.quill.setText(text)
-    instance.publishState("change", JSON.stringify(delta))
+    const { text } = properties;
+    if (text == null || !instance.data.quill) return;
+
+    const delta = instance.data.quill.setText(text);
+    instance.publishState("change", JSON.stringify(delta));
 }

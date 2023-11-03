@@ -1,3 +1,4 @@
 function(instance, properties, context) {
-  instance.data.quill.focus()
+  if (instance.data.quill)
+    instance.data.quill.focus();
 }

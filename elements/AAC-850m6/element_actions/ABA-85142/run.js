@@ -1,10 +1,12 @@
 function(instance, properties, context) {
-    const arr = properties.formats;
-  const metadata = arr.reduce((acc, curr) => {
+  const { index, text, formats } = properties;
+  if (index == null || text == null || formats == null || !instance.data.quill) return;
+
+  const metadata = formats.reduce((acc, curr) => {
     acc[curr.key] = curr.value;
     return acc;
   }, {});
-    
-  var delta = instance.data.quill.insertText(properties.index, properties.text, metadata)
-  instance.publishState("change", JSON.stringify(delta))
+
+  const delta = instance.data.quill.insertText(index, text, metadata);
+  instance.publishState("change", JSON.stringify(delta));
 }

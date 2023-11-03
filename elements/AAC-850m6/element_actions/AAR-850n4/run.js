@@ -1,3 +1,4 @@
 function(instance, properties, context) {
-  instance.data.quill.enable(properties.enable)
+  if (instance.data.quill)
+    instance.data.quill.enable(properties.enable);
 }

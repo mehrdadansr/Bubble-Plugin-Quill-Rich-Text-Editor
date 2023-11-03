@@ -1,3 +1,5 @@
 function(instance, properties, context) {
-var delta = instance.data.quill.setSelection(properties.index, properties.length)
+    const { index, length } = properties;
+    if (index == null || length == null) return;
+    var delta = instance.data.quill.setSelection(index, length);
 }

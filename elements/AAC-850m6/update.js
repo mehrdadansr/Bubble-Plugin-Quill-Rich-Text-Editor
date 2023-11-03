@@ -6,11 +6,11 @@ function(instance, properties, context) {
         instance.data.qabli = otherProp;
 
     }
-    
 
-     
-    
-    
+
+
+
+
     /**
      * Import styles and script
      */
@@ -67,8 +67,8 @@ function(instance, properties, context) {
 
         // Initialize Quill editor after library and stylesheet have loaded
         quillScript.onload = () => {
-			
-            
+
+
 
             /**
              * toolbar
@@ -150,7 +150,7 @@ function(instance, properties, context) {
             * New Quill
             */
 
-			if(properties.dropImage) addImageDrop();
+            if (properties.dropImage) addImageDrop();
 
 
             if (instance.data.quill) {
@@ -172,24 +172,6 @@ function(instance, properties, context) {
                     readOnly: properties.readOnly,
                     theme: properties.theme
                 };
-
-
-                // if (properties.editHTML) {
-                //     loadjs(['https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise', '//meta.cdn.bubble.io/f1680953833915x329763331470189100/quill.htmlEditButton.min.js'], 'htmlButton');
-
-                //     loadjs.ready('htmlButton', function () {
-                //         Quill.register("modules/htmlEditButton", htmlEditButton);
-                //         options.modules["htmlEditButton"] = {
-                //             syntax: false
-                //         };
-                //     });
-                //     loadjs('//meta.cdn.bubble.io/f1680953833915x329763331470189100/quill.htmlEditButton.min.js', function () {
-
-                //     });
-
-                // }
-
-
 
 
                 instance.data.quill = new Quill(container, options);
@@ -284,10 +266,6 @@ function(instance, properties, context) {
         /**
          * Parent Element Styles
         */
-        // parentElement.style.display = "flex";
-
-        // parentElement.style.flexDirection = "column";
-
         if (properties.theme === 'bubble') parentElement.style.overflow = "visible";
         parentElement.id = instance.data.parentID;
 
@@ -299,44 +277,7 @@ function(instance, properties, context) {
 
         styleQuillContainer(qlContainer, babaConti, properties);
 
-        // if (qlToolbar) {
-        //     if (properties.toolbar_hide) {
-        //         qlToolbar.classList.add("hide-toolbar");
-        //     } else {
-        //         qlToolbar.classList.remove(".hide-toolbar");
-        //     }
-        //     qlToolbar.style.border = (properties.toolbar_border_width > 0) ? `${properties.toolbar_border_width}px solid ${properties.toolbar_border_color}` : 'none';
-        //     qlToolbar.style.backgroundColor = properties.toolbar_bg;
-        //     qlToolbar.style.padding = `${properties.toolbar_padding}px`;
 
-        //     const buttons = parentElement.querySelectorAll('.ql-toolbar button');
-        //     for (let i = 0; i < buttons.length; i++) {
-        //         buttons[i].style.height = `${properties.toolbar_icon_size}px`;
-        //         buttons[i].style.width = `${properties.toolbar_icon_size}px`;
-        //     }
-        //     const pickerOption = parentElement.querySelectorAll('.ql-picker-options');
-        //     for (let i = 0; i < pickerOption.length; i++) {
-        //         pickerOption[i].style.backgroundColor = `${properties.toolbar_bg}px`;
-        //     }
-        // }
-
-        // if (qlContainer) {
-        //     var parentHeighDiff = properties.bubble.height() - parentElement.clientHeight;
-        //     var toolbarHeight = qlToolbar.offsetHeight || 0 + parentHeighDiff;
-
-        //     babaConti.style.border = (properties.container_border_width > 0) ? `${properties.container_border_width}px solid ${properties.container_border_color}` : 'none';
-        //     qlContainer.style.backgroundColor = properties.container_bg;
-        //     qlContainer.style.padding = `${properties.container_padding}px`;
-        //     qlContainer.style.color = properties.placeholder_color;
-        //     qlContainer.style.fontStyle = properties.placeholder_style;
-        //     qlContainer.style.minHeight = `${parseInt(properties.bubble.min_height_css(), 10) - toolbarHeight}px`;
-        //     qlContainer.style.maxHeight = `${parseInt(properties.bubble.max_height_css(), 10) - toolbarHeight}px`;
-        //     if (!properties.bubble.fit_height()) {
-        //         qlContainer.style.height = `${parentElement.clientHeight - qlToolbar.offsetHeight}px`;
-        //     }
-        //     babaConti.style.fontFamily = "inherit";
-        //     babaConti.style.fontSize = "inherit";
-        // }
 
         let toolbarCss = false;
         let classRule = ['toolbar_icon_color', 'item_hover_color'];
@@ -356,6 +297,7 @@ function(instance, properties, context) {
             }
 
             appendStyles(css);
+            setBubbleStyles(instance, properties);
             instance.data.kardam = 1;
 
         }
@@ -442,9 +384,73 @@ function(instance, properties, context) {
         }
     }
 
-   function addImageDrop(){var exports={};
-"use strict";Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function e(e,t){for(var a=0;a<t.length;a++){var i=t[a];i.enumerable=i.enumerable||false;i.configurable=true;if("value"in i)i.writable=true;Object.defineProperty(e,i.key,i)}}return function(t,a,i){if(a)e(t.prototype,a);if(i)e(t,i);return t}}();function _classCallCheck(e,t){if(!(e instanceof t)){throw new TypeError("Cannot call a class as a function")}}var ImageDrop=exports.ImageDrop=function(){function e(t){var a=arguments.length>1&&arguments[1]!==undefined?arguments[1]:{};_classCallCheck(this,e);this.quill=t;this.handleDrop=this.handleDrop.bind(this);this.handlePaste=this.handlePaste.bind(this);this.quill.root.addEventListener("drop",this.handleDrop,false);this.quill.root.addEventListener("paste",this.handlePaste,false)}_createClass(e,[{key:"handleDrop",value:function e(t){t.preventDefault();if(t.dataTransfer&&t.dataTransfer.files&&t.dataTransfer.files.length){if(document.caretRangeFromPoint){var a=document.getSelection();var i=document.caretRangeFromPoint(t.clientX,t.clientY);if(a&&i){a.setBaseAndExtent(i.startContainer,i.startOffset,i.startContainer,i.startOffset)}}this.readFiles(t.dataTransfer.files,this.insert.bind(this))}}},{key:"handlePaste",value:function e(t){var a=this;if(t.clipboardData&&t.clipboardData.items&&t.clipboardData.items.length){this.readFiles(t.clipboardData.items,function(e){var t=a.quill.getSelection();if(t){}else{setTimeout(function(){return a.insert(e)},0)}})}}},{key:"insert",value:function e(t){var a=(this.quill.getSelection()||{}).index||this.quill.getLength();this.quill.insertEmbed(a,"image",t,"user")}},{key:"readFiles",value:function e(t,a){[].forEach.call(t,function(e){if(!e.type.match(/^image\/(gif|jpe?g|a?png|svg|webp|bmp|vnd\.microsoft\.icon)/i)){return}var t=new FileReader;t.onload=function(e){a(e.target.result)};var i=e.getAsFile?e.getAsFile():e;if(i instanceof Blob){t.readAsDataURL(i)}})}}]);return e}();
-window.Quill.register('modules/imageDrop',exports.ImageDrop);}
+    function addImageDrop() {
+        var exports = {};
+        "use strict"; Object.defineProperty(exports, "__esModule", { value: true }); var _createClass = function () { function e(e, t) { for (var a = 0; a < t.length; a++) { var i = t[a]; i.enumerable = i.enumerable || false; i.configurable = true; if ("value" in i) i.writable = true; Object.defineProperty(e, i.key, i); } } return function (t, a, i) { if (a) e(t.prototype, a); if (i) e(t, i); return t; }; }(); function _classCallCheck(e, t) { if (!(e instanceof t)) { throw new TypeError("Cannot call a class as a function"); } } var ImageDrop = exports.ImageDrop = function () { function e(t) { var a = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {}; _classCallCheck(this, e); this.quill = t; this.handleDrop = this.handleDrop.bind(this); this.handlePaste = this.handlePaste.bind(this); this.quill.root.addEventListener("drop", this.handleDrop, false); this.quill.root.addEventListener("paste", this.handlePaste, false); } _createClass(e, [{ key: "handleDrop", value: function e(t) { t.preventDefault(); if (t.dataTransfer && t.dataTransfer.files && t.dataTransfer.files.length) { if (document.caretRangeFromPoint) { var a = document.getSelection(); var i = document.caretRangeFromPoint(t.clientX, t.clientY); if (a && i) { a.setBaseAndExtent(i.startContainer, i.startOffset, i.startContainer, i.startOffset); } } this.readFiles(t.dataTransfer.files, this.insert.bind(this)); } } }, { key: "handlePaste", value: function e(t) { var a = this; if (t.clipboardData && t.clipboardData.items && t.clipboardData.items.length) { this.readFiles(t.clipboardData.items, function (e) { var t = a.quill.getSelection(); if (t) { } else { setTimeout(function () { return a.insert(e); }, 0); } }); } } }, { key: "insert", value: function e(t) { var a = (this.quill.getSelection() || {}).index || this.quill.getLength(); this.quill.insertEmbed(a, "image", t, "user"); } }, { key: "readFiles", value: function e(t, a) { [].forEach.call(t, function (e) { if (!e.type.match(/^image\/(gif|jpe?g|a?png|svg|webp|bmp|vnd\.microsoft\.icon)/i)) { return; } var t = new FileReader; t.onload = function (e) { a(e.target.result); }; var i = e.getAsFile ? e.getAsFile() : e; if (i instanceof Blob) { t.readAsDataURL(i); } }); } }]); return e; }();
+        window.Quill.register('modules/imageDrop', exports.ImageDrop);
+    }
+
+
+    function setBubbleStyles(instance, properties) {
+        const { bubbleStyles } = properties;
+        if (!bubbleStyles) return;
+        const styleNames = bubbleStyles.split(',');
+        const thisID = instance.data.parentID;
+        const styleProps = styleNames.map(name => stylePropsByName(name));
+        createCssRules(thisID, styleProps);
+    }
+
+    function createCssRules(id, objectsArray) {
+        const styleElement = document.createElement('style');
+        document.head.appendChild(styleElement);
+
+        // CSS properties mapping
+        const cssPropertyMap = {
+            '%b': value => value ? 'font-weight: bold;' : '',
+            '%f': value => `font-family: ${value.split(':::')[0]};`,
+            '%fc': value => `color: ${value};`,
+            '%fs': value => `font-size: ${value}px;`,
+            '%lh': value => `line-height: ${value};`,
+            'font_family': () => '', // Already handled by '%f'
+            'font_weight': value => `font-weight: ${value};`
+            // Add more mappings as needed
+        };
+
+        let cssContent = '';
+
+        objectsArray.forEach(obj => {
+            // Construct the selector
+            const selector = `#${id} .ql-editor ${obj.tag_type}`;
+
+            // Construct the CSS rule set
+            let rules = Object.entries(obj)
+                .map(([key, value]) => {
+                    // Use the mapping object to convert object keys to CSS properties
+                    const cssPropertyFunction = cssPropertyMap[key];
+                    return cssPropertyFunction ? cssPropertyFunction(value) : '';
+                })
+                .join(' ');
+
+            // Append the complete rule to the cssContent
+            cssContent += `${selector} { ${rules} }\n`;
+        });
+
+        // Add the CSS content to the style element
+        styleElement.appendChild(document.createTextNode(cssContent));
+    }
+
+    function stylePropsByName(style) {
+        // @ts-ignore
+        let obj = window.app.styles;
+        for (let key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                if (obj[key]['%x'] === 'text' && obj[key]['%d'] === style) {
+                    return obj[key]['%p'];
+                }
+            }
+        }
+        return null;
+    }
 
 
 }
