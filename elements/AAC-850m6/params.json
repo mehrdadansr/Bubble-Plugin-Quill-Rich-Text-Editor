@@ -364,6 +364,21 @@
             "name": "placeholder_style",
             "options": "normal,italic",
             "rank": 6
+        },
+        "ALB": {
+            "caption": "________________________________________________________ ✨ New Features",
+            "editor": "Label",
+            "name": "saa",
+            "rank": 39
+        },
+        "ALC": {
+            "caption": "🖼️ Image Drop ",
+            "default_val": false,
+            "doc": "Allow images to be pasted and drag/dropped into the editor.",
+            "editor": "DynamicValue",
+            "name": "dropImage",
+            "rank": 40,
+            "value": "boolean"
         }
     },
     "has_reset_fn": false,

@@ -9,7 +9,7 @@
         "height": 375,
         "width": 400
     },
-    "display": "✒️ Quill Editor S",
+    "display": "✒️ ☠️ Quill Editor S ",
     "events": {
         "AJt": {
             "caption": "Text changed",
@@ -73,7 +73,7 @@
             "value": "text"
         },
         "AKA": {
-            "caption": "Quill Editor S - with more features",
+            "caption": "📢 We are excited to announce that we have merged two elements into one main element to simplify the updating process and avoid errors. This means that this element will no longer be available in the future versions. We are sorry for any inconvenience this may cause you and we appreciate your understanding and support.",
             "editor": "Label",
             "name": "essec",
             "rank": 0

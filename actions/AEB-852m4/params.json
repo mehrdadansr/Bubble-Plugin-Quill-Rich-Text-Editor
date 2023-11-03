@@ -13,7 +13,7 @@
     },
     "return_value": {
         "AED": {
-            "caption": "delta",
+            "caption": "Delta",
             "name": "delta",
             "rank": 0,
             "value": "text"

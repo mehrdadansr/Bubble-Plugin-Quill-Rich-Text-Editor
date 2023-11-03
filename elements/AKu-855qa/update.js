@@ -2,12 +2,15 @@ function(instance, properties, context) {
     let p = properties;
     var container = document.getElementById(instance.data.divName);
     if (instance.data.round === 0) {
-        instance.data.qabli = p;
-        instance.data.round = 1
+        const { bubble, ...otherProp } = properties;
+        instance.data.qabli = otherProp;
+
     }
 
-    if (window.Quill) {
-    createQuill()
+    if (instance.data.round === 0 && window.Quill) {
+    	 instance.data.round = 1
+        createQuill()
+       
     }else{
         const quillStylesheet = document.createElement('link');
         quillStylesheet.rel = 'stylesheet';
