@@ -179,14 +179,36 @@ function(instance, properties, context) {
                 /*
                 *Events Trigger
                 */
+// Define a debounce function
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+        var context = this, args = arguments;
+        var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+}
 
+// The function you want to run when the user has stopped typing
+function onTextChange() {
+    instance.triggerEvent("textchange");
+}
+
+// Wrap the onTextChange function with a debounce
+var debouncedTextChange = debounce(onTextChange, 250); // waits 250ms after the last keyup event
+
+                
                 //on text change
                 var quill = instance.data.quill;
                 quill.on('text-change', function (delta, oldDelta, source) {
                     instance.publishState("change", JSON.stringify(delta));
                     instance.publishState("beforechange", JSON.stringify(oldDelta));
-                    //      instance.publishState("lastcontents", JSON.stringify(quill.getContents()));
-                    //      instance.publishState("lasttext", quill.getText())
                     instance.publishState("lastlength", JSON.stringify(quill.getLength() - 1));
                     instance.publishState("getHTML", quill.root.innerHTML);
 
