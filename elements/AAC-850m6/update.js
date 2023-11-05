@@ -179,31 +179,36 @@ function(instance, properties, context) {
                 /*
                 *Events Trigger
                 */
-// Define a debounce function
-function debounce(func, wait, immediate) {
-    var timeout;
-    return function() {
-        var context = this, args = arguments;
-        var later = function() {
-            timeout = null;
-            if (!immediate) func.apply(context, args);
-        };
-        var callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
-    };
-}
+                // Define a debounce function
+                function debounce(func, wait, immediate) {
+                    var timeout;
+                    return function () {
+                        var context = this, args = arguments;
+                        var later = function () {
+                            timeout = null;
+                            if (!immediate) func.apply(context, args);
+                        };
+                        var callNow = immediate && !timeout;
+                        clearTimeout(timeout);
+                        timeout = setTimeout(later, wait);
+                        if (callNow) func.apply(context, args);
+                    };
+                }
 
-// The function you want to run when the user has stopped typing
-function onTextChange() {
-    instance.triggerEvent("textchange");
-}
+                // The function you want to run when the user has stopped typing
+                function onTextChange() {
+                    instance.triggerEvent("textChange");
+                }
 
-// Wrap the onTextChange function with a debounce
-var debouncedTextChange = debounce(onTextChange, 250); // waits 250ms after the last keyup event
+                function onEditorChange() {
+                    instance.triggerEvent("anyChange");
+                }
 
-                
+                // Wrap the onTextChange function with a debounce
+                const debouncedTextChange = debounce(onTextChange, 750);
+                const debouncedEditorChange = debounce(onEditorChange, 750);
+
+
                 //on text change
                 var quill = instance.data.quill;
                 quill.on('text-change', function (delta, oldDelta, source) {
@@ -212,7 +217,8 @@ var debouncedTextChange = debounce(onTextChange, 250); // waits 250ms after the 
                     instance.publishState("lastlength", JSON.stringify(quill.getLength() - 1));
                     instance.publishState("getHTML", quill.root.innerHTML);
 
-                    instance.triggerEvent("textchange");
+                    // Use the debounced function instead of the direct call
+                    debouncedTextChange();
                 });
                 //on selection change
                 quill.on('selection-change', function (range, oldRange, source) {
@@ -238,7 +244,7 @@ var debouncedTextChange = debounce(onTextChange, 250); // waits 250ms after the 
 
                     instance.publishState("hasfocus", quill.hasFocus());
                     if (!quill.hasFocus()) instance.publishState("caretIndex", null);
-                    instance.triggerEvent("anyChange");
+                    debouncedEditorChange();
 
                 });
 
@@ -419,9 +425,9 @@ var debouncedTextChange = debounce(onTextChange, 250); // waits 250ms after the 
         const styleNames = bubbleStyles.split(',');
         const thisID = instance.data.parentID;
         const styleProps = styleNames.map(name => stylePropsByName(name));
-       // console.log(styleProps);
-        if(!styleProps || !styleProps[0]) return;
-        
+        // console.log(styleProps);
+        if (!styleProps || !styleProps[0]) return;
+
         createCssRules(thisID, styleProps);
     }
 
@@ -430,33 +436,33 @@ var debouncedTextChange = debounce(onTextChange, 250); // waits 250ms after the 
         document.head.appendChild(styleElement);
 
         // CSS properties mapping
- const cssPropertyMap = {
-    '%b': value => value ? 'font-weight: bold;' : '',
-    '%f': value => `font-family: ${value.split(':::')[0]};`,
-    '%i': value => value ? 'font-style: italic;' : '',
-    '%u': value => value ? 'text-decoration: underline;' : '',
-    '%bc': value => `border-color: ${value};`,
-    '%br': value => `border-radius: ${value}px;`,
-    '%bw': value => `border-width: ${value}px;`,
-    '%fc': value => `color: ${value};`,
-    '%fs': value => `font-size: ${value}px;`,
-    '%lh': value => `line-height: ${value};`,
-    '%ls': value => `letter-spacing: ${value}px;`,
-    '%vc': value => value ? 'display: flex; align-items: center;' : '',
-    '%ws': value => `word-spacing: ${value}px;`,
-    '%bas': value => `background-style: ${value};`,
-    '%bgc': value => `background-color: ${value};`,
-    '%bos': value => `border-style: ${value};`,
-    '%tes': value => value ? 'text-shadow: 1px 1px 2px #000;' : '',
-    '%tsb': value => `text-shadow-blur: ${value}px;`,
-    'opacity': value => `opacity: ${value / 100};`,
-    'font_weight': value => `font-weight: ${value};`,
-    'padding_top': value => `padding-top: ${value}px;`,
-    'padding_left': value => `padding-left: ${value}px;`,
-    'padding_right': value => `padding-right: ${value}px;`,
-    'padding_bottom': value => `padding-bottom: ${value}px;`,
-    // Other properties can be added here
-  };
+        const cssPropertyMap = {
+            '%b': value => value ? 'font-weight: bold;' : '',
+            '%f': value => `font-family: ${value.split(':::')[0]};`,
+            '%i': value => value ? 'font-style: italic;' : '',
+            '%u': value => value ? 'text-decoration: underline;' : '',
+            '%bc': value => `border-color: ${value};`,
+            '%br': value => `border-radius: ${value}px;`,
+            '%bw': value => `border-width: ${value}px;`,
+            '%fc': value => `color: ${value};`,
+            '%fs': value => `font-size: ${value}px;`,
+            '%lh': value => `line-height: ${value};`,
+            '%ls': value => `letter-spacing: ${value}px;`,
+            '%vc': value => value ? 'display: flex; align-items: center;' : '',
+            '%ws': value => `word-spacing: ${value}px;`,
+            '%bas': value => `background-style: ${value};`,
+            '%bgc': value => `background-color: ${value};`,
+            '%bos': value => `border-style: ${value};`,
+            '%tes': value => value ? 'text-shadow: 1px 1px 2px #000;' : '',
+            '%tsb': value => `text-shadow-blur: ${value}px;`,
+            'opacity': value => `opacity: ${value / 100};`,
+            'font_weight': value => `font-weight: ${value};`,
+            'padding_top': value => `padding-top: ${value}px;`,
+            'padding_left': value => `padding-left: ${value}px;`,
+            'padding_right': value => `padding-right: ${value}px;`,
+            'padding_bottom': value => `padding-bottom: ${value}px;`,
+            // Other properties can be added here
+        };
 
         let cssContent = '';
 
