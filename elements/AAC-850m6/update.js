@@ -530,7 +530,7 @@ function(instance, properties, context) {
         const quill = instance.data.quill;
 
         const updatedContent = {
-            Content: () => quill.getContents(),
+            Content: () => JSON.stringify(quill.getContents()),
             Text: () => quill.getText(),
             HTML: () => quill.root.innerHTML
         };
