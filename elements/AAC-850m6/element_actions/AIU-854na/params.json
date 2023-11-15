@@ -7,6 +7,7 @@
             "doc": "<p>Hello<strong>World</strong>!</p>",
             "editor": "DynamicValue",
             "name": "html_raw",
+            "optional": true,
             "rank": 1,
             "value": "text"
         },
@@ -15,6 +16,7 @@
             "doc": "The starting index of the HTML to retrieve.",
             "editor": "DynamicValue",
             "name": "index",
+            "optional": true,
             "rank": 0,
             "value": "number"
         }

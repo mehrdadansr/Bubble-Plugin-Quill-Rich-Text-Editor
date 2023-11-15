@@ -175,6 +175,7 @@ function(instance, properties, context) {
 
 
                 instance.data.quill = new Quill(container, options);
+                
 
                 /*
                 *Events Trigger
@@ -197,7 +198,7 @@ function(instance, properties, context) {
 
                 // The function you want to run when the user has stopped typing
                 function onTextChange() {
-                    instance.triggerEvent("textChange");
+                    instance.triggerEvent("textchange");
                 }
 
                 function onEditorChange() {
@@ -205,8 +206,9 @@ function(instance, properties, context) {
                 }
 
                 // Wrap the onTextChange function with a debounce
-                const debouncedTextChange = debounce(onTextChange, 750);
-                const debouncedEditorChange = debounce(onEditorChange, 750);
+                const delay = properties.debounceDelay || 0;
+                const debouncedTextChange = debounce(onTextChange, delay);
+                const debouncedEditorChange = debounce(onEditorChange, delay);
 
 
                 //on text change
@@ -249,7 +251,7 @@ function(instance, properties, context) {
                 });
 
                 // Set Initial Value & Place Holder
-                if (properties.initial_content) {
+                if (typeof properties.initial_content !== 'undefined') {
 
                     switch (properties.initial_type) {
                         case "Content":

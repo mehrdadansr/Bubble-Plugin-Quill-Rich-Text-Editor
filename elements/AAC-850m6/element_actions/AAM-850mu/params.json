@@ -7,6 +7,7 @@
             "editor": "DynamicValue",
             "long_text": true,
             "name": "text",
+            "optional": true,
             "rank": 0,
             "value": "text"
         }

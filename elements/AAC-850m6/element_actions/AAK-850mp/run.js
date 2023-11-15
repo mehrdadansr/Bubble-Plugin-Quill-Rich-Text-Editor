@@ -1,6 +1,6 @@
 function(instance, properties, context) {
   const { contents } = properties;
-  if (contents == null || !instance.data.quill) return;
+  if (typeof contents  === 'undefined' || !instance.data.quill) return;
 
   try {
     const delta = JSON.parse(contents);

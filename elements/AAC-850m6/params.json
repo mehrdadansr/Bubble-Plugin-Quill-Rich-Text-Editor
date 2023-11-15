@@ -389,6 +389,15 @@
             "optional": true,
             "rank": 41,
             "value": "text"
+        },
+        "ALE": {
+            "caption": "⏲️ Event Delay",
+            "default_val": 500,
+            "doc": "This value is in milliseconds and specifies the delay time for triggering the text change event.",
+            "editor": "DynamicValue",
+            "name": "debounceDelay",
+            "rank": 42,
+            "value": "number"
         }
     },
     "has_reset_fn": false,
@@ -520,5 +529,5 @@
             "value": "number"
         }
     },
-    "support_autobinding": false
+    "support_autobinding": true
 }
