@@ -516,7 +516,7 @@ function(instance, properties, context) {
         if (quill.hasFocus() || content === getContentByType(instance, properties.initial_type)) return;
         try {
             const updateContent = {
-                Content: (content) => quill.updateContents(JSON.parse(content)),
+                Content: (content) => quill.setContents(JSON.parse(content)),
                 Text: (content) => quill.setText(content),
                 HTML: (content) => quill.clipboard.dangerouslyPasteHTML(content)
             };
