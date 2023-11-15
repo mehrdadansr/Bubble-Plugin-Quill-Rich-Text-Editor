@@ -270,19 +270,22 @@ function(instance, properties, context) {
                             console.log("Type not detected");
                             break;
                     }
+                } else {
+                    setAutoBinding(instance, properties);
                 }
                 quill.root.dataset.placeholder = (properties.placeholder) ? properties.placeholder : '';
             };
             makeChanges();
         };
     } else {
+        setAutoBinding(instance, properties);
         const { bubble, ...otherProp } = properties;
         if (instance.data.qabli !== otherProp) {
             makeChanges();
         }
     }
 
-    setAutoBinding(instance, properties);
+
 
     function makeChanges() {
         const quill = instance.data.quill;
@@ -529,12 +532,12 @@ function(instance, properties, context) {
 
     function getContentByType(instance, type) {
         const quill = instance.data.quill;
+        if (!quill) return;
         const updatedContent = {
             Content: () => JSON.stringify(quill.getContents()),
             Text: () => quill.getText(),
             HTML: () => quill.root.innerHTML
         };
-        if (!quill || !updatedContent[type]) return;
         return updatedContent[type]();
     }
 
