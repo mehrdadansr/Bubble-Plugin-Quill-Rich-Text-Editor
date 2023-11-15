@@ -510,6 +510,7 @@ function(instance, properties, context) {
         if (!quill || typeof properties.autobinding === 'undefined') return;
 
         const content = properties.autobinding;
+        if (content === getContentByType(instance, properties.initial_type)) return;
         try {
             const updateContent = {
                 Content: (content) => quill.setContents(JSON.parse(content)),
@@ -526,15 +527,22 @@ function(instance, properties, context) {
 
     }
 
-    function saveAutoBinding(instance) {
+    function getContentByType(instance, type) {
         const quill = instance.data.quill;
-
         const updatedContent = {
             Content: () => JSON.stringify(quill.getContents()),
             Text: () => quill.getText(),
             HTML: () => quill.root.innerHTML
         };
-        const updatedContentText = updatedContent[properties.initial_type]() || updatedContent['Text'];
+        if (!quill || !updatedContent[type]) return;
+        return updatedContent[type]();
+    }
+
+
+
+
+    function saveAutoBinding(instance) {
+        const updatedContentText = getContentByType(instance, properties.initial_type);
         instance.publishAutobinding(updatedContentText);
     }
 
