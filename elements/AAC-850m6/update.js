@@ -253,7 +253,7 @@ function(instance, properties, context) {
                 });
 
                 // Set Initial Value & Place Holder
-                if (typeof properties.initial_content !== 'undefined') {
+                if (typeof properties.initial_content !== 'undefined' && properties.autobinding == null) {
 
                     switch (properties.initial_type) {
                         case "Content":
