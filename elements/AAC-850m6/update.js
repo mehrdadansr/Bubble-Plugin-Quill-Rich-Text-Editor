@@ -117,7 +117,8 @@ function(instance, properties, context) {
                         try {
                             return JSON.parse('[' + properties.customtoolbar + ']');
                         } catch (error) {
-                            console.error("Error parsing custom toolbar:", error.message);
+                            if (window.app.app_version === 'test')
+                                console.error("Error parsing custom toolbar:", error.message);
                             return [
                                 ['bold', 'italic', 'underline', 'link'],
                                 [{ 'header': [1, 2, 3, false] }],
@@ -175,7 +176,7 @@ function(instance, properties, context) {
 
 
                 instance.data.quill = new Quill(container, options);
-                
+
 
                 /*
                 *Events Trigger
@@ -198,6 +199,7 @@ function(instance, properties, context) {
 
                 // The function you want to run when the user has stopped typing
                 function onTextChange() {
+                    saveAutoBinding(instance);
                     instance.triggerEvent("textchange");
                 }
 
@@ -280,6 +282,7 @@ function(instance, properties, context) {
         }
     }
 
+    setAutoBinding(instance, properties);
 
     function makeChanges() {
         const quill = instance.data.quill;
@@ -384,8 +387,7 @@ function(instance, properties, context) {
     function styleQuillContainer(qlContainer, babaConti, properties) {
         try {
             if (!qlContainer) {
-                //throw new Error("The qlContainer element is not provided or is null.");
-                return;
+                throw new Error("The qlContainer element is not provided or is null.");
             }
 
             // Style the container
@@ -410,7 +412,8 @@ function(instance, properties, context) {
             babaConti.style.fontSize = "inherit";
 
         } catch (error) {
-            console.error("Error styling Quill container:", error.message);
+            if (window.app.app_version === 'test')
+                console.error("Error styling Quill container:", error.message);
         }
     }
 
@@ -500,6 +503,39 @@ function(instance, properties, context) {
             }
         }
         return null;
+    }
+
+    function setAutoBinding(instance, properties) {
+        const quill = instance.data.quill;
+        if (!quill || typeof properties.autobinding === 'undefined') return;
+
+        const content = properties.autobinding;
+        try {
+            const updateContent = {
+                Content: (content) => quill.setContents(JSON.parse(content)),
+                Text: (content) => quill.setText(content),
+                HTML: (content) => quill.clipboard.dangerouslyPasteHTML(content)
+            };
+            if (updateContent[properties.initial_type])
+                updateContent[properties.initial_type](content);
+
+        } catch (error) {
+            if (window.app.app_version === 'test')
+                console.log(error.message);
+        }
+
+    }
+
+    function saveAutoBinding(instance) {
+        const quill = instance.data.quill;
+
+        const updatedContent = {
+            Content: () => quill.getContents(),
+            Text: () => quill.getText(),
+            HTML: () => quill.root.innerHTML
+        };
+        const updatedContentText = updatedContent[properties.initial_type]() || updatedContent['Text'];
+        instance.publishAutobinding(updatedContentText);
     }
 
 
