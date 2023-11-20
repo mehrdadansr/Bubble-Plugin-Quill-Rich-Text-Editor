@@ -266,8 +266,7 @@ function(instance, properties, context) {
                             quill.setText(properties.initial_content);
                             break;
                         case "HTML":
-                            quill.clipboard.dangerouslyPasteHTML(properties.initial_content);
-                            quill.blur();
+                            setHTMLContent(quill, properties.initial_content);
                             break;
                         default:
                             console.log("Type not detected");
@@ -278,6 +277,7 @@ function(instance, properties, context) {
             };
             makeChanges();
         };
+
     } else {
         if (typeof properties.autobinding === 'string') {
             setAutoBinding(instance, properties);
@@ -522,7 +522,7 @@ function(instance, properties, context) {
             const updateContent = {
                 Content: (content) => quill.setContents(JSON.parse(content)),
                 Text: (content) => quill.setText(content),
-                HTML: (content) => quill.clipboard.dangerouslyPasteHTML(content)
+                HTML: (content) => setHTMLContent(quill, content)
             };
             if (updateContent[properties.initial_type])
                 updateContent[properties.initial_type](content);
@@ -556,4 +556,16 @@ function(instance, properties, context) {
     }
 
 
+}
+
+function setHTMLContent(quill, value) {
+    const scrollPosition = {
+        x: window.scrollX,
+        y: window.scrollY
+    };
+    quill.clipboard.dangerouslyPasteHTML(value);
+    setTimeout(() => {
+        quill.blur();
+        window.scrollTo(scrollPosition.x, scrollPosition.y);
+    }, 0);
 }
