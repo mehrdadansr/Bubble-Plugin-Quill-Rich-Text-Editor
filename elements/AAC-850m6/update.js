@@ -1,5 +1,4 @@
 function(instance, properties, context) {
-
     const container = document.getElementById(instance.data.divName);
     if (instance.data.round === 0) {
         const { bubble, ...otherProp } = properties;
@@ -50,17 +49,17 @@ function(instance, properties, context) {
             document.head.appendChild(script);
         }
     }
-    const existingQuillScript = document.querySelector('head script[src="https://cdn.quilljs.com/1.3.6/quill.js"]');
+    const existingQuillScript = document.querySelector('head script[src="https://cdn.quilljs.com/1.3.7/quill.min.js"]');
     if (!existingQuillScript && instance.data.round === 0) {
         instance.data.round = 1;
         const quillStylesheet = document.createElement('link');
         quillStylesheet.rel = 'stylesheet';
-        quillStylesheet.href = (properties.theme === "snow") ? 'https://cdn.quilljs.com/1.3.6/quill.snow.css' : 'https://cdn.quilljs.com/1.3.6/quill.bubble.css';
+        quillStylesheet.href = (properties.theme === "snow") ? 'https://cdn.quilljs.com/1.3.7/quill.snow.css' : 'https://cdn.quilljs.com/1.3.7/quill.bubble.css';
 
         document.head.appendChild(quillStylesheet);
 
         const quillScript = document.createElement('script');
-        quillScript.src = "https://cdn.quilljs.com/1.3.6/quill.js";
+        quillScript.src = "https://cdn.quilljs.com/1.3.7/quill.js";
 
         document.body.appendChild(quillScript);
 
@@ -253,7 +252,10 @@ function(instance, properties, context) {
                 });
 
                 // Set Initial Value & Place Holder
-                if (typeof properties.initial_content !== 'undefined' && properties.autobinding == null) {
+                if(typeof properties.autobinding === 'string') {
+					setAutoBinding(instance, properties);
+                }
+                else if (typeof properties.initial_content !== 'undefined') {
 
                     switch (properties.initial_type) {
                         case "Content":
@@ -270,15 +272,16 @@ function(instance, properties, context) {
                             console.log("Type not detected");
                             break;
                     }
-                } else {
-                    setAutoBinding(instance, properties);
                 }
                 quill.root.dataset.placeholder = (properties.placeholder) ? properties.placeholder : '';
             };
             makeChanges();
         };
     } else {
-        setAutoBinding(instance, properties);
+		if(typeof properties.autobinding === 'string') {
+			setAutoBinding(instance, properties);
+		}
+        
         const { bubble, ...otherProp } = properties;
         if (instance.data.qabli !== otherProp) {
             makeChanges();
@@ -510,7 +513,7 @@ function(instance, properties, context) {
 
     function setAutoBinding(instance, properties) {
         const quill = instance.data.quill;
-        if (!quill || typeof properties.autobinding === 'undefined') return;
+        if (!quill || typeof properties.autobinding === 'object') return;
 
         const content = properties.autobinding;
         if (quill.hasFocus() || content === getContentByType(instance, properties.initial_type)) return;
@@ -545,6 +548,7 @@ function(instance, properties, context) {
 
 
     function saveAutoBinding(instance) {
+        if(typeof properties.autobinding === 'object') return;
         const updatedContentText = getContentByType(instance, properties.initial_type);
         instance.publishAutobinding(updatedContentText);
     }

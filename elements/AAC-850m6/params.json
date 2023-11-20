@@ -65,7 +65,7 @@
             "value": "text"
         },
         "AAZ": {
-            "caption": "Initial Content Type",
+            "caption": "Content Type",
             "default_val": "Content",
             "doc": "The format of the initial content. Choose between plain text or Quill format content.",
             "editor": "Dropdown",
