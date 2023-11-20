@@ -252,8 +252,8 @@ function(instance, properties, context) {
                 });
 
                 // Set Initial Value & Place Holder
-                if(typeof properties.autobinding === 'string') {
-					setAutoBinding(instance, properties);
+                if (typeof properties.autobinding === 'string') {
+                    setAutoBinding(instance, properties);
                 }
                 else if (typeof properties.initial_content !== 'undefined') {
 
@@ -267,6 +267,7 @@ function(instance, properties, context) {
                             break;
                         case "HTML":
                             quill.clipboard.dangerouslyPasteHTML(properties.initial_content);
+                            quill.blur();
                             break;
                         default:
                             console.log("Type not detected");
@@ -278,10 +279,10 @@ function(instance, properties, context) {
             makeChanges();
         };
     } else {
-		if(typeof properties.autobinding === 'string') {
-			setAutoBinding(instance, properties);
-		}
-        
+        if (typeof properties.autobinding === 'string') {
+            setAutoBinding(instance, properties);
+        }
+
         const { bubble, ...otherProp } = properties;
         if (instance.data.qabli !== otherProp) {
             makeChanges();
@@ -525,6 +526,7 @@ function(instance, properties, context) {
             };
             if (updateContent[properties.initial_type])
                 updateContent[properties.initial_type](content);
+            quill.blur();
 
         } catch (error) {
             if (window.app.app_version === 'test')
@@ -548,7 +550,7 @@ function(instance, properties, context) {
 
 
     function saveAutoBinding(instance) {
-        if(typeof properties.autobinding === 'object') return;
+        if (typeof properties.autobinding === 'object') return;
         const updatedContentText = getContentByType(instance, properties.initial_type);
         instance.publishAutobinding(updatedContentText);
     }
