@@ -398,9 +398,18 @@
             "name": "debounceDelay",
             "rank": 42,
             "value": "number"
+        },
+        "ALF": {
+            "caption": "Use Auto Binding",
+            "default_val": false,
+            "doc": "Due to changes in the bubble, we had to add this field so that if you use auto binding, the plugin can provide you with a better user experience.",
+            "editor": "Checkbox",
+            "in_style": true,
+            "name": "isAutobinding",
+            "rank": 43
         }
     },
-    "has_reset_fn": false,
+    "has_reset_fn": true,
     "icon": "ion-ios-bookmarks-outline",
     "property_applications": {
         "Background": true,

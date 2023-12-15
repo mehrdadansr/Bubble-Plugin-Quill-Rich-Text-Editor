@@ -166,12 +166,13 @@ function(instance, properties, context) {
                 let options = {
                     modules: {
                         syntax: properties.syntax,
-                        imageDrop: properties.dropImage,
                         toolbar: toolbarOptions
                     },
                     readOnly: properties.readOnly,
                     theme: properties.theme
                 };
+                
+                if(properties.dropImage) options.imageDrop = true;
 
 
                 instance.data.quill = new Quill(container, options);
@@ -252,14 +253,14 @@ function(instance, properties, context) {
                 });
 
                 // Set Initial Value & Place Holder
-                if (typeof properties.autobinding === 'string') {
+                if (properties.isAutobinding) {
+                    
                     setAutoBinding(instance, properties);
                 }
-                else if (typeof properties.initial_content !== 'undefined') {
-
+                if (typeof properties.initial_content === 'string' && !properties.autobinding) {
                     switch (properties.initial_type) {
                         case "Content":
-                            var initial_content = JSON.parse(properties.initial_content);
+                            const initial_content = JSON.parse(properties.initial_content);
                             quill.setContents(initial_content);
                             break;
                         case "Text":
@@ -279,9 +280,9 @@ function(instance, properties, context) {
         };
 
     } else {
-        if (typeof properties.autobinding === 'string') {
+        
             setAutoBinding(instance, properties);
-        }
+        
 
         const { bubble, ...otherProp } = properties;
         if (instance.data.qabli !== otherProp) {
@@ -393,9 +394,9 @@ function(instance, properties, context) {
 
     function styleQuillContainer(qlContainer, babaConti, properties) {
         try {
-            if (!qlContainer) {
-                throw new Error("The qlContainer element is not provided or is null.");
-            }
+            if (!qlContainer) return;
+               // throw new Error("The qlContainer element is not provided or is null.");
+            
 
             // Style the container
             qlContainer.style.backgroundColor = properties.container_bg;
@@ -514,9 +515,10 @@ function(instance, properties, context) {
 
     function setAutoBinding(instance, properties) {
         const quill = instance.data.quill;
-        if (!quill || typeof properties.autobinding === 'object') return;
+        if (!quill || !properties.isAutobinding) return;
 
         const content = properties.autobinding;
+        if (!content) quill.setText("");
         if (quill.hasFocus() || content === getContentByType(instance, properties.initial_type)) return;
         try {
             const updateContent = {
@@ -550,22 +552,22 @@ function(instance, properties, context) {
 
 
     function saveAutoBinding(instance) {
-        if (typeof properties.autobinding === 'object') return;
+       if (!properties.isAutobinding) return;
         const updatedContentText = getContentByType(instance, properties.initial_type);
         instance.publishAutobinding(updatedContentText);
     }
 
-
-}
-
-function setHTMLContent(quill, value) {
+    function setHTMLContent(quill, value) {
     const scrollPosition = {
         x: window.scrollX,
         y: window.scrollY
     };
     quill.clipboard.dangerouslyPasteHTML(value);
-    setTimeout(() => {
-        quill.blur();
-        window.scrollTo(scrollPosition.x, scrollPosition.y);
-    }, 0);
+	window.scrollTo(scrollPosition.x, scrollPosition.y);
+	quill.blur();
+
 }
+
+}
+
+
