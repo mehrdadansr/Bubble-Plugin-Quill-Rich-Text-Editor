@@ -1,0 +1,149 @@
+{
+    "add_is_visible": true,
+    "category": "visual elements",
+    "default_dim": {
+        "height": 20,
+        "width": 20
+    },
+    "display": "✒️ Quill @Mention",
+    "fields": {
+        "ALS": {
+            "caption": "✒️ Quill @Mention ______________________________________________________ ",
+            "doc": "",
+            "editor": "Label",
+            "name": "intro",
+            "rank": 0
+        },
+        "ALT": {
+            "caption": "If you want to use mention/tagging feature in Quill editor, you need to add this optional module to the page. This module makes available, mention feature for all editors on the page. You can configure this feature using the fields of the main element. _________________________________________________________",
+            "editor": "Label",
+            "name": "div0",
+            "rank": 1
+        },
+        "ALU": {
+            "caption": "________________________________________________________ 📃 Dropdown Style",
+            "doc": "These fields are related to the dropdown container.",
+            "editor": "Label",
+            "name": "sec-list-container",
+            "rank": 2
+        },
+        "ALV": {
+            "caption": "📃 Background",
+            "default_val": "rgba(255,255,255,1)",
+            "editor": "Color",
+            "in_style": true,
+            "name": "list-background-color",
+            "optional": false,
+            "rank": 3
+        },
+        "ALW": {
+            "caption": "📃 Border Width",
+            "default_val": "1px",
+            "editor": "StaticText",
+            "in_style": true,
+            "name": "list-border-width",
+            "rank": 4,
+            "value": "text"
+        },
+        "ALX": {
+            "caption": "📃 Border Style",
+            "default_val": "solid",
+            "editor": "Dropdown",
+            "in_style": true,
+            "name": "list-border-style",
+            "options": "none,solid,dotted,double,dashed",
+            "rank": 5
+        },
+        "ALY": {
+            "caption": "📃 Border Color",
+            "default_val": "rgba(240, 240, 240, 1)",
+            "editor": "Color",
+            "in_style": true,
+            "name": "list-border-color",
+            "rank": 6
+        },
+        "ALZ": {
+            "caption": "📃 Roundness",
+            "default_val": "4px",
+            "editor": "StaticText",
+            "in_style": true,
+            "name": "list-border-radius",
+            "rank": 7
+        },
+        "ALa": {
+            "caption": "📃 Min Width",
+            "default_val": "160px",
+            "editor": "StaticText",
+            "in_style": true,
+            "name": "list-min-width",
+            "rank": 8
+        },
+        "ALb": {
+            "caption": "________________________________________________________ 🎫 Dropdown Item Style",
+            "doc": "These fields are related to the items in the list.",
+            "editor": "Label",
+            "name": "sec-list-item",
+            "rank": 9
+        },
+        "ALc": {
+            "caption": "🎫 Font Size",
+            "default_val": "16px",
+            "editor": "StaticText",
+            "in_style": true,
+            "name": "list-item-font-size",
+            "rank": 10
+        },
+        "ALd": {
+            "caption": "🎫 Line Height",
+            "default_val": "32px",
+            "editor": "StaticText",
+            "in_style": true,
+            "name": "list-item-line-height",
+            "rank": 11
+        },
+        "ALe": {
+            "caption": "🎫 Padding H",
+            "default_val": "20px",
+            "editor": "StaticText",
+            "in_style": true,
+            "name": "list-item-h-padding",
+            "rank": 12
+        },
+        "ALg": {
+            "caption": "________________________________________________________ 💊 Mention Style",
+            "doc": "These fields are used to style the mentions.",
+            "editor": "Label",
+            "name": "sec-mention",
+            "rank": 13
+        },
+        "ALh": {
+            "caption": "💊 Pill Background",
+            "default_val": "rgba(211, 225, 235, 1)",
+            "editor": "Color",
+            "in_style": true,
+            "name": "mention-background-color",
+            "rank": 14
+        },
+        "ALi": {
+            "caption": "💊 Pill Roundness",
+            "default_val": "6px",
+            "editor": "StaticText",
+            "in_style": true,
+            "name": "mention-border-radius",
+            "rank": 15
+        },
+        "ALj": {
+            "caption": "💊 Pill Height",
+            "default_val": "24px",
+            "editor": "StaticText",
+            "in_style": true,
+            "name": "mention-height",
+            "rank": 16
+        }
+    },
+    "icon": "ion-at",
+    "property_applications": {
+        "MinWidth": true,
+        "resizable": true
+    }
+}

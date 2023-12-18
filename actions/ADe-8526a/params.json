@@ -1,6 +1,6 @@
 {
     "category": "plugins",
-    "display": "Copy Text to user clipboard",
+    "display": "📑 Copy Text to User Clipboard",
     "fields": {
         "ADf": {
             "caption": "Text",

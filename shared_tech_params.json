@@ -3,6 +3,10 @@
         "AIa": {
             "name": "quill.htmlEditButton.min",
             "url": "//meta.cdn.bubble.io/f1680953833915x329763331470189100/quill.htmlEditButton.min.js"
+        },
+        "ALG": {
+            "name": "mention",
+            "url": "//meta-q.cdn.bubble.io/f1702729177952x375525119171031600/quill.mention.min.js"
         }
     },
     "dependencies": {

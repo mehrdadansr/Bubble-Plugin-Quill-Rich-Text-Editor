@@ -7,8 +7,15 @@ function(instance, properties, context) {
     }
 
 
-
-
+    if (properties.mention) {
+        const ids = properties.mentionDataId?.get(0, properties.mentionDataId.length());
+        const values = properties.mentionDataValue?.get(0, properties.mentionDataValue.length());
+        if (values) {
+            for (let i = 0; i < values.length; i++) {
+                instance.data.mentionData.push({ id: ids[i] || `${i + 1}`, value: values[i] });
+            }
+        }
+    }
 
     /**
      * Import styles and script
@@ -67,6 +74,7 @@ function(instance, properties, context) {
         // Initialize Quill editor after library and stylesheet have loaded
         quillScript.onload = () => {
 
+            if (properties.mention && window.quillMention && Quill) window.quillMention(Quill);
 
 
             /**
@@ -166,16 +174,70 @@ function(instance, properties, context) {
                 let options = {
                     modules: {
                         syntax: properties.syntax,
-                        toolbar: toolbarOptions
+                        toolbar: toolbarOptions,
                     },
                     readOnly: properties.readOnly,
                     theme: properties.theme
                 };
-                
-                if(properties.dropImage) options.imageDrop = true;
 
+                if (properties.dropImage) options.imageDrop = true;
+
+                if (properties.mention) {
+                    if(!window.quillMention) context.reportToDebugger("If you want to use the mentio/tag feature, make sure you add the Quill Mention element to the page.")
+
+                    const mentionModule = {
+                        mention: {
+                            allowedChars: /^[A-Za-z\sÅÄÖåäö]*$/,
+                            mentionDenotationChars: (!properties.mentionDenotation) ? ["@", "#"] : [properties.mentionDenotation],
+                            source: function (searchTerm, renderList, mentionChar) {
+                                if (properties.mentionDenotation && mentionChar !== properties.mentionDenotation) return;
+                                let values = instance.data.mentionData;
+                                if (searchTerm.length === 0) {
+                                    renderList(values, searchTerm);
+                                } else {
+                                    const matches = [];
+                                    for (let i = 0; i < values.length; i++)
+                                        if (
+                                            ~values[i].value.toLowerCase().indexOf(searchTerm.toLowerCase())
+                                        )
+                                            matches.push(values[i]);
+                                    renderList(matches, searchTerm);
+                                }
+                            }
+                        }
+                    };
+                    Object.assign(options.modules, mentionModule);
+                }
 
                 instance.data.quill = new Quill(container, options);
+
+                if (properties.mention) {
+                    const publishMentionedStates = ({ type, value }) => {
+
+                        const { denotationChar, index, id, value: mentionValue } = value;
+                        const stateToPublish = {
+                            'mentionEventType': type === 'mention-clicked',
+                            'mentionDenotation': denotationChar,
+                            'mentionValue': mentionValue,
+                            'mentionId': id,
+                            'mentionIndex': index
+                        };
+
+                        for (const [key, val] of Object.entries(stateToPublish)) {
+                            instance.publishState(key, val);
+
+                        }
+
+                        instance.triggerEvent('mentionEvent');
+                    };
+
+                    const events = ['mention-hovered', 'mention-clicked'];
+
+                    // Adding event listeners in a loop
+                    events.forEach(ev => {
+                        window.addEventListener(ev, publishMentionedStates, false);
+                    });
+                }
 
 
                 /*
@@ -254,7 +316,7 @@ function(instance, properties, context) {
 
                 // Set Initial Value & Place Holder
                 if (properties.isAutobinding) {
-                    
+
                     setAutoBinding(instance, properties);
                 }
                 if (typeof properties.initial_content === 'string' && !properties.autobinding) {
@@ -280,9 +342,9 @@ function(instance, properties, context) {
         };
 
     } else {
-        
-            setAutoBinding(instance, properties);
-        
+
+        setAutoBinding(instance, properties);
+
 
         const { bubble, ...otherProp } = properties;
         if (instance.data.qabli !== otherProp) {
@@ -395,8 +457,8 @@ function(instance, properties, context) {
     function styleQuillContainer(qlContainer, babaConti, properties) {
         try {
             if (!qlContainer) return;
-               // throw new Error("The qlContainer element is not provided or is null.");
-            
+            // throw new Error("The qlContainer element is not provided or is null.");
+
 
             // Style the container
             qlContainer.style.backgroundColor = properties.container_bg;
@@ -552,22 +614,20 @@ function(instance, properties, context) {
 
 
     function saveAutoBinding(instance) {
-       if (!properties.isAutobinding) return;
+        if (!properties.isAutobinding) return;
         const updatedContentText = getContentByType(instance, properties.initial_type);
         instance.publishAutobinding(updatedContentText);
     }
 
     function setHTMLContent(quill, value) {
-    const scrollPosition = {
-        x: window.scrollX,
-        y: window.scrollY
-    };
-    quill.clipboard.dangerouslyPasteHTML(value);
-	window.scrollTo(scrollPosition.x, scrollPosition.y);
-	quill.blur();
+        const scrollPosition = {
+            x: window.scrollX,
+            y: window.scrollY
+        };
+        quill.clipboard.dangerouslyPasteHTML(value);
+        window.scrollTo(scrollPosition.x, scrollPosition.y);
+        quill.blur();
+
+    }
 
 }
-
-}
-
-

@@ -9,7 +9,7 @@
         "height": 375,
         "width": 400
     },
-    "display": "✒️ ☠️ Quill Editor S ",
+    "display": "☠️ Quill Editor S ",
     "events": {
         "AJt": {
             "caption": "Text changed",
@@ -22,7 +22,7 @@
     },
     "fields": {
         "AJv": {
-            "caption": "Theme",
+            "caption": "☠️",
             "default_val": "snow",
             "doc": "The theme of the editor interface. Choose between the Snow theme which has the toolbar on top of the editor, or the Bubble theme which has a tooltip for selected text.",
             "editor": "Dropdown",
@@ -32,7 +32,7 @@
             "rank": 1
         },
         "AJw": {
-            "caption": "Placeholder Text",
+            "caption": "☠️",
             "doc": "The text that appears in the editor when there is no content.",
             "editor": "DynamicValue",
             "name": "placeholder",
@@ -41,7 +41,7 @@
             "value": "text"
         },
         "AJx": {
-            "caption": "Read-only Mode",
+            "caption": "☠️",
             "default_val": false,
             "doc": "Whether to initialize the editor in read-only mode.",
             "editor": "DynamicValue",
@@ -50,7 +50,7 @@
             "value": "boolean"
         },
         "AJy": {
-            "caption": "Initial Content",
+            "caption": "☠️",
             "default_val": "",
             "doc": "The initial content to be loaded into the editor.",
             "editor": "DynamicValue",
@@ -61,7 +61,7 @@
             "value": "text"
         },
         "AJz": {
-            "caption": "Initial Content Type",
+            "caption": "☠️",
             "default_val": "Content",
             "doc": "The format of the initial content. Choose between plain text or Quill format content.",
             "editor": "Dropdown",
@@ -85,7 +85,7 @@
             "rank": 8
         },
         "AKC": {
-            "caption": "⨽⨼ Background Color",
+            "caption": "☠️",
             "default_val": "rgba(244, 244, 244, 1)",
             "doc": "The background color of the toolbar.",
             "editor": "Color",
@@ -94,7 +94,7 @@
             "rank": 10
         },
         "AKD": {
-            "caption": "□□□ Icon's Color",
+            "caption": "☠️",
             "default_val": "rgba(22, 22, 22, 1)",
             "doc": "The color of the icons in the toolbar.",
             "editor": "Color",
@@ -103,7 +103,7 @@
             "rank": 17
         },
         "AKE": {
-            "caption": "⨽⨼ Border Width",
+            "caption": "☠️",
             "default_val": 0,
             "doc": "The width of the border around the toolbar.",
             "editor": "DynamicValue",
@@ -113,7 +113,7 @@
             "value": "number"
         },
         "AKF": {
-            "caption": "⨽⨼ Border Color",
+            "caption": "☠️",
             "default_val": "rgba(22, 22, 22, 1)",
             "doc": "The color of the border around the toolbar.",
             "editor": "Color",
@@ -128,7 +128,7 @@
             "rank": 21
         },
         "AKH": {
-            "caption": "▭ Background Color",
+            "caption": "☠️",
             "default_val": "rgba(255, 255, 255, 1)",
             "doc": "The background color of the text area.",
             "editor": "Color",
@@ -137,7 +137,7 @@
             "rank": 22
         },
         "AKI": {
-            "caption": "▭ Border Width",
+            "caption": "☠️",
             "default_val": 0,
             "doc": "The width of the border around the text area.",
             "editor": "DynamicValue",
@@ -147,7 +147,7 @@
             "value": "number"
         },
         "AKJ": {
-            "caption": "▭ Border Color",
+            "caption": "☠️",
             "default_val": "rgba(22, 22, 22, 1)",
             "doc": "The color of the border around the text area.",
             "editor": "Color",
@@ -156,7 +156,7 @@
             "rank": 24
         },
         "AKK": {
-            "caption": "Placeholder Color",
+            "caption": "☠️",
             "default_val": "rgba(198, 198, 198, 1)",
             "doc": "The color of the placeholder text.",
             "editor": "Color",
@@ -166,7 +166,7 @@
             "rank": 5
         },
         "AKL": {
-            "caption": "▭  Padding",
+            "caption": "☠️",
             "default_val": 8,
             "doc": "The padding around the edges of the text area.",
             "editor": "DynamicValue",
@@ -182,7 +182,7 @@
             "rank": 13
         },
         "AKN": {
-            "caption": "□□□ Presets",
+            "caption": "☠️",
             "default_val": "Full Formatting",
             "doc": "This setting allows to choose a preset configuration for toolbar. You can choose from several pre-defined options such as Basic Formatting, Advanced Formatting, or Full Formatting. Alternatively, you can create their own Custom preset.",
             "editor": "Dropdown",
@@ -191,7 +191,7 @@
             "rank": 14
         },
         "AKO": {
-            "caption": "□□□ Custom Modules",
+            "caption": "☠️",
             "default_val": "https://data-visualization-plotly.bubbleapps.io/version-test/quill-rich-text-editor?ref=editor&tab=Toolbar",
             "doc": "In the plugin demo app, in the toolbar tab, you can create your own toolbar and choose which items to include.",
             "editor": "DynamicValue",
@@ -202,7 +202,7 @@
             "value": "text"
         },
         "AKP": {
-            "caption": "□□□ Icon's Size",
+            "caption": "☠️",
             "default_val": 24,
             "doc": "",
             "editor": "DynamicValue",
@@ -211,7 +211,7 @@
             "value": "number"
         },
         "AKQ": {
-            "caption": "□□□ Color on Hover",
+            "caption": "☠️",
             "default_val": "rgba(53,62,255,1)",
             "editor": "Color",
             "in_style": true,
@@ -327,7 +327,7 @@
             "rank": 36
         },
         "AKe": {
-            "caption": "Insert Formula",
+            "caption": "☠️",
             "default_val": true,
             "doc": "Enable Formula Insert feature. (The formula item should be in the toolbar.)",
             "editor": "DynamicValue",
@@ -336,7 +336,7 @@
             "value": "boolean"
         },
         "AKf": {
-            "caption": "□□□ Edit HTML (beta)",
+            "caption": "☠️",
             "default_val": false,
             "doc": "A tool to change the HTML content of the editor.",
             "editor": "DynamicValue",
@@ -345,7 +345,7 @@
             "value": "boolean"
         },
         "AKg": {
-            "caption": "⨽⨼ Hide Toolbar",
+            "caption": "☠️",
             "default_val": false,
             "editor": "DynamicValue",
             "name": "toolbar_hide",
@@ -353,7 +353,7 @@
             "value": "boolean"
         },
         "AKh": {
-            "caption": "Placeholder Style",
+            "caption": "☠️",
             "default_val": "italic",
             "editor": "Dropdown",
             "in_style": true,
@@ -378,7 +378,7 @@
         }
     },
     "has_reset_fn": false,
-    "icon": "ion-ios-bookmarks",
+    "icon": "ion-ios-close",
     "property_applications": {
         "Background": true,
         "Border": true,
