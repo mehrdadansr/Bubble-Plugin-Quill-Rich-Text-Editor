@@ -373,7 +373,7 @@
             "caption": "________________________________________________________ ✨ New Features",
             "editor": "Label",
             "name": "saa",
-            "rank": 40
+            "rank": 41
         },
         "ALC": {
             "caption": "🖼️ Image Drop ",
@@ -381,7 +381,7 @@
             "doc": "Allow images to be pasted and drag/dropped into the editor.",
             "editor": "DynamicValue",
             "name": "dropImage",
-            "rank": 41,
+            "rank": 42,
             "value": "boolean"
         },
         "ALD": {
@@ -391,7 +391,7 @@
             "long_text": true,
             "name": "bubbleStyles",
             "optional": true,
-            "rank": 46,
+            "rank": 49,
             "value": "text"
         },
         "ALE": {
@@ -400,7 +400,7 @@
             "doc": "This value is in milliseconds and specifies the delay time for triggering the text change event.",
             "editor": "DynamicValue",
             "name": "debounceDelay",
-            "rank": 47,
+            "rank": 50,
             "value": "number"
         },
         "ALF": {
@@ -418,7 +418,7 @@
             "doc": "If you want to enable the mention feature, be sure to add the Quill @Mention element to the page.",
             "editor": "DynamicValue",
             "name": "mention",
-            "rank": 42,
+            "rank": 43,
             "value": "boolean"
         },
         "ALP": {
@@ -428,7 +428,7 @@
             "is_list": true,
             "name": "mentionDataId",
             "optional": true,
-            "rank": 44,
+            "rank": 46,
             "value": "text"
         },
         "ALQ": {
@@ -438,7 +438,7 @@
             "is_list": true,
             "name": "mentionDataValue",
             "optional": true,
-            "rank": 45,
+            "rank": 47,
             "value": "text"
         },
         "ALR": {
@@ -449,7 +449,30 @@
             "name": "mentionDenotation",
             "optional": true,
             "options": "@,#",
-            "rank": 43
+            "rank": 44
+        },
+        "ALk": {
+            "caption": "@ Custom Denotation",
+            "doc": "Please enter a list of symbols separated by commas.",
+            "editor": "DynamicValue",
+            "name": "mentionDenotationCustom",
+            "optional": true,
+            "rank": 45,
+            "value": "text"
+        },
+        "ALl": {
+            "caption": "________________________________________________________ ",
+            "editor": "Label",
+            "name": "div",
+            "rank": 48
+        },
+        "ALm": {
+            "caption": "Line Height",
+            "editor": "DynamicValue",
+            "name": "lineHeight",
+            "optional": true,
+            "rank": 40,
+            "value": "number"
         }
     },
     "has_reset_fn": true,
