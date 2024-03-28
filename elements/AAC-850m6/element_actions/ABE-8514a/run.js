@@ -5,4 +5,6 @@ function(instance, properties, context) {
 
   const delta = instance.data.quill.format(properties.name, properties.value);
   instance.publishState("change", JSON.stringify(delta));
+
+  instance.data.saveAutoBinding();
 }

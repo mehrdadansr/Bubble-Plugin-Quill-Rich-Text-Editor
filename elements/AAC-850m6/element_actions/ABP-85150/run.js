@@ -4,4 +4,6 @@ function(instance, properties, context) {
   var delta = instance.data.quill.removeFormat(index, length);
   instance.publishState("change", JSON.stringify(delta));
 
+  instance.data.saveAutoBinding();
+
 }

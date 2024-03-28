@@ -182,17 +182,17 @@ function(instance, properties, context) {
                 if (properties.dropImage) options.imageDrop = true;
 
                 if (properties.mention) {
-                    if(!window.quillMention) context.reportToDebugger("If you want to use the mentio/tag feature, make sure you add the Quill Mention element to the page.")
+                    if (!window.quillMention) context.reportToDebugger("If you want to use the mentio/tag feature, make sure you add the Quill Mention element to the page.");
 
-                    let denotation = ["@", "#"]
+                    let denotation = ["@", "#"];
                     if (properties.mentionDenotation) denotation = [properties.mentionDenotation];
                     if (properties.mentionDenotationCustom) denotation = properties.mentionDenotationCustom.split(",");
-                    
-                    
+
+
                     const mentionModule = {
                         mention: {
                             allowedChars: /^[A-Za-z\sÅÄÖåäö]*$/,
-                            mentionDenotationChars: denotation ,
+                            mentionDenotationChars: denotation,
                             source: function (searchTerm, renderList, mentionChar) {
                                 if (properties.mentionDenotation && mentionChar !== properties.mentionDenotation) return;
                                 let values = instance.data.mentionData;
@@ -265,7 +265,7 @@ function(instance, properties, context) {
 
                 // The function you want to run when the user has stopped typing
                 function onTextChange() {
-                    saveAutoBinding(instance);
+                    saveAutoBinding(instance, properties);
                     instance.triggerEvent("textchange");
                 }
 
@@ -617,7 +617,7 @@ function(instance, properties, context) {
 
 
 
-    function saveAutoBinding(instance) {
+    function saveAutoBinding(instance, properties) {
         if (!properties.isAutobinding) return;
         const updatedContentText = getContentByType(instance, properties.initial_type);
         instance.publishAutobinding(updatedContentText);
@@ -633,7 +633,7 @@ function(instance, properties, context) {
         quill.blur();
 
     }
-	
-	instance.data.saveAutoBinding = saveAutoBinding.bind(null, instance)
+
+    instance.data.saveAutoBinding = saveAutoBinding.bind(null, instance, properties);
 
 }

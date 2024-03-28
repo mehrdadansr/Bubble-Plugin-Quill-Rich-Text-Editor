@@ -4,4 +4,6 @@ function(instance, properties, context) {
 
   const delta = instance.data.quill.insertEmbed(index, type, value);
   instance.publishState("change", JSON.stringify(delta));
+
+  instance.data.saveAutoBinding();
 }
