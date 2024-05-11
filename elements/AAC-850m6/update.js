@@ -56,17 +56,17 @@ function(instance, properties, context) {
             document.head.appendChild(script);
         }
     }
-    const existingQuillScript = document.querySelector('head script[src="https://cdn.quilljs.com/1.3.7/quill.min.js"]');
+    const existingQuillScript = document.querySelector('head script[src="https://cdn.jsdelivr.net/npm/quill@2.0.1/dist/quill.js"]');
     if (!existingQuillScript && instance.data.round === 0) {
         instance.data.round = 1;
         const quillStylesheet = document.createElement('link');
         quillStylesheet.rel = 'stylesheet';
-        quillStylesheet.href = (properties.theme === "snow") ? 'https://cdn.quilljs.com/1.3.7/quill.snow.css' : 'https://cdn.quilljs.com/1.3.7/quill.bubble.css';
+        quillStylesheet.href = (properties.theme === "snow") ? 'https://cdn.jsdelivr.net/npm/quill@2.0.1/dist/quill.snow.css' : 'https://cdn.jsdelivr.net/npm/quill@2.0.1/dist/quill.bubble.css';
 
         document.head.appendChild(quillStylesheet);
 
         const quillScript = document.createElement('script');
-        quillScript.src = "https://cdn.quilljs.com/1.3.7/quill.js";
+        quillScript.src = "https://cdn.jsdelivr.net/npm/quill@2.0.1/dist/quill.js";
 
         document.body.appendChild(quillScript);
 
@@ -243,6 +243,46 @@ function(instance, properties, context) {
                     });
                 }
 
+                
+                /*Fix the Link Input
+                
+                // Select the tooltip element
+				const targetElement = document.getElementsByClassName("ql-tooltip")[0];
+
+				// Define the function to call when the 'ql-hidden' class is not present
+				function onVisible() {
+                    const element = document.getElementsByClassName("ql-tooltip")[0];
+                    const style = window.getComputedStyle(element);
+					const leftValue = parseInt(style.left, 10);
+
+                    if (leftValue < 0) {
+                    	element.style.left = '0px';
+                    }
+				}
+
+				// Create a MutationObserver instance to watch for changes
+				const observer = new MutationObserver((mutations) => {
+                    mutations.forEach((mutation) => {
+                        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                        const target = mutation.target;
+                        if (!target.classList.contains('ql-hidden')) {
+                            onVisible();
+                        }
+                        }
+                	});
+				});
+
+				// Configure the observer to watch for attribute changes specifically to the 'class' attribute
+				const config = {
+                    attributes: true, // Watch for attribute changes
+                    attributeFilter: ['class'] // Only monitor changes to the 'class' attribute
+				};
+
+				// Start observing the target element
+				observer.observe(targetElement, config);              
+                
+                */
+                
 
                 /*
                 *Events Trigger
@@ -297,6 +337,11 @@ function(instance, properties, context) {
                         instance.publishState("selectionlength", range.length);
                         instance.triggerEvent("selectionchange");
                     }
+                    
+                    
+
+                    
+                    
                 });
                 //on editor change
                 quill.on('editor-change', function (eventName, ...args) {
@@ -315,6 +360,8 @@ function(instance, properties, context) {
                     instance.publishState("hasfocus", quill.hasFocus());
                     if (!quill.hasFocus()) instance.publishState("caretIndex", null);
                     debouncedEditorChange();
+                    
+
 
                 });
 

@@ -5,6 +5,7 @@ function(instance, properties, context) {
   try {
     const contents = JSON.parse(delta);
     instance.data.quill.updateContents(contents);
+      instance.data.saveAutoBinding();
   } catch (error) {
     console.log('There is a problem with parse the delta', error.message);
   }

@@ -4,4 +4,6 @@ function(instance, properties, context) {
     text = text || ""
     const delta = instance.data.quill.setText(text);
     instance.publishState("change", JSON.stringify(delta));
+    
+    instance.data.saveAutoBinding();
 }
