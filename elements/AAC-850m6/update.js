@@ -3,14 +3,13 @@ function(instance, properties, context) {
     if (instance.data.round === 0) {
         const { bubble, ...otherProp } = properties;
         instance.data.qabli = otherProp;
-
     }
 
 
-    if (properties.mention) {
+    if (properties.mention && instance.data.round === 0) {
         const ids = properties.mentionDataId?.get(0, properties.mentionDataId.length());
         const values = properties.mentionDataValue?.get(0, properties.mentionDataValue.length());
-        if (values) {
+        if (values && values.length) {
             for (let i = 0; i < values.length; i++) {
                 instance.data.mentionData.push({ id: ids[i] || `${i + 1}`, value: values[i] });
             }
@@ -214,7 +213,20 @@ function(instance, properties, context) {
                 }
 
                 instance.data.quill = new Quill(container, options);
-
+                
+                
+                // Add event for Enter keydown
+                if(properties.enterKey){
+                    instance.data.quill.root.addEventListener('keydown', function(event) {
+                        if (event.key === 'Enter' && !event.shiftKey && !event.ctrlKey && !event.altKey && !event.metaKey) {
+                            instance.data.quill.deleteText(instance.data.caretIndex - 1 , 1);
+                    		instance.triggerEvent("enterKey")
+                        	//console.log('Enter key was pressed');
+                        }
+					});
+                }
+                
+                
                 if (properties.mention) {
                     const publishMentionedStates = ({ type, value }) => {
 
@@ -348,7 +360,10 @@ function(instance, properties, context) {
                     quill.update();
                     if (eventName === 'selection-change') {
                         let range = args[0];
-                        if (range) instance.publishState("caretIndex", range.index + 1);
+                        if (range) {
+                            instance.publishState("caretIndex", range.index + 1);
+                        	instance.data.caretIndex = range.index + 1;
+                        };
                     }
                     if (eventName === 'text-change') {
                         //	 let delta = args[0]

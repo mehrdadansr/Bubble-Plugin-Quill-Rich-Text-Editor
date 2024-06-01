@@ -26,6 +26,10 @@
         "ALO": {
             "caption": "@Mention Event",
             "name": "mentionEvent"
+        },
+        "ALo": {
+            "caption": "↲ Enter Pressed",
+            "name": "enterKey"
         }
     },
     "fields": {
@@ -473,6 +477,15 @@
             "optional": true,
             "rank": 40,
             "value": "number"
+        },
+        "ALn": {
+            "caption": "↲ Enter Event",
+            "doc": "To trigger the \"Enter Pressed\" event when the Enter key is pressed, enable this feature. Be aware that once enabled, pressing Shift + Enter is necessary to insert a new line.",
+            "editor": "DynamicValue",
+            "name": "enterKey",
+            "optional": true,
+            "rank": 51,
+            "value": "boolean"
         }
     },
     "has_reset_fn": true,
