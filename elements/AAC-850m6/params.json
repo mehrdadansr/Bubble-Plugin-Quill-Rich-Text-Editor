@@ -30,6 +30,10 @@
         "ALo": {
             "caption": "↲ Enter Pressed",
             "name": "enterKey"
+        },
+        "ALp": {
+            "caption": "Clicked",
+            "name": "clicked"
         }
     },
     "fields": {
@@ -401,7 +405,7 @@
         "ALE": {
             "caption": "⏲️ Event Delay",
             "default_val": 500,
-            "doc": "This value is in milliseconds and specifies the delay time for triggering the text change event.",
+            "doc": "This parameter, measured in milliseconds, sets the delay for triggering the text change event and is also utilized for the Undo/Redo functionality.",
             "editor": "DynamicValue",
             "name": "debounceDelay",
             "rank": 50,

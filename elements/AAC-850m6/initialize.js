@@ -9,5 +9,12 @@ function(instance, context) {
 	instance.data.round = 0;
 	instance.data.parentID = "P"+instance.data.divName;
     instance.data.mentionData = [];
+
+// Attach the event listener to the button
+    const editorContainer = document.getElementById(instance.data.divName);
+	editorContainer?.addEventListener('click', function(){
+		instance.triggerEvent("clicked");
+	});
+    
     
 }

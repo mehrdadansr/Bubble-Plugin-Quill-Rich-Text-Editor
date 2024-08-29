@@ -1,0 +1,21 @@
+{
+    "caption": "Undo / Redo",
+    "doc": "This action can be utilized to perform Undo and Redo operations within the editor.",
+    "fields": {
+        "ALr": {
+            "caption": "Is Redo",
+            "default_val": false,
+            "doc": "Setting this field to 'Yes' will initiate the 'Redo' action.",
+            "editor": "DynamicValue",
+            "name": "isRedo",
+            "rank": 1,
+            "value": "boolean"
+        },
+        "ALs": {
+            "caption": "This action can be utilized to perform Undo and Redo operations within the editor.",
+            "editor": "Label",
+            "name": "info",
+            "rank": 0
+        }
+    }
+}

@@ -3,7 +3,11 @@ function(instance, properties, context) {
   if (index == null || length == null || formats == null || !instance.data.quill) return;
 
   const metadata = formats.reduce((acc, curr) => {
+
     acc[curr.key] = curr.value;
+	if(curr.value === "true") acc[curr.key] = true;
+	if(curr.value === "false") acc[curr.key] = false;
+      
     return acc;
   }, {});
 

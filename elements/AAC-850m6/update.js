@@ -55,17 +55,17 @@ function(instance, properties, context) {
             document.head.appendChild(script);
         }
     }
-    const existingQuillScript = document.querySelector('head script[src="https://cdn.jsdelivr.net/npm/quill@2.0.1/dist/quill.js"]');
+    const existingQuillScript = document.querySelector('head script[src="https://cdn.quilljs.com/1.3.7/quill.min.js"]');
     if (!existingQuillScript && instance.data.round === 0) {
         instance.data.round = 1;
         const quillStylesheet = document.createElement('link');
         quillStylesheet.rel = 'stylesheet';
-        quillStylesheet.href = (properties.theme === "snow") ? 'https://cdn.jsdelivr.net/npm/quill@2.0.1/dist/quill.snow.css' : 'https://cdn.jsdelivr.net/npm/quill@2.0.1/dist/quill.bubble.css';
+        quillStylesheet.href = (properties.theme === "snow") ? 'https://cdn.quilljs.com/1.3.7/quill.snow.css' : 'https://cdn.quilljs.com/1.3.7/quill.bubble.css';
 
         document.head.appendChild(quillStylesheet);
 
         const quillScript = document.createElement('script');
-        quillScript.src = "https://cdn.jsdelivr.net/npm/quill@2.0.1/dist/quill.js";
+        quillScript.src = "https://cdn.quilljs.com/1.3.7/quill.min.js";
 
         document.body.appendChild(quillScript);
 
@@ -173,6 +173,11 @@ function(instance, properties, context) {
                     modules: {
                         syntax: properties.syntax,
                         toolbar: toolbarOptions,
+                        history: {
+                              delay: properties.debounceDelay,
+                              maxStack: 100,
+                              userOnly: false
+                        }
                     },
                     readOnly: properties.readOnly,
                     theme: properties.theme
@@ -218,13 +223,20 @@ function(instance, properties, context) {
                 // Add event for Enter keydown
                 if(properties.enterKey){
                     instance.data.quill.root.addEventListener('keydown', function(event) {
-                        if (event.key === 'Enter' && !event.shiftKey && !event.ctrlKey && !event.altKey && !event.metaKey) {
+						//instance.data.mentionListContainer = document.getElementById('quill-mention-list');
+                        //console.log("out",instance.data.mentionListContainer)
+                        
+                        if (event.key === 'Enter' && !event.shiftKey && !event.ctrlKey && !event.altKey && !event.metaKey && !instance.data.mentionListContainer) {
                             instance.data.quill.deleteText(instance.data.caretIndex - 1 , 1);
                     		instance.triggerEvent("enterKey")
                         	//console.log('Enter key was pressed');
                         }
+                        
 					});
                 }
+                
+                
+
                 
                 
                 if (properties.mention) {
@@ -243,6 +255,7 @@ function(instance, properties, context) {
                             instance.publishState(key, val);
 
                         }
+                        
 
                         instance.triggerEvent('mentionEvent');
                     };
@@ -256,44 +269,6 @@ function(instance, properties, context) {
                 }
 
                 
-                /*Fix the Link Input
-                
-                // Select the tooltip element
-				const targetElement = document.getElementsByClassName("ql-tooltip")[0];
-
-				// Define the function to call when the 'ql-hidden' class is not present
-				function onVisible() {
-                    const element = document.getElementsByClassName("ql-tooltip")[0];
-                    const style = window.getComputedStyle(element);
-					const leftValue = parseInt(style.left, 10);
-
-                    if (leftValue < 0) {
-                    	element.style.left = '0px';
-                    }
-				}
-
-				// Create a MutationObserver instance to watch for changes
-				const observer = new MutationObserver((mutations) => {
-                    mutations.forEach((mutation) => {
-                        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                        const target = mutation.target;
-                        if (!target.classList.contains('ql-hidden')) {
-                            onVisible();
-                        }
-                        }
-                	});
-				});
-
-				// Configure the observer to watch for attribute changes specifically to the 'class' attribute
-				const config = {
-                    attributes: true, // Watch for attribute changes
-                    attributeFilter: ['class'] // Only monitor changes to the 'class' attribute
-				};
-
-				// Start observing the target element
-				observer.observe(targetElement, config);              
-                
-                */
                 
 
                 /*
@@ -350,14 +325,16 @@ function(instance, properties, context) {
                         instance.triggerEvent("selectionchange");
                     }
                     
-                    
-
-                    
-                    
                 });
                 //on editor change
                 quill.on('editor-change', function (eventName, ...args) {
                     quill.update();
+                    
+                    if (properties.enterKey && properties.mention) {
+						//instance.data.mentionListContainer = document.getElementById('quill-mention-list');
+                        //console.log(instance.data.mentionListContainer);
+                    }
+                    
                     if (eventName === 'selection-change') {
                         let range = args[0];
                         if (range) {
